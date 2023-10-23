@@ -1,0 +1,15 @@
+# configure homebrew
+tap "homebrew/bundle"
+tap "homebrew/services"
+tap "buo/cask-upgrade"
+tap "lotyp/homebrew-formulae"
+
+# brews
+brew "pyenv"
+brew "fzf"
+brew "git"
+brew "direnv"
+brew "bat"
+brew "httpie"
+brew "pipx"
+brew "terraform"

@@ -1,0 +1,30 @@
+cask "visual-studio-code"
+
+# linters
+vscode "charliermarsh.ruff"
+
+# general utilities
+vscode "EditorConfig.EditorConfig"
+vscode "Gruntfuggly.todo-tree"
+vscode "samuelcolvin.jinjahtml"
+vscode "SirTori.indenticator"
+vscode "redhat.vscode-yaml"
+vscode "GitHub.copilot"
+
+# python
+vscode "donjayamanne.python-environment-manager"
+vscode "innoverio.vscode-dbt-power-user"
+vscode "IronGeek.vscode-env"
+vscode "KevinRose.vsc-python-indent"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-toolsai.jupyter"
+
+# themes and visuals
+vscode "oderwat.indent-rainbow"
+vscode "PKief.material-icon-theme"
+
+# remote working & containers
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-azuretools.vscode-docker"

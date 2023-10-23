@@ -1,0 +1,19 @@
+# zsh_plugins.txt
+
+# utilities
+mbhynes/fzf-gcloud
+chitoku-k/fzf-zsh-completions
+
+
+# completions
+ohmyzsh/ohmyzsh path:plugins/poetry
+zsh-users/zsh-completions
+
+
+# popular fish-like plugins
+mattmc3/zfunctions
+zsh-users/zsh-autosuggestions
+zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+

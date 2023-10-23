@@ -1,0 +1,10 @@
+- brewfile:
+    - ~/.dotfiles/etc/brew/Brewfile.vscode
+
+- create:
+    - ~/Library/Application\ Support/Code/User
+
+- link:
+    ~/Library/Application\ Support/Code/User/settings.json:
+      path: ~/.dotfiles/etc/code/settings.json
+
