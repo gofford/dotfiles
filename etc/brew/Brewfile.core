@@ -6,10 +6,13 @@ tap "lotyp/homebrew-formulae"
 
 # dependencies
 brew "git"
+brew "git-delta"
 brew "tcl-tk"
 brew "readline"
 brew "ncurses"
 brew "zlib"
+brew "less"
+brew "fd"
 
 # programs
 brew "pyenv"

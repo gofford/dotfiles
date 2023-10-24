@@ -4,16 +4,14 @@
 mbhynes/fzf-gcloud
 chitoku-k/fzf-zsh-completions
 
-
 # completions
 ohmyzsh/ohmyzsh path:plugins/poetry
-zsh-users/zsh-completions
-
+zsh-users/zsh-completions path:src kind:fpath
 
 # popular fish-like plugins
 mattmc3/zfunctions
-zsh-users/zsh-autosuggestions
+zsh-users/zsh-autosuggestions kind:defer
 zdharma-continuum/fast-syntax-highlighting kind:defer
-zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-history-substring-search
+zsh-users/zsh-syntax-highlighting kind:defer
+zsh-users/zsh-history-substring-search kind:defer
 

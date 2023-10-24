@@ -1,4 +1,7 @@
 {
+    // get rid of annoying prompts
+    "explorer.confirmDelete": false,
+
     // terminal
     "terminal.external.osxExec": "iTerm2.app",
     "terminal.integrated.fontFamily": "MesloLGS NF",
@@ -49,12 +52,15 @@
     // misc extensions
     "ruff.enableExperimentalFormatter": true,
     "indentRainbow.indicatorStyle": "light",
+
+    // copilot
     "github.copilot.enable": {
         "*": true,
         "plaintext": false,
         "markdown": false,
         "scminput": false
     },
-    "explorer.confirmDelete": false,
+    "security.workspace.trust.untrustedFiles": "open",
+
 
 }
