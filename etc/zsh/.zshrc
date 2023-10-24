@@ -26,3 +26,6 @@ eval "$(direnv hook zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# aliases
+[ -f ~/.aliases ] && source ~/.aliases

@@ -26,4 +26,4 @@ update:
 	@make _prepare
 	@./install -c config/update.conf.yml
 
-all: _prepare bootstrap dotfiles packages vscode
+all: _prepare bootstrap dotfiles packages vscode post

@@ -49,5 +49,12 @@
     // misc extensions
     "ruff.enableExperimentalFormatter": true,
     "indentRainbow.indicatorStyle": "light",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "explorer.confirmDelete": false,
 
 }

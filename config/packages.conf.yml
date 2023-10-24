@@ -2,6 +2,3 @@
     - ~/.dotfiles/etc/brew/Brewfile.core
     - ~/.dotfiles/etc/brew/Brewfile.apps
     - ~/.dotfiles/etc/brew/Brewfile.fonts
-
-- shell:
-    - command: $(brew --prefix)/opt/fzf/install

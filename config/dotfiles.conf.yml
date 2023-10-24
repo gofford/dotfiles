@@ -31,6 +31,7 @@
     ~/.zsh_plugins.txt: ~/.dotfiles/etc/zsh/.zsh_plugins.txt
     ~/.p10k.zsh: ~/.dotfiles/etc/zsh/.p10k.zsh
     ~/.hushlogin: ~/.dotfiles/etc/zsh/.hushlogin
+    ~/.aliases: ~/.dotfiles/etc/zsh/.aliases
 
     # ssh
     ~/.ssh/config: ~/.dotfiles/etc/ssh/config
