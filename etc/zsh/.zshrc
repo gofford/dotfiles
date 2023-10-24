@@ -1,16 +1,12 @@
 # ~/.zshrc
 
-BREW_PREFIX=$(brew --prefix)
-
-# source antidote
-#source ${BREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
 
 # Lazy-load antidote and generate the static load file only when needed
 zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
 
 if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
   (
-    source ${BREW_PREFIX}/opt/antidote/share/antidote/antidote.zsh
+    source $(brew --prefix antidote)/share/antidote/antidote.zsh
     antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
   )
 fi
@@ -27,3 +23,6 @@ eval "$(pyenv init -)"
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

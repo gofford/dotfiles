@@ -4,12 +4,18 @@ tap "homebrew/services"
 tap "buo/cask-upgrade"
 tap "lotyp/homebrew-formulae"
 
-# brews
+# dependencies
+brew "git"
+brew "tcl-tk"
+brew "readline"
+brew "ncurses"
+brew "zlib"
+
+# programs
 brew "pyenv"
 brew "fzf"
-brew "git"
 brew "direnv"
 brew "bat"
+brew "lsd"
 brew "httpie"
 brew "pipx"
-brew "terraform"
