@@ -13,8 +13,8 @@ packages:
 vscode:
 	@./install -c config/vscode.conf.yml
 
-post:
-	@./install -c config/post.conf.yml
+python:
+	@./install -c config/python.conf.yml
 
 #macos_settings:
 #	@./install -c etc/macos/settings.sh
@@ -26,4 +26,4 @@ update:
 	@make _prepare
 	@./install -c config/update.conf.yml
 
-all: _prepare bootstrap dotfiles packages vscode post
+all: _prepare bootstrap dotfiles packages python vscode 

@@ -1,8 +1,4 @@
-[settings]
-
 [virtualenvs]
 create = true
-in-project = false
+in-project = true
 prefer-active-python = true
-
-[repositories]

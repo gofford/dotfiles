@@ -10,6 +10,11 @@ vscode "samuelcolvin.jinjahtml"
 vscode "SirTori.indenticator"
 vscode "redhat.vscode-yaml"
 vscode "GitHub.copilot"
+vscode "eamodio.gitlens"
+vscode "formulahendry.code-runner"
+vscode "tamasfe.even-better-toml"
+vscode "usernamehw.errorlens"
+
 
 # python
 vscode "donjayamanne.python-environment-manager"
@@ -22,9 +27,9 @@ vscode "ms-toolsai.jupyter"
 
 # themes and visuals
 vscode "oderwat.indent-rainbow"
-vscode "PKief.material-icon-theme"
+vscode "vscode-icons-team.vscode-icons"
+vscode "GitHub.github-vscode-theme"
 
 # remote working & containers
-vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-azuretools.vscode-docker"

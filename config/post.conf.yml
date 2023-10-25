@@ -1,6 +1,0 @@
-- shell:
-    - description: Install Python 3.10 and set it globally
-      quiet: false
-      command: |
-        pyenv install 3.10
-        pyenv global 3.10

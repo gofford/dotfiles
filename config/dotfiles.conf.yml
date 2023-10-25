@@ -22,20 +22,19 @@
     ~/.gitignore_global: ~/.dotfiles/etc/git/.gitignore_global
     ~/.gitattributes: ~/.dotfiles/etc/git/.gitattributes
 
-    # poetry
-    ~/Library/Preferences/pypoetry/config.toml:
-      path: ~/.dotfiles/etc/poetry/config.toml
-
     # zsh
     ~/.zshrc: ~/.dotfiles/etc/zsh/.zshrc
     ~/.zsh_plugins.txt: ~/.dotfiles/etc/zsh/.zsh_plugins.txt
-    ~/.p10k.zsh: ~/.dotfiles/etc/zsh/.p10k.zsh
-    ~/.hushlogin: ~/.dotfiles/etc/zsh/.hushlogin
-    ~/.aliases: ~/.dotfiles/etc/zsh/.aliases
+    ~/.zsh: 
+      path: ~/.dotfiles/etc/zsh/.zsh/*
+      glob: true
 
     # ssh
     ~/.ssh/config: ~/.dotfiles/etc/ssh/config
 
     # direnv
     ~/.config/direnv/direnv.toml: ~/.dotfiles/etc/direnv/direnv.toml
+
+- shell:
+    - command: touch ~/.hushlogin
     

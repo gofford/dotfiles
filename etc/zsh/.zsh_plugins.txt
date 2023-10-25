@@ -1,17 +1,21 @@
 # zsh_plugins.txt
 
-# utilities
-mbhynes/fzf-gcloud
-chitoku-k/fzf-zsh-completions
-
 # completions
-ohmyzsh/ohmyzsh path:plugins/poetry
 zsh-users/zsh-completions path:src kind:fpath
+chitoku-k/fzf-zsh-completions kind:fpath
+ohmyzsh/ohmyzsh path:plugins/docker/completions kind:fpath
+
+
+# utilities
+mbhynes/fzf-gcloud branch:main
+
 
 # popular fish-like plugins
 mattmc3/zfunctions
 zsh-users/zsh-autosuggestions kind:defer
 zdharma-continuum/fast-syntax-highlighting kind:defer
-zsh-users/zsh-syntax-highlighting kind:defer
 zsh-users/zsh-history-substring-search kind:defer
+
+
+belak/zsh-utils path:completion
 

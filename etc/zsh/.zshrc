@@ -1,6 +1,5 @@
 # ~/.zshrc
 
-
 # Lazy-load antidote and generate the static load file only when needed
 zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
 
@@ -14,18 +13,11 @@ fi
 source ${zsh_plugins}.zsh
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# custom config
+for file in ${HOME}/.zsh/*.zsh; do
+  source $file
+done
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# direnv
-eval "$(direnv hook zsh)"
-
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# aliases
-[ -f ~/.aliases ] && source ~/.aliases
+# custom completions
+fpath+=~/.zsh/completions/
+autoload -Uz compinit && compinit
