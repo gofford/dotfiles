@@ -1,0 +1,42 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+
+- clean:
+    ~/.config:
+      recursive: true
+
+- create:
+    - ~/.config
+    - ~/.config/direnv
+    - ~/.config/ssh
+    - ~/.config/zsh
+    - ~/.config/zsh/rc.d
+
+- link:
+    # zsh
+    ~/.zshenv: ~/.dotfiles/etc/zsh/.zshenv
+    ~/.config/zsh/.zshrc: ~/.dotfiles/etc/zsh/zsh/.zshrc
+    ~/.config/zsh/rc.d/: 
+        glob: true
+        relink: true
+        path: ~/.dotfiles/etc/zsh/zsh/rc.d/*
+
+    # editorconfig
+    ~/.editorconfig: ~/.dotfiles/etc/.editorconfig
+
+    # git
+    ~/.gitconfig: ~/.dotfiles/etc/git/.gitconfig
+    ~/.gitignore_global: ~/.dotfiles/etc/git/.gitignore_global
+    ~/.gitattributes: ~/.dotfiles/etc/git/.gitattributes
+
+    # ssh
+    ~/.ssh/config: ~/.dotfiles/etc/ssh/config
+
+    # direnv
+    ~/.config/direnv/direnv.toml: ~/.dotfiles/etc/direnv/direnv.toml
+
+- shell:
+    - command: touch ~/.hushlogin
+    

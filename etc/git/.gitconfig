@@ -1,0 +1,104 @@
+[core]
+    autocrlf = false
+    excludesfile = ~/.gitignore_global
+    attributesfile = ~/.gitattributes
+    #editor = vim
+    pager = delta
+    # Treat spaces before tabs and all kinds of trailing whitespace as an error
+    # [default] trailing-space: looks for spaces at the end of a line
+    # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+    whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+    # Make `git rebase` safer on OS X
+    # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+    trustctime = false
+    ignorecase = false
+    preloadIndex = true
+    eol = lf
+[init]
+    defaultBranch = main
+[pull]
+    rebase = true
+[push]
+    default = current
+    autoSetupRemote = true
+    followTags = true
+[branch]
+    autoSetupMerge = always
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = auto
+    colorMoved = default
+[help]
+    autocorrect = 20
+[merge]
+    # Include summaries of merged commits in newly created merge commit messages
+    log = true
+    conflictstyle = diff3
+[diff]
+    # Detect copies as well as renames
+    renames = copies
+    mnemonicprefix = true
+    algorithm = patience
+    # Use blank lines as diff boundary to improve diffs
+    compactionHeuristic = true
+[fetch]
+    # Always prune remote-tracking branches
+    # See http://albertogrespan.com/blog/always-prune-remote-tracking-branches/
+    prune = true
+[advice]
+    commitBeforeMerge = true
+    detachedHead = true
+    implicitIdentity = true
+    pushNonFastForward = false
+    resolveConflict = true
+    statusHints = false
+[alias]
+    #branches = !git for-each-ref --sort=-committerdate --format='%(committerdate:relative):%(authorname):%(refname:short)' refs/remotes | column -t -s:
+    #commits = !git log --pretty=format:"%ad:%an:%d:%B" --branches --date=short --all --since=1.week.ago
+    #amend = commit --amend -C HEAD
+    #update = pull origin master
+    #undo = reset --soft HEAD~1
+    #unstage = reset HEAD --
+    gone = "!f() { git fetch --all --prune; git branch --format '%(refname:short) %(upstream:track)' | awk '/\\[gone\\]/{print $1}' | xargs git branch -D; }; f"
+[status]
+    # Short git status output, but include branch info
+    short = false
+    branch = false
+[credential]
+    helper = osxkeychain
+[tag]
+    verbose = true
+[commit]
+    gpgsign = true
+    verbose = true
+[gpg]
+	format = ssh
+    program = gpg
+[submodule]
+    # Fetch submodules in parallel, with a reasonable number of jobs
+    fetchJobs = 0
+    # Disabled due to issues in git pull
+    recurse = true
+[remote]
+    pushDefault = origin
+[interactive]
+    diffFilter = delta --color-only
+[include]
+    path = ~/.gitconfig.local
+
+# delta
+[delta]
+    hyperlinks = true
+    hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+    features = side-by-side decorations line-numbers
+    whitespace-error-style = 22 reverse
+    plus-style = bold green "#002800"
+    syntax-theme = Visual Studio Dark+
+    true-color = always
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none

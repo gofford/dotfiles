@@ -1,0 +1,23 @@
+brew "mas"
+brew "r"
+brew "lotyp/formulae/dockutil"
+
+# appstore - before casks to ensure priority
+mas "Fantastical", id: 975937182
+mas "Spark", id: 1176895641
+mas "Hidden Bar", id: 1452453066
+
+# normal casks
+cask "bitwarden"
+cask "firefox"
+cask "docker"
+cask "iterm2"
+cask "raycast"
+cask "notion"
+cask "rstudio"
+cask "sublime-text"
+cask "spotify"
+cask "slack"
+cask "clocker"
+cask "the-unarchiver"
+cask "google-cloud-sdk"

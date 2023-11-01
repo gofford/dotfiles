@@ -1,0 +1,4 @@
+- brewfile:
+    - ~/.dotfiles/etc/brew/Brewfile.core
+    - ~/.dotfiles/etc/brew/Brewfile.apps
+    - ~/.dotfiles/etc/brew/Brewfile.fonts

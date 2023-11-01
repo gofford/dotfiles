@@ -1,0 +1,20 @@
+- shell:
+    - description: Install Python 3.10 and set it globally
+      quiet: false
+      command: |
+        pyenv install 3.10
+        pyenv global 3.10
+
+- brew:
+    - pipx
+
+- shell:
+    - command: |
+        pipx ensurepath
+        pipx install poetry
+        pipx install cookiecutter
+
+- link:
+    ~/Library/Application Support/pypoetry/config.toml:
+      path: ~/.dotfiles/etc/poetry/config.toml
+      force: true
