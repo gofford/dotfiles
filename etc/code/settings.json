@@ -1,6 +1,7 @@
 {
     // get rid of annoying prompts
     "explorer.confirmDelete": false,
+    "explorer.compactFolders": false,
 
     // terminal
     "terminal.external.osxExec": "iTerm2.app",
@@ -14,6 +15,7 @@
     "workbench.colorTheme": "GitHub Dark Default",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 20,
+
 
     // autosave every second or so
     "files.autoSave": "afterDelay",
@@ -35,7 +37,6 @@
     // editor
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
-	"editor.fontSize": 13,
     "editor.formatOnPaste": true,
     "editor.guides.bracketPairs": "active",
     "editor.linkedEditing": true,
@@ -44,16 +45,16 @@
     "editor.cursorStyle": "block",
     "editor.minimap.autohide": true,
     "editor.rulers": [88], //black
+    "editor.accessibilitySupport": "off",
 
     // workbench
     "workbench.iconTheme": "vscode-icons",
 
     // window
     "window.nativeTabs": true,
-    "window.zoomLevel": 0.5, // 10% larger than normal
+    "window.zoomLevel": 0.3, // 10% larger than normal
 
     // misc extensions
-    "ruff.enableExperimentalFormatter": true,
     "indentRainbow.indicatorStyle": "light",
 
     // copilot
@@ -69,5 +70,4 @@
 
     // jupyter
     "jupyter.askForKernelRestart": false,
-    "workbench.tree.indent": 20,
 }

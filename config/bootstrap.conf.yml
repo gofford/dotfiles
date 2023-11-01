@@ -1,6 +1,9 @@
 - brew:
     - zsh
-    - antidote
+    - zsh-autocomplete
+    - zsh-autosuggestions
+    - zsh-history-substring-search
+    - zsh-you-should-use
     - powerlevel10k
 
 - shell:

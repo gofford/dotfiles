@@ -1,19 +1,28 @@
 - defaults:
     link:
-      create: true
       relink: true
       force: true
 
 - clean:
-    - "~"
+    ~/.config:
+      recursive: true
 
 - create:
     - ~/.config
     - ~/.config/direnv
     - ~/.config/ssh
-    - ~/Library/Preferences/pypoetry
+    - ~/.config/zsh
+    - ~/.config/zsh/rc.d
 
 - link:
+    # zsh
+    ~/.zshenv: ~/.dotfiles/etc/zsh/.zshenv
+    ~/.config/zsh/.zshrc: ~/.dotfiles/etc/zsh/zsh/.zshrc
+    ~/.config/zsh/rc.d/: 
+        glob: true
+        relink: true
+        path: ~/.dotfiles/etc/zsh/zsh/rc.d/*
+
     # editorconfig
     ~/.editorconfig: ~/.dotfiles/etc/.editorconfig
 
@@ -21,13 +30,6 @@
     ~/.gitconfig: ~/.dotfiles/etc/git/.gitconfig
     ~/.gitignore_global: ~/.dotfiles/etc/git/.gitignore_global
     ~/.gitattributes: ~/.dotfiles/etc/git/.gitattributes
-
-    # zsh
-    ~/.zshrc: ~/.dotfiles/etc/zsh/.zshrc
-    ~/.zsh_plugins.txt: ~/.dotfiles/etc/zsh/.zsh_plugins.txt
-    ~/.zsh: 
-      path: ~/.dotfiles/etc/zsh/.zsh/*
-      glob: true
 
     # ssh
     ~/.ssh/config: ~/.dotfiles/etc/ssh/config
