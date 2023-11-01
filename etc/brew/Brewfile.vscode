@@ -1,24 +1,39 @@
 cask "visual-studio-code"
 
-# linters
+# linters & formatters
 vscode "charliermarsh.ruff"
+vscode "DavidAnson.vscode-markdownlint"
+vscode "redhat.vscode-yaml"
+vscode "ms-vscode.makefile-tools"
+vscode "tamasfe.even-better-toml"
+
+# sql & dbt
+vscode "mtxr.sqltools"
+vscode "bastienboutonnet.vscode-dbt"
+vscode "innoverio.vscode-dbt-power-user"
+
+# git & github
+vscode "eamodio.gitlens"
+vscode "github.vscode-github-actions"
+
+# github copilot
+vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
 
 # general utilities
 vscode "EditorConfig.EditorConfig"
 vscode "Gruntfuggly.todo-tree"
 vscode "samuelcolvin.jinjahtml"
-vscode "SirTori.indenticator"
-vscode "redhat.vscode-yaml"
-vscode "GitHub.copilot"
-vscode "eamodio.gitlens"
+vscode "L13RARY.l13-projects"
 vscode "formulahendry.code-runner"
-vscode "tamasfe.even-better-toml"
 vscode "usernamehw.errorlens"
+vscode "aaron-bond.better-comments"
+vscode "bierner.markdown-mermaid"
+vscode "ms-vsliveshare.vsliveshare"
 
 
 # python
 vscode "donjayamanne.python-environment-manager"
-vscode "innoverio.vscode-dbt-power-user"
 vscode "IronGeek.vscode-env"
 vscode "KevinRose.vsc-python-indent"
 vscode "ms-python.python"
@@ -29,6 +44,7 @@ vscode "ms-toolsai.jupyter"
 vscode "oderwat.indent-rainbow"
 vscode "vscode-icons-team.vscode-icons"
 vscode "GitHub.github-vscode-theme"
+vscode "SirTori.indenticator"
 
 # remote working & containers
 vscode "ms-vscode-remote.remote-ssh"

@@ -9,8 +9,7 @@ mas "Hidden Bar", id: 1452453066
 
 # normal casks
 cask "bitwarden"
-cask "dropbox"
-cask "brave-browser"
+cask "firefox"
 cask "docker"
 cask "iterm2"
 cask "raycast"

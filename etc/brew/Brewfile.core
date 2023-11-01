@@ -16,8 +16,7 @@ brew "fd"
 
 # programs
 brew "pyenv"
-brew "fzf"
 brew "direnv"
 brew "bat"
-brew "lsd"
+brew "eza"
 brew "httpie"
