@@ -3,6 +3,7 @@ tap "homebrew/bundle"
 tap "homebrew/services"
 tap "buo/cask-upgrade"
 tap "lotyp/homebrew-formulae"
+tap "hashicorp/tap"
 
 # dependencies
 brew "git"
@@ -20,3 +21,4 @@ brew "direnv"
 brew "bat"
 brew "eza"
 brew "httpie"
+brew "terraform"

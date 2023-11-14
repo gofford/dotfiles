@@ -2,6 +2,7 @@
     // get rid of annoying prompts
     "explorer.confirmDelete": false,
     "explorer.compactFolders": false,
+    "explorer.confirmDragAndDrop": false,
 
     // terminal
     "terminal.external.osxExec": "iTerm2.app",
@@ -70,4 +71,7 @@
 
     // jupyter
     "jupyter.askForKernelRestart": false,
+
+    // misc
+    "l13Projects.confirmDeleteProject": false,
 }
