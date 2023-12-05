@@ -2,6 +2,7 @@
     // get rid of annoying prompts
     "explorer.confirmDelete": false,
     "explorer.compactFolders": false,
+    "explorer.confirmDragAndDrop": false,
 
     // terminal
     "terminal.external.osxExec": "iTerm2.app",
@@ -61,7 +62,7 @@
     "github.copilot.enable": {
         "*": true,
         "plaintext": false,
-        "markdown": false,
+        "markdown": "true",
         "scminput": false
     },
 
@@ -70,4 +71,31 @@
 
     // jupyter
     "jupyter.askForKernelRestart": false,
+
+    // misc
+    "l13Projects.confirmDeleteProject": false,
+
+    // terraform - language specific
+    "[terraform]": {
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": false,
+        "editor.formatOnSaveMode": "file",
+    },
+    "[terraform-vars]": {
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": false,
+        "editor.formatOnSaveMode": "file",
+    },
+
+    // ruff
+    "ruff.lint.args": [
+        "--extend-exclude=/**/site-packages/**/*.py",
+    ],
+
+    // markdownlint
+    "markdownlint.config": {
+        "MD033": false,
+        "MD041": false,
+        "MD045": false
+    }
 }

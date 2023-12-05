@@ -13,6 +13,7 @@
     - ~/.config/ssh
     - ~/.config/zsh
     - ~/.config/zsh/rc.d
+    - ~/.config/zsh/repos
 
 - link:
     # zsh

@@ -31,6 +31,3 @@
 # "Double quotes" ensures that empty arguments '' are preserved.
 # It's a good practice to pass "$@" by default. You'd be surprised at all the
 # bugs you avoid this way.
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
