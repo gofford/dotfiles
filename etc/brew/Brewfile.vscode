@@ -8,17 +8,19 @@ vscode "ms-vscode.makefile-tools"
 vscode "tamasfe.even-better-toml"
 
 # sql & dbt
-vscode "mtxr.sqltools"
 vscode "bastienboutonnet.vscode-dbt"
-vscode "innoverio.vscode-dbt-power-user"
 
 # git & github
 vscode "eamodio.gitlens"
 vscode "github.vscode-github-actions"
+vscode "jasonnutter.vscode-codeowners"
 
 # github copilot
 vscode "GitHub.copilot"
 vscode "GitHub.copilot-chat"
+
+#gcp
+vscode "googlecloudtools.cloudcode"
 
 # general utilities
 vscode "EditorConfig.EditorConfig"
@@ -29,8 +31,9 @@ vscode "formulahendry.code-runner"
 vscode "usernamehw.errorlens"
 vscode "aaron-bond.better-comments"
 vscode "bierner.markdown-mermaid"
+vscode "DavidAnson.vscode-markdownlint"
 vscode "ms-vsliveshare.vsliveshare"
-
+vscode "rangav.vscode-thunder-client"
 
 # python
 vscode "donjayamanne.python-environment-manager"
@@ -49,3 +52,7 @@ vscode "SirTori.indenticator"
 # remote working & containers
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-azuretools.vscode-docker"
+vscode "ms-vscode.remote-explorer"
+
+# terraform
+vscode "hashicorp.terraform"
