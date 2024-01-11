@@ -1,0 +1,20 @@
+mattmc3/zman
+agkozak/zsh-z
+
+romkatv/powerlevel10k
+
+z-shell/zsh-eza
+romkatv/zsh-bench kind:path
+
+belak/zsh-utils path:history
+belak/zsh-utils path:utility
+belak/zsh-utils path:editor
+
+zdharma-continuum/fast-syntax-highlighting kind:defer
+
+zsh-users/zsh-completions path:src kind:fpath
+
+belak/zsh-utils path:completion
+
+zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-history-substring-search

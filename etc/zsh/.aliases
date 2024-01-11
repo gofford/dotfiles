@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+# more ways to ls
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias ldot='ls -ld .*'
+
+# misc
+alias please=sudo
+alias zshrc='nano "${ZDOTDIR:-$HOME}"/.zshrc'
+alias zbench='for i in {1..10}; do /usr/bin/time zsh -lic exit; done'
+alias zdot='cd ${ZDOTDIR:-~}'
