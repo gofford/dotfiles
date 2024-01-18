@@ -24,9 +24,18 @@ done
 # Clone antidote if necessary.
 [[ -d ${ZDOTDIR:-~}/.antidote ]] || getantidote ${ZDOTDIR:-~}
 
-# Create an amazing Zsh config using antidote plugins.
+# Source antidote.
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-antidote load
+
+# Initialise plugins
+zsh_plugins=${ZDOTDIR:-$HOME}/.zsh_plugins
+if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+    (
+        antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
+    )
+fi
+
+source ${zsh_plugins}.zsh
 
 # fzf
 [ -f ${ZDOTDIR:-~}/.fzf.zsh ] && source ${ZDOTDIR:-~}/.fzf.zsh

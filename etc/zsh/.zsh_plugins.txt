@@ -10,6 +10,8 @@ belak/zsh-utils path:history
 belak/zsh-utils path:utility
 belak/zsh-utils path:editor
 
+Aloxaf/fzf-tab
+
 zdharma-continuum/fast-syntax-highlighting kind:defer
 
 zsh-users/zsh-completions path:src kind:fpath
