@@ -97,5 +97,18 @@
         "MD033": false,
         "MD041": false,
         "MD045": false
-    }
+    },
+    "cloudcode.autoDependencies": "off",
+    "[yaml]": {
+        "editor.defaultFormatter": "googlecloudtools.cloudcode"
+    },
+    "cloudcode.project": "yoto-prod-core-4f2f359a",
+    "http.proxySupport": "on",
+    "files.associations": {
+        "*.tpl": "yaml"
+    },
+    "cloudcode.duetAI.enable": false,
+    "cloudcode.duetAI.inlineSuggestions.enableAuto": false,
+    "python.testing.pytestEnabled": true,
+    "editor.inlineSuggest.suppressSuggestions": true
 }

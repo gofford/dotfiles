@@ -14,7 +14,7 @@
         pipx install poetry
         pipx install cookiecutter
 
-- link: 
-    ~/Library/Preferences/pypoetry/config.toml:
+- link:
+    /Users/jasongofford/Library/Application\ Support/pypoetry/config.toml:
       path: ~/.dotfiles/etc/poetry/config.toml
       force: true
