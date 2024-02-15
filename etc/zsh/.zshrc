@@ -44,3 +44,6 @@ source ${zsh_plugins}.zsh
 [[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh
 
 
+
+# Created by `pipx` on 2024-01-22 14:48:55
+export PATH="$PATH:/Users/jasongofford/.local/bin"

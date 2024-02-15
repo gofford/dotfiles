@@ -12,14 +12,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 #
-# Editors
-#
-
-#export EDITOR="${EDITOR:-vim}"
-#export VISUAL="${VISUAL:-vim}"
-#export PAGER="${PAGER:-less}"
-
-#
 # Paths
 #
 
@@ -33,3 +25,5 @@ path=(
   /usr/local/{,s}bin(N)
   $path
 )
+# Created by `pipx` on 2024-01-22 14:48:55
+export PATH="$PATH:/Users/jasongofford/.local/bin"
