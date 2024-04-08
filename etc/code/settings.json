@@ -76,16 +76,16 @@
     "l13Projects.confirmDeleteProject": false,
 
     // terraform - language specific
-    "[terraform]": {
-        "editor.defaultFormatter": "hashicorp.terraform",
-        "editor.formatOnSave": false,
-        "editor.formatOnSaveMode": "file",
-    },
-    "[terraform-vars]": {
-        "editor.defaultFormatter": "hashicorp.terraform",
-        "editor.formatOnSave": false,
-        "editor.formatOnSaveMode": "file",
-    },
+    //"[terraform]": {
+    //    "editor.defaultFormatter": "hashicorp.terraform",
+    //    "editor.formatOnSave": false,
+    //    "editor.formatOnSaveMode": "file",
+    //},
+    //"[terraform-vars]": {
+    //    "editor.defaultFormatter": "hashicorp.terraform",
+    //    "editor.formatOnSave": false,
+    //    "editor.formatOnSaveMode": "file",
+    //},
 
     // ruff
     "ruff.lint.args": [
@@ -98,17 +98,29 @@
         "MD041": false,
         "MD045": false
     },
-    "cloudcode.autoDependencies": "off",
-    "[yaml]": {
-        "editor.defaultFormatter": "googlecloudtools.cloudcode"
-    },
-    "cloudcode.project": "yoto-prod-core-4f2f359a",
-    "http.proxySupport": "on",
     "files.associations": {
         "*.tpl": "yaml"
     },
-    "cloudcode.duetAI.enable": false,
-    "cloudcode.duetAI.inlineSuggestions.enableAuto": false,
     "python.testing.pytestEnabled": true,
-    "editor.inlineSuggest.suppressSuggestions": true
+    "editor.inlineSuggest.suppressSuggestions": true,
+
+    // dim logging statements
+    "highlight.regexes": {
+        "(logger\\.(debug|info|warning|error|critical)\\(.+\\)[;]?)": {
+            "regexFlags": "g",
+            "decorations": [
+                { "opacity": "0.3" }
+            ]
+        },
+        "(context\\.log\\.(debug|info|warning|error|critical)\\(.+\\)[;]?)": {
+            "regexFlags": "g",
+            "decorations": [
+                { "opacity": "0.3" }
+            ]
+        }
+    },
+    "yaml.customTags": [
+
+    ],
+    "yaml.schemaStore.enable": false,
 }

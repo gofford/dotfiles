@@ -6,6 +6,10 @@ vscode "DavidAnson.vscode-markdownlint"
 vscode "redhat.vscode-yaml"
 vscode "ms-vscode.makefile-tools"
 vscode "tamasfe.even-better-toml"
+vscode "graphql.vscode-graphql"
+vscode "graphql.vscode-graphql-syntax"
+vscode "skellock.just"
+vscode "yzhang.markdown-all-in-one-all-in-one"
 
 # sql & dbt
 vscode "bastienboutonnet.vscode-dbt"
@@ -16,24 +20,18 @@ vscode "github.vscode-github-actions"
 vscode "jasonnutter.vscode-codeowners"
 
 # github copilot
-vscode "GitHub.copilot"
-vscode "GitHub.copilot-chat"
-
-#gcp
-vscode "googlecloudtools.cloudcode"
+# vscode "GitHub.copilot"
+# vscode "GitHub.copilot-chat"
 
 # general utilities
 vscode "EditorConfig.EditorConfig"
 vscode "Gruntfuggly.todo-tree"
 vscode "samuelcolvin.jinjahtml"
-vscode "L13RARY.l13-projects"
-vscode "formulahendry.code-runner"
 vscode "usernamehw.errorlens"
 vscode "aaron-bond.better-comments"
 vscode "bierner.markdown-mermaid"
 vscode "DavidAnson.vscode-markdownlint"
-vscode "ms-vsliveshare.vsliveshare"
-vscode "rangav.vscode-thunder-client"
+vscode "fabiospampinato.vscode-highlight"
 
 # python
 vscode "donjayamanne.python-environment-manager"
@@ -42,6 +40,7 @@ vscode "KevinRose.vsc-python-indent"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "ms-toolsai.jupyter"
+vscode "ms-python.debugpy"
 
 # themes and visuals
 vscode "oderwat.indent-rainbow"
@@ -50,9 +49,8 @@ vscode "GitHub.github-vscode-theme"
 vscode "SirTori.indenticator"
 
 # remote working & containers
-vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-azuretools.vscode-docker"
-vscode "ms-vscode.remote-explorer"
 
 # terraform
-vscode "hashicorp.terraform"
+vscode "4ops.terraform"
+vscode "pjmiravalle.terraform-advanced-syntax-highlighting"

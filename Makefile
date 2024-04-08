@@ -4,7 +4,7 @@ _prepare:
 bootstrap:
 	@./install -c config/bootstrap.conf.yml
 
-dotfiles: 
+dotfiles:
 	@./install -c config/dotfiles.conf.yml
 
 packages:
@@ -16,14 +16,8 @@ vscode:
 python:
 	@./install -c config/python.conf.yml
 
-#macos_settings:
-#	@./install -c etc/macos/settings.sh
-
-#macos_dock:
-#	@./install -c etc/macos/dock.sh
-
 update:
 	@make _prepare
 	@./install -c config/update.conf.yml
 
-all: _prepare bootstrap dotfiles packages python vscode 
+all: _prepare bootstrap dotfiles packages python vscode
