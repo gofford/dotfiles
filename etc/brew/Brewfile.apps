@@ -9,15 +9,15 @@ mas "Hidden Bar", id: 1452453066
 
 # normal casks
 cask "bitwarden"
-cask "firefox"
+cask "arc"
 cask "docker"
 cask "iterm2"
 cask "raycast"
 cask "notion"
 cask "rstudio"
 cask "sublime-text"
-cask "spotify"
 cask "slack"
-cask "clocker"
 cask "the-unarchiver"
 cask "google-cloud-sdk"
+cask "ngrok"
+cask "altair-graphql-client"

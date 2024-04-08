@@ -16,10 +16,23 @@ brew "less"
 brew "fd"
 brew "libyaml"
 
+brew "ripgrep"
+
 # programs
 brew "pyenv"
 brew "direnv"
 brew "bat"
 brew "eza"
+brew "fzf"
 brew "httpie"
-brew "terraform"
+brew "jq"
+brew "k9s"
+brew "just"
+brew "minikube"
+
+# terraform
+brew "tfswitch"
+brew "tflint"
+brew "tfupdate"
+brew "terrascan"
+brew "terraform-docs"
