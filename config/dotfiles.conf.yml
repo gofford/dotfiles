@@ -37,6 +37,7 @@
     ~/.gitconfig: ~/.dotfiles/etc/git/.gitconfig
     ~/.gitignore_global: ~/.dotfiles/etc/git/.gitignore_global
     ~/.gitattributes: ~/.dotfiles/etc/git/.gitattributes
+    ~/.git_prune_squash_merged.sh: ~/.dotfiles/etc/git/prune_squash_merged.sh
 
     # ssh
     ~/.ssh/config: ~/.dotfiles/etc/ssh/config
