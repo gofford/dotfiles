@@ -38,12 +38,10 @@ fi
 source ${zsh_plugins}.zsh
 
 # fzf
-[ -f ${ZDOTDIR:-~}/.fzf.zsh ] && source ${ZDOTDIR:-~}/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh
+# node
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
-
-
-# Created by `pipx` on 2024-01-22 14:48:55
-export PATH="$PATH:/Users/jasongofford/.local/bin"
+# prompt
+eval "$(starship init zsh)"

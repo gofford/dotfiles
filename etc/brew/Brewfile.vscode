@@ -9,7 +9,6 @@ vscode "tamasfe.even-better-toml"
 vscode "graphql.vscode-graphql"
 vscode "graphql.vscode-graphql-syntax"
 vscode "skellock.just"
-vscode "yzhang.markdown-all-in-one-all-in-one"
 
 # sql & dbt
 vscode "bastienboutonnet.vscode-dbt"

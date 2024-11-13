@@ -31,7 +31,7 @@ brew "just"
 brew "minikube"
 
 # terraform
-brew "tfswitch"
+brew "warrensbox/tap/tfswitch"
 brew "tflint"
 brew "tfupdate"
 brew "terrascan"
