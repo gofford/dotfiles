@@ -43,5 +43,5 @@ source ${zsh_plugins}.zsh
 # node
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 
-# prompt
-eval "$(starship init zsh)"
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh

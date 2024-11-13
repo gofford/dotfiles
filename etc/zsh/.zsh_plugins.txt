@@ -1,6 +1,8 @@
 mattmc3/zman
 agkozak/zsh-z
 
+romkatv/powerlevel10k
+
 z-shell/zsh-eza
 romkatv/zsh-bench kind:path
 

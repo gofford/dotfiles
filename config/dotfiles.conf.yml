@@ -44,8 +44,5 @@
     # direnv
     ~/.config/direnv/direnv.toml: ~/.dotfiles/etc/direnv/direnv.toml
 
-    # starship
-    ~/.config/starship.toml: ~/.dotfiles/etc/starship/starship.toml
-
 - shell:
     - command: touch ~/.hushlogin
