@@ -1,0 +1,5 @@
+- shell:
+    - command: brew file install -f brew/Brewfile
+      description: "Install Homebrew formulae and dependencies"
+      stdout: true
+      stderr: true

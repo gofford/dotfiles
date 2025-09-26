@@ -1,0 +1,21 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+
+# Link system configuration files
+- link:
+    # ssh configuration
+    ~/.ssh/config: ~/.dotfiles/ssh/config
+
+    # direnv configuration
+    ~/.config/direnv/direnv.toml: ~/.dotfiles/direnv/direnv.toml
+
+    # k9s configuration
+    ~/.config/k9s:
+      glob: true
+      path: ~/.dotfiles/k9s/*
+      relink: true
+
+    # editor configuration
+    ~/.editorconfig: ~/.dotfiles/.editorconfig

@@ -1,0 +1,46 @@
+# taps
+tap "buo/cask-upgrade"
+tap "lotyp/homebrew-formulae"
+tap "hashicorp/tap"
+
+# dependencies
+brew "git"
+brew "tcl-tk"
+brew "readline"
+brew "ncurses"
+brew "zlib"
+brew "less"
+brew "fd"
+brew "libyaml"
+brew "ripgrep"
+
+# programs
+brew "direnv"
+brew "bat"
+brew "eza"
+brew "fzf"
+brew "jq"
+brew "k9s"
+brew "just"
+brew "minikube"
+brew "gh"
+brew "lazygit"
+brew "uv"
+brew "oh-my-posh"
+brew "git-spice"
+brew "sheldon"
+brew "zoxide"
+brew "atuin"
+brew "terramate"
+brew "codex"
+brew "yamllint"
+
+# terraform
+brew "warrensbox/tap/tfswitch"
+
+# app store and utility management
+brew "mas"
+brew "lotyp/formulae/dockutil"
+
+# password management
+brew "1password-cli"

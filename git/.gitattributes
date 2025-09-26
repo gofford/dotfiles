@@ -1,0 +1,9 @@
+# Default behavior - auto detect and convert line endings
+*   text=auto   eol=lf
+
+# Better diffs for code
+*.py    diff=python
+*.md    diff=markdown
+
+# Notebooks (treat as binary to avoid merge conflicts)
+*.ipynb binary

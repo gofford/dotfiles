@@ -1,0 +1,55 @@
+[
+    // Cursor AI Features
+    {
+        "key": "cmd+i",
+        "command": "composerMode.agent",
+        "when": "editorTextFocus"
+    },
+
+    // Terminal
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\\\r\n"
+        },
+        "when": "terminalFocus"
+    },
+
+    // Quick file switcher (better than cmd+p for large projects)
+    {
+        "key": "cmd+ctrl+p",
+        "command": "workbench.action.quickOpen"
+    },
+
+    // Toggle terminal (more accessible than default)
+    {
+        "key": "cmd+j",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+
+    // Duplicate line (common in other editors)
+    {
+        "key": "cmd+d",
+        "command": "editor.action.duplicateSelection"
+    },
+
+    // Move line up/down (alternative to option+up/down)
+    {
+        "key": "cmd+shift+up",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+shift+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+
+    // Quick comment toggle
+    {
+        "key": "cmd+/",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    }
+]

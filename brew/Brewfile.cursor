@@ -1,0 +1,61 @@
+# core functionality
+cursor "charliermarsh.ruff"
+cursor "redhat.vscode-yaml"
+cursor "tamasfe.even-better-toml"
+cursor "skellock.just"
+cursor "editorconfig.editorconfig"
+
+# git & github
+cursor "eamodio.gitlens"
+cursor "github.vscode-github-actions"
+cursor "jasonnutter.vscode-codeowners"
+
+# ai assistance
+cursor "anthropic.claude-code"
+cursor "openai.chatgpt"
+
+# general utilities
+cursor "gruntfuggly.todo-tree"
+cursor "aaron-bond.better-comments"
+cursor "fabiospampinato.vscode-highlight"
+cursor "ldez.ignore-files"
+
+# python
+cursor "ms-python.python"
+cursor "anysphere.cursorpyright"
+cursor "donjayamanne.python-environment-manager"
+cursor "irongeek.vscode-env"
+cursor "kevinrose.vsc-python-indent"
+cursor "ms-python.debugpy"
+
+# data & notebooks
+cursor "ms-toolsai.jupyter"
+cursor "ms-toolsai.jupyter-renderers"
+cursor "ms-toolsai.vscode-jupyter-cell-tags"
+cursor "ms-toolsai.vscode-jupyter-slideshow"
+cursor "aykutsarac.jsoncrack-vscode"
+
+# markdown
+cursor "bierner.markdown-mermaid"
+cursor "shd101wyy.markdown-preview-enhanced"
+cursor "yzhang.markdown-all-in-one"
+
+# templating
+cursor "samuelcolvin.jinjahtml"
+cursor "hongquan.dragon-jinja"
+
+# themes and visuals
+cursor "oderwat.indent-rainbow"
+cursor "vscode-icons-team.vscode-icons"
+cursor "github.github-vscode-theme"
+cursor "sirtori.indenticator"
+
+# containers & kubernetes
+cursor "ms-azuretools.vscode-containers"
+cursor "anysphere.remote-containers"
+cursor "ms-kubernetes-tools.vscode-kubernetes-tools"
+
+# terraform
+cursor "4ops.terraform"
+cursor "pjmiravalle.terraform-advanced-syntax-highlighting"
+cursor "mineiros.terramate"

@@ -1,0 +1,21 @@
+# normal casks
+cask "arc"
+cask "docker"
+cask "iterm2"
+cask "raycast"
+cask "sublime-text"
+cask "slack"
+cask "the-unarchiver"
+cask "google-cloud-sdk"
+cask "altair-graphql-client"
+cask "claude"
+cask "1password"
+cask "1password-cli"
+
+
+# fonts
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+
+# development tools
+cask "cursor"

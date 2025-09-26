@@ -1,0 +1,91 @@
+[core]
+    autocrlf = false
+    excludesfile = ~/.gitignore_global
+    attributesfile = ~/.gitattributes
+    eol = lf
+    editor = nano
+[init]
+    defaultBranch = main
+[pull]
+    rebase = true
+[push]
+    default = current
+    autoSetupRemote = true
+    followTags = true
+[branch]
+    autoSetupMerge = always
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = auto
+    colorMoved = default
+[help]
+    autocorrect = 20
+[merge]
+    # Include summaries of merged commits in newly created merge commit messages
+    log = true
+    conflictstyle = diff3
+[diff]
+    # Detect copies as well as renames
+    renames = copies
+    mnemonicprefix = true
+    algorithm = patience
+    # Use blank lines as diff boundary to improve diffs
+    heuristic = true
+[fetch]
+    # Always prune remote-tracking branches
+    # See http://albertogrespan.com/blog/always-prune-remote-tracking-branches/
+    prune = true
+[advice]
+    commitBeforeMerge = true
+    detachedHead = true
+    implicitIdentity = true
+    pushNonFastForward = false
+    resolveConflict = true
+    statusHints = false
+[alias]
+    gone = "!f() { git fetch --all --prune; git branch --format '%(refname:short) %(upstream:track)' | awk '/\\[gone\\]/{print $1}' | xargs git branch -D; }; f"
+    cleanup = "!git branch --merged | grep -v -P '^\\*|main' | xargs -n1 -r git branch -d"
+    unstage = reset HEAD --
+    amend = commit --amend --no-edit
+    undo = reset --soft HEAD~1
+[status]
+    # Short git status output, but include branch info
+    short = false
+    branch = false
+[credential]
+    helper = osxkeychain
+[tag]
+    verbose = true
+[commit]
+    gpgsign = true
+    verbose = true
+[gpg]
+	format = ssh
+    program = gpg
+[submodule]
+    # Fetch submodules in parallel, with a reasonable number of jobs
+    fetchJobs = 0
+    # Disabled due to issues in git pull
+    recurse = true
+[remote]
+    pushDefault = origin
+[include]
+    path = ~/.gitconfig.local
+
+# Modern Git features
+[rerere]
+    enabled = true
+
+[maintenance]
+    auto = false
+
+[rebase]
+    autoStash = true
+    autoSquash = true
+
+[log]
+    abbrevCommit = true
+    follow = true

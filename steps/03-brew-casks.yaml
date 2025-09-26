@@ -1,0 +1,5 @@
+- shell:
+    - command: brew file install -f brew/Brewfile.cask
+      description: "Install desktop applications via Homebrew Cask"
+      stdout: true
+      stderr: true

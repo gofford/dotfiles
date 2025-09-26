@@ -1,0 +1,58 @@
+shell = "zsh"
+
+# Custom template for deferred loading
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+
+[plugins]
+
+# Deferred loading utility (must be first)
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+# Essential utilities (load immediately for shell functionality)
+[plugins.zsh-utils-history]
+github = "belak/zsh-utils"
+dir = "history"
+
+[plugins.zsh-utils-utility] 
+github = "belak/zsh-utils"
+dir = "utility"
+
+[plugins.zsh-utils-editor]
+github = "belak/zsh-utils" 
+dir = "editor"
+
+# Directory navigation (immediate - used frequently)
+[plugins.zsh-z]
+github = "agkozak/zsh-z"
+
+# Tab completion enhancement (immediate - core functionality)
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+
+# Additional completions (before completion utilities)
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+dir = "src"
+
+[plugins.zsh-utils-completion]
+github = "belak/zsh-utils"
+dir = "completion"
+
+# Deferred plugins (load in background for faster startup)
+[plugins.zman]
+github = "mattmc3/zman"
+apply = ["defer"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+apply = ["defer"]
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+apply = ["defer"]

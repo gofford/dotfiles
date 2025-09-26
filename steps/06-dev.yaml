@@ -1,0 +1,15 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+
+# Link development configuration files
+- link:
+    # git configuration
+    ~/.gitconfig: ~/.dotfiles/git/.gitconfig
+    ~/.gitignore_global: ~/.dotfiles/git/.gitignore_global
+    ~/.gitattributes: ~/.dotfiles/git/.gitattributes
+
+    # cursor configuration
+    "~/Library/Application Support/Cursor/User/settings.json": ~/.dotfiles/cursor/settings.json
+    "~/Library/Application Support/Cursor/User/keybindings.json": ~/.dotfiles/cursor/keybindings.json

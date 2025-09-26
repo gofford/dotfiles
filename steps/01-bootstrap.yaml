@@ -1,0 +1,47 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+
+# Bootstrap shell - install essential brew packages
+- shell:
+    - description: Install essential packages for bootstrap
+      command: |
+        if ! command -v zsh >/dev/null 2>&1; then
+          brew install zsh
+        fi
+
+- shell:
+    - description: Change default shell to Homebrew Zsh
+      quiet: false
+      command: |
+        update_shell() {
+          local shell_path;
+          shell_path="$(brew --prefix)/bin/zsh"
+          if ! grep "$shell_path" /etc/shells > /dev/null 2>&1 ; then
+            sudo sh -c "echo $shell_path >> /etc/shells"
+          fi
+          sudo chsh -s "$shell_path" "$USER"
+        }
+
+        update_shell
+
+# Clean and create directories
+- clean:
+    ~/.config:
+      recursive: true
+
+- create:
+    - ~/.config
+    - ~/.config/direnv
+    - ~/.config/sheldon
+    - ~/.ssh
+    - ~/.config/zsh
+    - ~/.config/zsh/completions
+
+# Final setup
+- shell:
+    - command: touch ~/.hushlogin
+      description: Disable login message
+    - command: brew install rcmdnk/file/brew-file
+      description: Install homebrew-file plugin for package management

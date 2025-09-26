@@ -1,0 +1,30 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+
+# Link shell configuration files
+- link:
+    # zsh configuration
+    ~/.zshenv: ~/.dotfiles/shell/zsh/.zshenv
+    ~/.config/zsh/.zshrc: ~/.dotfiles/shell/zsh/.zshrc
+    ~/.config/zsh/.aliases: ~/.dotfiles/shell/zsh/.aliases
+    ~/.config/zsh/.zprofile: ~/.dotfiles/shell/zsh/.zprofile
+    ~/.config/zsh/.fzf.zsh: ~/.dotfiles/shell/zsh/.fzf.zsh
+    
+    # zsh completions
+    ~/.config/zsh/completions:
+      glob: true
+      path: ~/.dotfiles/shell/zsh/completions/*
+      relink: true
+
+    # oh-my-posh prompt
+    ~/.prompt.omp.json: ~/.dotfiles/shell/omp/.prompt.omp.json
+
+    # sheldon plugin manager
+    ~/.config/sheldon/plugins.toml: ~/.dotfiles/shell/sheldon/plugins.toml
+
+# Install Sheldon plugins
+- shell:
+    - description: Install Sheldon plugins
+      command: sheldon lock
