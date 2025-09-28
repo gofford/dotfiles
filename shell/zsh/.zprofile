@@ -20,13 +20,11 @@ typeset -gU path fpath
 
 # Set the list of directories that zsh searches for commands.
 path=(
-  $HOME/{,s}bin(N)
-  /opt/{homebrew,local}/{,s}bin(N)
-  /usr/local/{,s}bin(N)
-  $path
+    $HOME/{,s}bin(N)
+    /opt/{homebrew,local}/{,s}bin(N)
+    /usr/local/{,s}bin(N)
+    $path
 )
-# Created by `pipx` on 2024-01-22 14:48:55
-export PATH="$PATH:/Users/jasongofford/.local/bin"
 
 #
 # Tool Integration

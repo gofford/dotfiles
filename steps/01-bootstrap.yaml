@@ -35,6 +35,7 @@
     - ~/.config
     - ~/.config/direnv
     - ~/.config/sheldon
+    - ~/.config/atuin
     - ~/.ssh
     - ~/.config/zsh
     - ~/.config/zsh/completions
