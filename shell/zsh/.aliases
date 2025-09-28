@@ -17,10 +17,6 @@ alias cd='z'  # use zoxide instead of cd
 alias grep='rg'
 alias find='fd'
 
-# git shortcuts
-alias g='git'
-alias lg='lazygit'
-
 # misc
 alias please=sudo
 alias zshrc='nano "${ZDOTDIR:-$HOME}"/.zshrc'

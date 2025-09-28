@@ -53,7 +53,6 @@
           "foreground": "#2e3440",
           "background": "#ebcb8b",
           "template": "{{if contains \"default\" .WorkspaceName}}{{\"\"}}{{else}} 󰏗 {{.WorkspaceName}} {{end}}"
-
         },
         {
           "type": "gcp",
@@ -87,26 +86,26 @@
       "type": "prompt"
     },
     {
-  "type": "rprompt",
-  "segments": [
-    {
-      "type": "executiontime",
-      "style": "plain",
-      "foreground": "#3b4252",
-      "properties": {
-        "threshold": 2000,
-        "style": "round"
-      },
-      "template": "took {{ .FormattedMs }} "
-    },
-    {
-      "type": "time",
-      "style": "plain",
-      "foreground": "#3b4252",
-      "template": "at {{ .CurrentDate | date \"15:04\" }}"
+      "type": "rprompt",
+      "segments": [
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "#3b4252",
+          "properties": {
+            "threshold": 2000,
+            "style": "round"
+          },
+          "template": "took {{ .FormattedMs }} "
+        },
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "#3b4252",
+          "template": "at {{ .CurrentDate | date \"15:04\" }}"
+        }
+      ]
     }
-  ]
-}
   ],
   "console_title_template": "{{if .Root}}(Admin){{end}} {{.PWD}}",
   "transient_prompt": {

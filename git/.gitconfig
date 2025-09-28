@@ -4,6 +4,9 @@
     attributesfile = ~/.gitattributes
     eol = lf
     editor = nano
+[user]
+	name = Jason Gofford
+	email = jason@yotoplay.com
 [init]
     defaultBranch = main
 [pull]
@@ -64,7 +67,7 @@
     verbose = true
 [gpg]
 	format = ssh
-    program = gpg
+	# Configure your preferred GPG/SSH signing program in ~/.gitconfig.local if needed.
 [submodule]
     # Fetch submodules in parallel, with a reasonable number of jobs
     fetchJobs = 0
@@ -74,6 +77,7 @@
     pushDefault = origin
 [include]
     path = ~/.gitconfig.local
+	# Use ~/.gitconfig.local for host-specific overrides (e.g., work email).
 
 # Modern Git features
 [rerere]
