@@ -8,10 +8,8 @@ cask "slack"
 cask "the-unarchiver"
 cask "google-cloud-sdk"
 cask "altair-graphql-client"
-cask "claude"
 cask "1password"
-cask "1password-cli"
-
+brew "claude-code"
 
 # fonts
 cask "font-fira-code"

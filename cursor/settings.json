@@ -1,173 +1,178 @@
 {
-    // Editor Appearance & Behavior
-    "editor.fontFamily": "MesloLGS NF",
-    "editor.fontLigatures": true,
-    "editor.cursorStyle": "block",
-    "editor.rulers": [88],
-    "editor.minimap.enabled": true,
-    "editor.minimap.autohide": true,
-    "editor.smoothScrolling": true,
-    "editor.scrollBeyondLastLine": false,
-    "editor.guides.bracketPairs": "active",
-    "editor.bracketPairColorization.enabled": true,
-    "editor.linkedEditing": true,
-    "editor.formatOnPaste": true,
+  // Editor Appearance & Behavior
+  "editor.fontFamily": "MesloLGS NF",
+  "editor.fontLigatures": true,
+  "editor.cursorStyle": "block",
+  "editor.rulers": [
+    88
+  ],
+  "editor.minimap.enabled": true,
+  "editor.minimap.autohide": true,
+  "editor.smoothScrolling": true,
+  "editor.scrollBeyondLastLine": false,
+  "editor.guides.bracketPairs": "active",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
+  "editor.accessibilitySupport": "off",
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "editor.suggest.preview": true,
+  "editor.suggest.showMethods": true,
+  "editor.suggest.showFunctions": true,
+  "editor.quickSuggestions": {
+    "strings": true,
+    "comments": false,
+    "other": true
+  },
+  // Workbench & Window
+  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.tree.indent": 10,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.showTabs": "multiple",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.startupEditor": "newUntitledFile",
+  "window.nativeTabs": true,
+  "window.zoomLevel": 0.3,
+  // File Management
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/*.pyc": true
+  },
+  "files.associations": {
+    "*.tpl": "yaml",
+    "*.sql": "jinja-sql"
+  },
+  // Explorer
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": true,
+  "explorer.compactFolders": false,
+  "explorer.sortOrder": "type",
+  // Terminal
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "MesloLGS NF, Regular",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.sendKeybindingsToShell": true,
+  "terminal.integrated.scrollback": 10000,
+  // Security & Updates
+  "security.workspace.trust.untrustedFiles": "open",
+  "update.releaseTrack": "prerelease",
+  "telemetry.telemetryLevel": "off",
+  // Cursor AI Features
+  "cursor.cpp.disabledLanguages": [
+    "plaintext",
+    "scminput"
+  ],
+  "cursor.chat.terminalShowHoverHint": false,
+  "cursor.composer.shouldAllowCustomModes": true,
+  // Python Development
+  "python.interpreter.infoVisibility": "always",
+  "python.testing.pytestEnabled": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "ruff.organizeImports": true,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit",
-        "source.fixAll": "explicit"
-    },
-    "editor.accessibilitySupport": "off",
-    "editor.inlineSuggest.suppressSuggestions": true,
-    "editor.suggest.preview": true,
-    "editor.suggest.showMethods": true,
-    "editor.suggest.showFunctions": true,
-    "editor.quickSuggestions": {
-        "strings": true,
-        "comments": false,
-        "other": true
-    },
-
-    // Workbench & Window
-    "workbench.colorTheme": "Visual Studio Dark",
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.tree.indent": 10,
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.showTabs": "multiple",
-    "workbench.editor.tabSizing": "shrink",
-    "workbench.startupEditor": "newUntitledFile",
-    "window.nativeTabs": true,
-    "window.zoomLevel": 0.3,
-
-    // File Management
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 1000,
-    "files.exclude": {
-        "**/.git": true,
-        "**/.DS_Store": true,
-        "**/node_modules": true,
-        "**/__pycache__": true,
-        "**/*.pyc": true
-    },
-    "files.associations": {
-        "*.tpl": "yaml",
-        "*.sql": "jinja-sql"
-    },
-    "workbench.editorAssociations": {
-        "*.sql": "jinja-sql"
-    },
-
-    // Explorer
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": true,
-    "explorer.compactFolders": false,
-    "explorer.sortOrder": "type",
-
-    // Terminal
-    "terminal.external.osxExec": "iTerm.app",
-    "terminal.integrated.fontFamily": "MesloLGS NF, Regular",
-    "terminal.integrated.fontSize": 13,
-    "terminal.integrated.sendKeybindingsToShell": true,
-    "terminal.integrated.scrollback": 10000,
-
-    // Security & Updates
-    "security.workspace.trust.untrustedFiles": "open",
-    "update.releaseTrack": "prerelease",
-    "telemetry.telemetryLevel": "off",
-
-    // Cursor AI Features
-    "cursor.cpp.disabledLanguages": ["plaintext", "scminput"],
-    "cursor.chat.terminalShowHoverHint": false,
-    "cursor.composer.shouldAllowCustomModes": true,
-
-    // Python Development
-    "python.interpreter.infoVisibility": "always",
-    "python.testing.pytestEnabled": true,
-    "python.analysis.autoImportCompletions": true,
-    "python.analysis.typeCheckingMode": "basic",
-    "python.formatting.provider": "none",
-    "python.linting.enabled": false,
-
-    // GitLens Configuration
-    "gitlens.showWelcomeOnInstall": false,
-    "gitlens.plusFeatures.enabled": false,
-    "gitlens.virtualRepositories.enabled": false,
-    "gitlens.statusBar.enabled": false,
-    "gitlens.views.scm.grouped.views": {
-        "commits": true,
-        "branches": true,
-        "remotes": true,
-        "stashes": true,
-        "tags": true,
-        "worktrees": true,
-        "contributors": true,
-        "repositories": false,
-        "searchAndCompare": false,
-        "launchpad": true
-    },
-
-    // YAML Configuration
-    "yaml.customTags": [],
-    "yaml.schemaStore.enable": false,
-    "yaml.format.enable": true,
-    "yaml.format.singleQuote": false,
-    "yaml.format.bracketSpacing": true,
-    "yaml.validate": true,
-    "yaml.hover": true,
-    "yaml.completion": true,
-    "yaml.schemas": {
-        "https://raw.githubusercontent.com/lightdash/lightdash/main/packages/common/src/schemas/json/lightdash-dbt-2.0.json": [
-            "/**/models/**/*.yml",
-            "/**/models/**/*.yaml"
-        ]
-    },
-
-    // Kubernetes
-    "vs-kubernetes": {
-        "vs-kubernetes.crd-code-completion": "enabled",
-        "vs-kubernetes.outputFormat": "yaml",
-        "vs-kubernetes.kubeconfig": "",
-        "vs-kubernetes.kubectl-path": ""
-    },
-
-    // Jupyter Notebooks
-    "jupyter.askForKernelRestart": false,
-    "jupyter.showVariableViewWhenDebugging": true,
-    "jupyter.interactiveWindow.textEditor.executeSelection": true,
-
-    // Extension Specific
-    "indentRainbow.indicatorStyle": "light",
-    "vsicons.dontShowNewVersionMessage": true,
-    "redhat.telemetry.enabled": true,
-    "geminicodeassist.project": "yoto-dev-jason-b8d7a689",
-    "todo-tree.general.tags": ["TODO", "FIXME", "HACK", "NOTE"],
-    "todo-tree.highlights.enabled": true,
-
-    // Highlight extension - dim logging statements
-    "highlight.regexes": {
-        "(logger\\.(debug|info|warning|error|critical)\\(.+\\)[;]?)": {
-            "regexFlags": "g",
-            "decorations": [{"opacity": "0.3"}]
-        },
-        "(context\\.log\\.(debug|info|warning|error|critical)\\(.+\\)[;]?)": {
-            "regexFlags": "g",
-            "decorations": [{"opacity": "0.3"}]
-        }
-    },
-
-    // Language specific formatting
-    "[dockercompose]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2,
-        "editor.autoIndent": "advanced",
-        "editor.quickSuggestions": {
-            "other": true,
-            "comments": false,
-            "strings": true
-        },
-        "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    "[github-actions-workflow]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
+      "source.organizeImports": true
     }
+  },
+  // GitLens Configuration
+  "gitlens.showWelcomeOnInstall": false,
+  "gitlens.plusFeatures.enabled": false,
+  "gitlens.virtualRepositories.enabled": false,
+  "gitlens.statusBar.enabled": false,
+  "gitlens.views.scm.grouped.views": {
+    "commits": true,
+    "branches": true,
+    "remotes": true,
+    "stashes": true,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "repositories": false,
+    "searchAndCompare": false,
+    "launchpad": true
+  },
+  // YAML Configuration
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "yaml.customTags": [],
+  "yaml.schemaStore.enable": true,
+  "yaml.format.enable": true,
+  "yaml.format.singleQuote": false,
+  "yaml.format.bracketSpacing": true,
+  "yaml.validate": true,
+  "yaml.hover": true,
+  "yaml.completion": true,
+  "yaml.format.printWidth": 80,
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/lightdash/lightdash/main/packages/common/src/schemas/json/lightdash-dbt-2.0.json": [
+      "/**/models/**/*.yml",
+      "/**/models/**/*.yaml"
+    ]
+  },
+  // Kubernetes
+  "vs-kubernetes.crd-code-completion": "enabled",
+  "vs-kubernetes.outputFormat": "yaml",
+  "vs-kubernetes.kubeconfig": "",
+  "vs-kubernetes.kubectl-path": "",
+  // Jupyter Notebooks
+  "jupyter.askForKernelRestart": false,
+  "jupyter.showVariableViewWhenDebugging": true,
+  "jupyter.interactiveWindow.textEditor.executeSelection": true,
+  // Extension Specific
+  "indentRainbow.indicatorStyle": "light",
+  "vsicons.dontShowNewVersionMessage": true,
+  "redhat.telemetry.enabled": true,
+  "geminicodeassist.project": "yoto-dev-jason-b8d7a689",
+  "todo-tree.general.tags": [
+    "TODO",
+    "FIXME",
+    "HACK",
+    "NOTE"
+  ],
+  "todo-tree.highlights.enabled": true,
+  // Highlight extension - dim logging statements
+  "highlight.regexes": {
+    "(logger\\.(debug|info|warning|error|critical)\\(.+\\)[;]?)": {
+      "regexFlags": "g",
+      "decorations": [
+        {
+          "opacity": "0.3"
+        }
+      ]
+    },
+    "(context\\.log\\.(debug|info|warning|error|critical)\\(.+\\)[;]?)": {
+      "regexFlags": "g",
+      "decorations": [
+        {
+          "opacity": "0.3"
+        }
+      ]
+    }
+  },
+  // Language specific formatting
+  "[dockercompose]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  }
 }

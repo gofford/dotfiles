@@ -2,9 +2,6 @@
 
 # Modern zsh options
 setopt extended_glob
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_SPACE
-setopt SHARE_HISTORY
 setopt AUTO_CD
 
 # History configuration
@@ -30,7 +27,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Load plugins with Sheldon
 eval "$(sheldon source)"
 
-# Modern utilities initialization
 # zoxide (smart cd)
 eval "$(zoxide init zsh)"
 

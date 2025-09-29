@@ -15,12 +15,12 @@ github = "romkatv/zsh-defer"
 github = "belak/zsh-utils"
 dir = "history"
 
-[plugins.zsh-utils-utility] 
+[plugins.zsh-utils-utility]
 github = "belak/zsh-utils"
 dir = "utility"
 
 [plugins.zsh-utils-editor]
-github = "belak/zsh-utils" 
+github = "belak/zsh-utils"
 dir = "editor"
 
 # Directory navigation (immediate - used frequently)
@@ -39,6 +39,15 @@ dir = "src"
 [plugins.zsh-utils-completion]
 github = "belak/zsh-utils"
 dir = "completion"
+
+[plugins.fzf-dbt]
+github = "Infused-Insight/fzf-dbt"
+use = ["src/fzf_dbt.sh"]
+hooks.pre = """
+export FZF_DBT_PREVIEW_CMD=${FZF_DBT_PREVIEW_CMD:-'cat {}'}
+export FZF_DBT_HEIGHT=${FZF_DBT_HEIGHT:-80%}
+"""
+apply = ["defer"]
 
 # Deferred plugins (load in background for faster startup)
 [plugins.zman]
