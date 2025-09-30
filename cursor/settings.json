@@ -86,7 +86,7 @@
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": "explicit"
     }
   },
   // GitLens Configuration
@@ -174,5 +174,15 @@
   },
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "vs-kubernetes": {
+    "crd-code-completion": "enabled",
+    "outputFormat": "yaml",
+    "kubeconfig": "",
+    "kubectl-path": "",
+    "vscode-kubernetes.helm-path-mac": "/Users/jasongofford/.vs-kubernetes/tools/helm/darwin-arm64/helm",
+    "vscode-kubernetes.minikube-path-mac": "/Users/jasongofford/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
+    "vscode-kubernetes.kubectl-path-mac": "/Users/jasongofford/.vs-kubernetes/tools/kubectl/kubectl",
+    "vs-kubernetes.crd-code-completion": "enabled"
   }
 }

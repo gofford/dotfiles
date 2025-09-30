@@ -17,5 +17,8 @@
       path: ~/.dotfiles/k9s/*
       relink: true
 
+    # ghostty configuration
+    ~/.config/ghostty/config: ~/.dotfiles/ghostty/config
+
     # editor configuration
     ~/.editorconfig: ~/.dotfiles/.editorconfig

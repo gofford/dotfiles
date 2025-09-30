@@ -11,6 +11,7 @@
     ~/.config/zsh/.aliases: ~/.dotfiles/shell/zsh/.aliases
     ~/.config/zsh/.zprofile: ~/.dotfiles/shell/zsh/.zprofile
     ~/.config/zsh/.fzf.zsh: ~/.dotfiles/shell/zsh/.fzf.zsh
+    ~/.config/zsh/.atuin-fzf.zsh: ~/.dotfiles/shell/zsh/.atuin-fzf.zsh
 
     # zsh completions
     ~/.config/zsh/completions:

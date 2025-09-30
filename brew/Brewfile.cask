@@ -1,7 +1,7 @@
 # normal casks
 cask "arc"
 cask "docker"
-cask "iterm2"
+cask "ghostty"
 cask "raycast"
 cask "sublime-text"
 cask "slack"

@@ -3,7 +3,7 @@
     excludesfile = ~/.gitignore_global
     attributesfile = ~/.gitattributes
     eol = lf
-    editor = nano
+    editor = vi
 [user]
 	name = Jason Gofford
 	email = jason@yotoplay.com
