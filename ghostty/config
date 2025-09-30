@@ -1,0 +1,51 @@
+# Ghostty Terminal Configuration
+
+# Font
+font-family = MesloLGS NF
+font-size = 15
+font-feature = -liga
+
+# Cursor
+cursor-style = block
+cursor-style-blink = true
+cursor-invert-fg-bg = true
+
+# Mouse
+mouse-hide-while-typing = true
+focus-follows-mouse = true
+
+# Window
+window-padding-x = 2
+window-padding-y = 2
+window-padding-balance = true
+window-save-state = always
+window-theme = system
+window-decoration = true
+
+# macOS-specific settings
+macos-titlebar-style = tabs
+macos-option-as-alt = true
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
+
+# Shell integration
+shell-integration = zsh
+shell-integration-features = true
+
+# Links
+link-url = true
+
+# Auto update settings
+auto-update = download
+auto-update-channel = stable
+
+# Keybindings
+keybind = cmd+t=new_tab
+keybind = cmd+w=close_surface
+keybind = cmd+shift+left_bracket=previous_tab
+keybind = cmd+shift+right_bracket=next_tab
+keybind = cmd+n=new_window
+keybind = cmd+comma=reload_config

@@ -18,10 +18,20 @@
         update_shell() {
           local shell_path;
           shell_path="$(brew --prefix)/bin/zsh"
-          if ! grep "$shell_path" /etc/shells > /dev/null 2>&1 ; then
+
+          # Only add to /etc/shells if not already present
+          if ! grep -q "^${shell_path}$" /etc/shells 2>/dev/null; then
+            echo "Adding ${shell_path} to /etc/shells..."
             sudo sh -c "echo $shell_path >> /etc/shells"
           fi
-          sudo chsh -s "$shell_path" "$USER"
+
+          # Only change shell if not already set
+          if [ "$SHELL" != "$shell_path" ]; then
+            echo "Changing default shell to ${shell_path}..."
+            sudo chsh -s "$shell_path" "$USER"
+          else
+            echo "Shell already set to ${shell_path}"
+          fi
         }
 
         update_shell
@@ -36,6 +46,7 @@
     - ~/.config/direnv
     - ~/.config/sheldon
     - ~/.config/atuin
+    - ~/.config/ghostty
     - ~/.ssh
     - ~/.config/zsh
     - ~/.config/zsh/completions
