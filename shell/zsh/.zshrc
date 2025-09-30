@@ -30,14 +30,14 @@ eval "$(sheldon source)"
 # zoxide (smart cd)
 eval "$(zoxide init zsh)"
 
-# atuin (enhanced history)
-eval "$(atuin init zsh)"
-
 # direnv (auto-load env vars)
 eval "$(direnv hook zsh)"
 
 # fzf
 [ -f ${ZDOTDIR:-~}/.fzf.zsh ] && source ${ZDOTDIR:-~}/.fzf.zsh
+
+# atuin + fzf integration (must load after fzf)
+[ -f ${ZDOTDIR:-~}/.atuin-fzf.zsh ] && source ${ZDOTDIR:-~}/.atuin-fzf.zsh
 
 # prompt
 eval "$(oh-my-posh init zsh --config ~/.prompt.omp.json)"
