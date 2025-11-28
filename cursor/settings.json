@@ -33,7 +33,6 @@
   "workbench.colorTheme": "Visual Studio Dark",
   "workbench.iconTheme": "vscode-icons",
   "workbench.tree.indent": 10,
-  "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": "multiple",
   "workbench.editor.tabSizing": "shrink",
   "workbench.startupEditor": "newUntitledFile",
@@ -59,8 +58,8 @@
   "explorer.compactFolders": false,
   "explorer.sortOrder": "type",
   // Terminal
-  "terminal.external.osxExec": "iTerm.app",
-  "terminal.integrated.fontFamily": "MesloLGS NF, Regular",
+  "terminal.external.osxExec": "Ghostty.app",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.sendKeybindingsToShell": true,
   "terminal.integrated.scrollback": 10000,
@@ -109,7 +108,7 @@
   // YAML Configuration
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
@@ -128,11 +127,7 @@
       "/**/models/**/*.yaml"
     ]
   },
-  // Kubernetes
-  "vs-kubernetes.crd-code-completion": "enabled",
-  "vs-kubernetes.outputFormat": "yaml",
-  "vs-kubernetes.kubeconfig": "",
-  "vs-kubernetes.kubectl-path": "",
+  // Kubernetes (main config is in vs-kubernetes object below)
   // Jupyter Notebooks
   "jupyter.askForKernelRestart": false,
   "jupyter.showVariableViewWhenDebugging": true,
@@ -140,7 +135,7 @@
   // Extension Specific
   "indentRainbow.indicatorStyle": "light",
   "vsicons.dontShowNewVersionMessage": true,
-  "redhat.telemetry.enabled": true,
+  "redhat.telemetry.enabled": false,
   "geminicodeassist.project": "yoto-dev-jason-b8d7a689",
   "todo-tree.general.tags": [
     "TODO",
@@ -149,18 +144,29 @@
     "NOTE"
   ],
   "todo-tree.highlights.enabled": true,
-  // Highlight extension - dim logging statements
+  // Highlight extension - dim logging statements (supports multi-line with parens in strings)
   "highlight.regexes": {
-    "(logger\\.(debug|info|warning|error|critical)\\(.+\\)[;]?)": {
-      "regexFlags": "g",
+    "(logger\\.(debug|info|warning|error|critical|exception)\\([\\s\\S]*?\\)\\s*$)": {
+      "regexFlags": "gm",
+      "filterLanguageRegex": "python",
       "decorations": [
         {
           "opacity": "0.3"
         }
       ]
     },
-    "(context\\.log\\.(debug|info|warning|error|critical)\\(.+\\)[;]?)": {
-      "regexFlags": "g",
+    "(context\\.log\\.(debug|info|warning|error|critical)\\([\\s\\S]*?\\)\\s*$)": {
+      "regexFlags": "gm",
+      "filterLanguageRegex": "python",
+      "decorations": [
+        {
+          "opacity": "0.3"
+        }
+      ]
+    },
+    "(logging\\.(debug|info|warning|error|critical|exception)\\([\\s\\S]*?\\)\\s*$)": {
+      "regexFlags": "gm",
+      "filterLanguageRegex": "python",
       "decorations": [
         {
           "opacity": "0.3"
@@ -184,5 +190,6 @@
     "vscode-kubernetes.minikube-path-mac": "/Users/jasongofford/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
     "vscode-kubernetes.kubectl-path-mac": "/Users/jasongofford/.vs-kubernetes/tools/kubectl/kubectl",
     "vs-kubernetes.crd-code-completion": "enabled"
-  }
+  },
+  "workbench.editor.enablePreview": false
 }

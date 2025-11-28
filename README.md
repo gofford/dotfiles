@@ -1,58 +1,69 @@
-Dotfiles Template
-=================
+# dotfiles
 
-This is a template repository for bootstrapping your dotfiles with [Dotbot][dotbot].
+macOS development environment powered by [Dotbot](https://github.com/anishathalye/dotbot).
 
-To get started, you can [create a new repository from this template][template]
-(or you can [fork][fork] this repository, if you prefer). You can probably
-delete this README and rename your version to something like just `dotfiles`.
+```bash
+git clone https://github.com/jasongofford/.dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./install
+```
 
-In general, you should be using symbolic links for everything, and using git
-submodules whenever possible.
+## Stack
 
-To keep submodules at their proper versions, you could include something like
-`git submodule update --init --recursive` in your `install.conf.yaml`.
+| Category   | Tools                                                                                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Terminal   | [Ghostty](https://ghostty.org/) with Nord theme                                                                                                                           |
+| Shell      | Zsh + [Oh My Posh](https://ohmyposh.dev/) + [Sheldon](https://github.com/rossmacarthur/sheldon)                                                                           |
+| History    | [Atuin](https://github.com/atuinsh/atuin) + [fzf](https://github.com/junegunn/fzf) integration                                                                            |
+| Navigation | [zoxide](https://github.com/ajeetdsouza/zoxide) (smart cd)                                                                                                                |
+| Editor     | [Cursor](https://cursor.sh/)                                                                                                                                              |
+| Git        | [Lazygit](https://github.com/jesseduffield/lazygit), [git-spice](https://github.com/abhinav/git-spice) (stacked PRs)                                                      |
+| Files      | [eza](https://github.com/eza-community/eza), [bat](https://github.com/sharkdp/bat), [fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep) |
+| Infra      | Docker, [k9s](https://github.com/derailed/k9s), [Terramate](https://github.com/terramate-io/terramate)                                                                    |
 
-To upgrade your submodules to their latest versions, you could periodically run
-`git submodule update --init --remote`.
+## Keybindings
 
-Inspiration
------------
+| Key       | Action                             |
+| --------- | ---------------------------------- |
+| `Ctrl+R`  | Fuzzy history search (fzf + atuin) |
+| `Ctrl+\`  | Atuin native UI                    |
+| `Ctrl+T`  | File search with preview           |
+| `Alt+C`   | Directory jump                     |
+| `z <dir>` | Smart cd (zoxide)                  |
 
-If you're looking for inspiration for how to structure your dotfiles or what
-kinds of things you can include, you could take a look at some repos using
-Dotbot.
+## Structure
 
-* [anishathalye's dotfiles][anishathalye_dotfiles]
-* [csivanich's dotfiles][csivanich_dotfiles]
-* [m45t3r's dotfiles][m45t3r_dotfiles]
-* [alexwh's dotfiles][alexwh_dotfiles]
-* [azd325's dotfiles][azd325_dotfiles]
-* [wazery's dotfiles][wazery_dotfiles]
-* [thirtythreeforty's dotfiles][thirtythreeforty_dotfiles]
+```
+~/.dotfiles/
+├── install              # Main entry point
+├── install.conf.yaml    # Orchestrates steps
+├── steps/               # Modular installation
+│   ├── 01-bootstrap     # Homebrew, essentials
+│   ├── 02-brew-core     # CLI tools
+│   ├── 03-brew-casks    # Desktop apps
+│   ├── 04-brew-appstore # Mac App Store
+│   ├── 05-shell         # Zsh, prompt, plugins
+│   ├── 06-dev           # Git config
+│   ├── 07-system        # SSH, direnv
+│   └── 08-extensions    # Editor extensions
+├── shell/               # Shell configs
+│   ├── zsh/             # .zshrc, aliases, fzf
+│   ├── sheldon/         # Plugin manager
+│   └── omp/             # Prompt theme
+├── brew/                # Brewfiles
+├── cursor/              # Editor settings
+├── ghostty/             # Terminal config
+├── atuin/               # History config
+└── git/                 # Git config
+```
 
-And there are about [700 more here][dotbot-users].
+## Commands
 
-If you're using Dotbot and you'd like to include a link to your dotfiles here
-as an inspiration to others, please submit a pull request.
+```bash
+./install                         # Full install
+./install -c steps/05-shell.yaml  # Single step
+brew bundle --file=brew/Brewfile  # Install packages
+git submodule update --init       # Update dotbot
+```
 
-License
--------
+## Updating
 
-This software is hereby released into the public domain. That means you can do
-whatever you want with it without restriction. See `LICENSE.md` for details.
-
-That being said, I would appreciate it if you could maintain a link back to
-Dotbot (or this repository) to help other people discover Dotbot.
-
-[dotbot]: https://github.com/anishathalye/dotbot
-[fork]: https://github.com/anishathalye/dotfiles_template/fork
-[template]: https://github.com/anishathalye/dotfiles_template/generate
-[anishathalye_dotfiles]: https://github.com/anishathalye/dotfiles
-[csivanich_dotfiles]: https://github.com/csivanich/dotfiles
-[m45t3r_dotfiles]: https://github.com/m45t3r/dotfiles
-[alexwh_dotfiles]: https://github.com/alexwh/dotfiles
-[azd325_dotfiles]: https://github.com/Azd325/dotfiles
-[wazery_dotfiles]: https://github.com/wazery/dotfiles
-[thirtythreeforty_dotfiles]: https://github.com/thirtythreeforty/dotfiles
-[dotbot-users]: https://github.com/anishathalye/dotbot/wiki/Users
+Configs are symlinked — edit in `~/.dotfiles/`, commit, push.

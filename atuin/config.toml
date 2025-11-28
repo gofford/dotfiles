@@ -1,77 +1,142 @@
-## date format used, either "us" or "uk"
+# Atuin Configuration
+# https://docs.atuin.sh/configuration/config/
+
+## ─────────────────────────────────────────────────────────────
+## General Settings
+## ─────────────────────────────────────────────────────────────
+
+# Date format: "us" (MM/DD) or "uk" (DD/MM)
 dialect = "uk"
 
-## Configures whether to store commands that failed (those with non-zero exit status) or not.
-store_failed = false
+# Store failed commands (non-zero exit)? Useful for debugging
+store_failed = true
 
-## prevent commands matching any of these regexes from being written to history.
-## Note that these regular expressions are unanchored, i.e. if they don't start
-## with ^ or end with $, they'll match anywhere in the command.
-## For details on the supported regular expression syntax, see
-## https://docs.rs/regex/latest/regex/#syntax
-# history_filter = [
-#   "^secret-cmd",
-#   "^innocuous-cmd .*--secret=.+",
-# ]
+# Auto-sync frequency (requires login: `atuin login`)
+auto_sync = true
+sync_frequency = "1h"
 
-## prevent commands run with cwd matching any of these regexes from being written
-## to history. Note that these regular expressions are unanchored, i.e. if they don't
-## start with ^ or end with $, they'll match anywhere in CWD.
-## For details on the supported regular expression syntax, see
-## https://docs.rs/regex/latest/regex/#syntax
-# cwd_filter = [
-#   "^/very/secret/area",
-# ]
+## ─────────────────────────────────────────────────────────────
+## Search Behavior
+## ─────────────────────────────────────────────────────────────
 
-## Defaults to true. This matches history against a set of default regex, and will not save it if we get a match. Defaults include
-## 1. AWS key id
-## 2. Github pat (old and new)
-## 3. Slack oauth tokens (bot, user)
-## 4. Slack webhooks
-## 5. Stripe live/test keys
-# secrets_filter = true
+# Search mode: "prefix" | "fulltext" | "fuzzy" | "skim"
+# fuzzy = match characters anywhere (like fzf)
+search_mode = "fuzzy"
 
-## Defaults to true. If enabled, upon hitting enter Atuin will immediately execute the command. Press tab to return to the shell and edit.
-# This applies for new installs. Old installs will keep the old behaviour unless configured otherwise.
+# Default filter: "global" | "host" | "session" | "directory"
+# host = prioritize commands from this machine
+filter_mode = "host"
+
+# What filter to use when pressing up arrow
+filter_mode_shell_up_key_binding = "directory"
+
+# Workspace mode: filter by git repo when in a repo
+workspaces = true
+
+## ─────────────────────────────────────────────────────────────
+## UI Settings
+## ─────────────────────────────────────────────────────────────
+
+# Style: "auto" | "full" | "compact"
+# compact = more results, less decoration
+style = "compact"
+
+# Rows to show in inline mode (Ctrl+R)
+inline_height = 20
+
+# Show command preview pane
+show_preview = true
+
+# Show help text at bottom
+show_help = true
+
+# Show tabs for filter modes
+show_tabs = true
+
+# Timestamps in search results: "true" | "false"  
+timestamps = true
+
+# Time format for timestamps
+time_format = "%Y-%m-%d %H:%M"
+
+# Exit on ESC
+exit_mode = "return-original"
+
+## ─────────────────────────────────────────────────────────────
+## Keybindings (in atuin native UI)
+## ─────────────────────────────────────────────────────────────
+
+# Keymap style: "auto" | "emacs" | "vim-normal" | "vim-insert"
+keymap_mode = "auto"
+
+# Cursor style in vim mode
+keymap_cursor = { emacs = "blink-block", vim_insert = "blink-bar", vim_normal = "steady-block" }
+
+# Return query if no results (allows running new commands)
+return_default_text = true
+
+# Enter behavior: execute immediately or return to shell for editing
 enter_accept = true
 
+## ─────────────────────────────────────────────────────────────
+## History Filters (privacy/noise reduction)
+## ─────────────────────────────────────────────────────────────
+
+# Auto-filter secrets (AWS keys, GitHub PATs, Slack tokens, etc.)
+secrets_filter = true
+
+# Filter out noisy/trivial commands from history
+history_filter = [
+    "^\\s+",           # Commands starting with space (intentionally hidden)
+    "^clear$",
+    "^pwd$",
+    "^exit$",
+    "^ls$",
+    "^ll$",
+    "^la$",
+    "^cd$",
+    "^cd -$",
+    "^z$",             # zoxide without args
+    "^\\.$",           # Just a dot
+    "^\\.\\.$",        # Just ..
+]
+
+# Directories to never record history from
+# cwd_filter = [
+#     "^/private",     # macOS temp dirs
+# ]
+
+## ─────────────────────────────────────────────────────────────
+## Statistics
+## ─────────────────────────────────────────────────────────────
+
 [stats]
-## Set commands where we should consider the subcommand for statistics. Eg, kubectl get vs just kubectl
-# common_subcommands = [
-#   "apt",
-#   "cargo",
-#   "composer",
-#   "dnf",
-#   "docker",
-#   "git",
-#   "go",
-#   "ip",
-#   "jj",
-#   "kubectl",
-#   "nix",
-#   "nmcli",
-#   "npm",
-#   "pecl",
-#   "pnpm",
-#   "podman",
-#   "port",
-#   "systemctl",
-#   "tmux",
-#   "yarn",
-# ]
+# Track subcommands separately (git commit vs git push)
+common_subcommands = [
+    "brew",
+    "cargo",
+    "docker",
+    "git",
+    "go",
+    "gs",              # git-spice
+    "just",
+    "kubectl",
+    "minikube",
+    "npm",
+    "terraform",
+    "uv",
+]
 
-## Set commands that should be totally stripped and ignored from stats
-# common_prefix = ["sudo"]
+# Strip these prefixes for cleaner stats
+common_prefix = ["sudo", "time", "caffeinate"]
 
-## Set commands that will be completely ignored from stats
-# ignored_commands = [
-#   "cd",
-#   "ls",
-#   "vi"
-# ]
+# Ignore these entirely in stats
+ignored_commands = ["ls", "ll", "la", "cd", "z", "pwd", "clear", "exit"]
+
+## ─────────────────────────────────────────────────────────────
+## Sync (optional - requires `atuin register` or `atuin login`)
+## ─────────────────────────────────────────────────────────────
 
 [sync]
-# Enable sync v2 by default
-# This ensures that sync v2 is enabled for new installs only
-# In a later release it will become the default across the board
+# Enable sync v2 protocol
 records = true
