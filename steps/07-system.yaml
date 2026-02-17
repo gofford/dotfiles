@@ -3,6 +3,10 @@
       relink: true
       force: true
 
+# Ensure config directories exist
+- create:
+    - ~/.config/opencode
+
 # Link system configuration files
 - link:
     # ssh configuration
@@ -10,6 +14,12 @@
 
     # direnv configuration
     ~/.config/direnv/direnv.toml: ~/.dotfiles/direnv/direnv.toml
+
+    # opencode configuration
+    ~/.config/opencode/opencode.json: ~/.dotfiles/opencode/opencode.json
+    ~/.config/opencode/dcp.jsonc: ~/.dotfiles/opencode/dcp.jsonc
+    ~/.config/opencode/agents: ~/.dotfiles/opencode/agents
+    ~/.config/opencode/skills: ~/.dotfiles/opencode/skills
 
     # k9s configuration
     ~/.config/k9s:

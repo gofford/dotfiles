@@ -43,3 +43,6 @@ eval "$(direnv hook zsh)"
 eval "$(oh-my-posh init zsh --config ~/.prompt.omp.json)"
 
 
+
+# opencode
+export PATH=/Users/jasongofford/.opencode/bin:$PATH

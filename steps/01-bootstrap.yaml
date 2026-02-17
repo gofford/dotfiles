@@ -7,7 +7,8 @@
 - shell:
     - description: Install essential packages for bootstrap
       command: |
-        if ! command -v zsh >/dev/null 2>&1; then
+        shell_path="$(brew --prefix)/bin/zsh"
+        if [ ! -x "${shell_path}" ]; then
           brew install zsh
         fi
 
@@ -18,6 +19,11 @@
         update_shell() {
           local shell_path;
           shell_path="$(brew --prefix)/bin/zsh"
+
+          if [ ! -x "${shell_path}" ]; then
+            echo "Homebrew zsh not found at ${shell_path}; installing..."
+            brew install zsh
+          fi
 
           # Only add to /etc/shells if not already present
           if ! grep -q "^${shell_path}$" /etc/shells 2>/dev/null; then

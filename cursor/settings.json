@@ -56,7 +56,6 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": true,
   "explorer.compactFolders": false,
-  "explorer.sortOrder": "type",
   // Terminal
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.fontFamily": "MesloLGS NF",
@@ -189,7 +188,8 @@
     "vscode-kubernetes.helm-path-mac": "/Users/jasongofford/.vs-kubernetes/tools/helm/darwin-arm64/helm",
     "vscode-kubernetes.minikube-path-mac": "/Users/jasongofford/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
     "vscode-kubernetes.kubectl-path-mac": "/Users/jasongofford/.vs-kubernetes/tools/kubectl/kubectl",
-    "vs-kubernetes.crd-code-completion": "enabled"
+    "vs-kubernetes.crd-code-completion": "enabled",
+    "vs-kubernetes.minikube-show-information-expiration": "2026-08-02T09:05:19.258Z"
   },
   "workbench.editor.enablePreview": false
 }

@@ -7,9 +7,10 @@ cask "sublime-text"
 cask "slack"
 cask "the-unarchiver"
 cask "google-cloud-sdk"
-cask "altair-graphql-client"
 cask "1password"
-brew "claude-code"
+cask "claude-code"
+cask "codex"
+cask "yaak"
 
 # fonts
 cask "font-fira-code"

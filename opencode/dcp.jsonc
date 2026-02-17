@@ -1,0 +1,64 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Opencode-DCP/opencode-dynamic-context-pruning/master/dcp.schema.json",
+  "enabled": true,
+  "debug": false,
+  // Show what DCP is doing so you can tune later
+  "pruneNotification": "detailed",
+  "pruneNotificationType": "chat",
+  "commands": {
+    "enabled": true,
+    "protectedTools": []
+  },
+  // Keep the last 4 turns immune from pruning
+  "turnProtection": {
+    "enabled": true,
+    "turns": 4
+  },
+  // Protect core config only — skill content is working material and can be pruned
+  "protectedFilePatterns": [
+    "**/opencode.json",
+    "**/dcp.jsonc"
+  ],
+  "tools": {
+    "settings": {
+      "nudgeEnabled": true,
+      "nudgeFrequency": 10,
+      // Keep the model in the smart zone - 100K is a good default
+      // for gpt-5.x context windows
+      "contextLimit": 100000,
+      "protectedTools": []
+    },
+    // Distill preserves key findings before removing raw content
+    "distill": {
+      "permission": "allow",
+      "showDistillation": false
+    },
+    // Compress collapses long conversation ranges into summaries
+    // "ask" so you approve before large compressions
+    "compress": {
+      "permission": "ask",
+      "showCompression": false
+    },
+    // Prune removes completed/noisy tool content
+    "prune": {
+      "permission": "allow"
+    }
+  },
+  "strategies": {
+    // Remove duplicate tool calls (e.g. reading the same file twice)
+    "deduplication": {
+      "enabled": true,
+      "protectedTools": []
+    },
+    // Remove write content when the file has been subsequently read
+    "supersedeWrites": {
+      "enabled": true
+    },
+    // Clean up errored tool inputs after 4 turns
+    "purgeErrors": {
+      "enabled": true,
+      "turns": 4,
+      "protectedTools": []
+    }
+  }
+}
