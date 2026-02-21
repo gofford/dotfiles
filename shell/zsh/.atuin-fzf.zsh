@@ -49,8 +49,7 @@ atuin-setup() {
         local ret=$?
 
         if [ -n "$selected" ]; then
-            # Insert at current cursor position
-            LBUFFER+="${selected}"
+            LBUFFER="${selected}"
         fi
 
         zle reset-prompt

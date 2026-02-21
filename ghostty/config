@@ -4,6 +4,7 @@
 font-family = MesloLGS NF
 font-size = 15
 font-feature = -liga
+font-thicken = true
 
 # Cursor
 cursor-style = block
@@ -14,6 +15,9 @@ cursor-invert-fg-bg = true
 mouse-hide-while-typing = true
 focus-follows-mouse = true
 
+# Theme
+theme = Atom One Dark
+
 # Window
 window-padding-x = 2
 window-padding-y = 2
@@ -21,6 +25,8 @@ window-padding-balance = true
 window-save-state = always
 window-theme = system
 window-decoration = true
+confirm-close-surface = false
+scrollback-limit = 10000
 
 # macOS-specific settings
 macos-titlebar-style = tabs
@@ -42,7 +48,13 @@ link-url = true
 auto-update = download
 auto-update-channel = stable
 
+# Quick terminal (system-wide dropdown)
+quick-terminal-position = top
+quick-terminal-screen = main
+quick-terminal-animation-duration = 0.1
+
 # Keybindings
+keybind = global:cmd+grave_accent=toggle_quick_terminal
 keybind = cmd+t=new_tab
 keybind = cmd+w=close_surface
 keybind = cmd+shift+left_bracket=previous_tab

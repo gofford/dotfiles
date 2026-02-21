@@ -3,7 +3,7 @@ description: Terminal executor. Receives complete context and task spec from Arc
 mode: subagent
 model: openai/gpt-5.3-codex
 reasoningEffort: medium
-textVerbosity: medium
+textVerbosity: low
 permission:
   edit: allow
   todowrite: allow

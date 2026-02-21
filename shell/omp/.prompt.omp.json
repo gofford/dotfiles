@@ -6,7 +6,7 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#81a1c1",
+          "foreground": "#61afef",
           "properties": {
             "style": "agnoster"
           },
@@ -23,12 +23,12 @@
         {
           "type": "git",
           "style": "plain",
-          "foreground": "#D8DEE9",
+          "foreground": "#abb2bf",
           "properties": {
             "branch_icon": " ",
             "fetch_status": true
           },
-          "template": "{{ .HEAD }}{{ if gt .Ahead 0 }}<#88C0D0> ↑{{ .Ahead }}</>{{ end }}{{ if gt .Behind 0 }}<#88C0D0> ↓{{ .Behind }}</>{{ end }}{{ if or .Working.Changed .Staging.Changed (gt .StashCount 0) }} |{{ end }}{{ if .Working.Changed }} <#EBCB8B> {{ .Working.String }}</>{{ end }}{{ if .Staging.Changed }} <#A3BE8C> {{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }} <#D8DEE9>  {{ .StashCount }}</>{{ end }}"
+          "template": "{{ .HEAD }}{{ if gt .Ahead 0 }}<#56b6c2> ↑{{ .Ahead }}</>{{ end }}{{ if gt .Behind 0 }}<#56b6c2> ↓{{ .Behind }}</>{{ end }}{{ if or .Working.Changed .Staging.Changed (gt .StashCount 0) }} |{{ end }}{{ if .Working.Changed }} <#e5c07b> {{ .Working.String }}</>{{ end }}{{ if .Staging.Changed }} <#98c379> {{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }} <#abb2bf>  {{ .StashCount }}</>{{ end }}"
         }
       ],
       "type": "prompt"
@@ -41,8 +41,8 @@
           "style": "diamond",
           "leading_diamond": " ",
           "trailing_diamond": "",
-          "foreground": "#2e3440",
-          "background": "#a3be8c",
+          "foreground": "#282c34",
+          "background": "#98c379",
           "template": "  {{ .Venv }} "
         },
         {
@@ -50,8 +50,8 @@
           "style": "diamond",
           "leading_diamond": " ",
           "trailing_diamond": "",
-          "foreground": "#2e3440",
-          "background": "#ebcb8b",
+          "foreground": "#282c34",
+          "background": "#e5c07b",
           "template": "{{if contains \"default\" .WorkspaceName}}{{\"\"}}{{else}} 󰏗 {{.WorkspaceName}} {{end}}"
         },
         {
@@ -59,8 +59,8 @@
           "style": "diamond",
           "leading_diamond": " ",
           "trailing_diamond": "",
-          "foreground": "#ffffff",
-          "background": "#47888d",
+          "foreground": "#282c34",
+          "background": "#56b6c2",
           "template": "  {{ .ActiveConfig }} "
         }
       ],
@@ -71,9 +71,9 @@
       "newline": true,
       "segments": [
         {
-          "foreground": "#b48ead",
+          "foreground": "#c678dd",
           "foreground_templates": [
-            "{{ if gt .code 0 }}#bf616a{{ end }}"
+            "{{ if gt .code 0 }}#e06c75{{ end }}"
           ],
           "properties": {
             "always_enabled": true
@@ -91,7 +91,7 @@
         {
           "type": "executiontime",
           "style": "plain",
-          "foreground": "#3b4252",
+          "foreground": "#5c6370",
           "properties": {
             "threshold": 2000,
             "style": "round"
@@ -101,7 +101,7 @@
         {
           "type": "time",
           "style": "plain",
-          "foreground": "#3b4252",
+          "foreground": "#5c6370",
           "template": "at {{ .CurrentDate | date \"15:04\" }}"
         }
       ]
@@ -109,9 +109,9 @@
   ],
   "console_title_template": "{{if .Root}}(Admin){{end}} {{.PWD}}",
   "transient_prompt": {
-    "foreground": "#b48ead",
+    "foreground": "#c678dd",
     "foreground_templates": [
-      "{{ if gt .Code 0 }}#BF616A{{ end }}"
+      "{{ if gt .Code 0 }}#e06c75{{ end }}"
     ],
     "template": "\u276f "
   },

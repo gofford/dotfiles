@@ -5,38 +5,54 @@
 - shell:
     - command: ./install -c steps/01-bootstrap.yaml
       description: "01-Bootstrap: Essential shell setup and homebrew-file"
+      stdout: true
+      stderr: true
 
 # Step 2: Install Homebrew formulae and dependencies
 - shell:
     - command: ./install -c steps/02-brew-core.yaml
       description: "02-Brew Core: Install formulae and dependencies"
+      stdout: true
+      stderr: true
 
 # Step 3: Install desktop applications
 - shell:
     - command: ./install -c steps/03-brew-casks.yaml
       description: "03-Brew Casks: Install desktop applications"
+      stdout: true
+      stderr: true
 
 # Step 4: Install Mac App Store apps
 - shell:
     - command: ./install -c steps/04-brew-appstore.yaml
       description: "04-Brew MAS: Install Mac App Store applications"
+      stdout: true
+      stderr: true
 
 # Step 5: Shell configuration (zsh, oh-my-posh, sheldon)
 - shell:
     - command: ./install -c steps/05-shell.yaml
-      description: "05-Shell: Configure zsh, oh-my-posh, and sheldon"
+      description: "05-Shell: Configure shell settings"
+      stdout: true
+      stderr: true
 
 # Step 6: Development tools configuration
 - shell:
     - command: ./install -c steps/06-dev.yaml
       description: "06-Dev: Configure git and development tools"
+      stdout: true
+      stderr: true
 
 # Step 7: System configuration
 - shell:
     - command: ./install -c steps/07-system.yaml
-      description: "07-System: Configure SSH, direnv, and editor settings"
+      description: "07-System: Configure system settings"
+      stdout: true
+      stderr: true
 
 # Step 8: Install Cursor extensions
 - shell:
     - command: ./install -c steps/08-brew-extensions.yaml
-      description: "08-Extensions: Install Cursor/VSCode extensions"
+      description: "08-Extensions: Install Cursor extensions"
+      stdout: true
+      stderr: true
