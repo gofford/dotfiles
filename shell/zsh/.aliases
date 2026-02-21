@@ -10,15 +10,16 @@ alias tree='eza --tree'
 # better cat with bat
 alias cat='bat'
 
-# modern navigation
-alias cd='z'  # use zoxide instead of cd
-
 # enhanced grep and find
 alias grep='rg'
 alias find='fd'
 
+# git - plain diff for piping to LLMs (bypasses delta pager)
+alias gdiff='git --no-pager diff'
+alias gdiffs='git --no-pager diff --staged'
+
 # misc
 alias please=sudo
-alias zshrc='nano "${ZDOTDIR:-$HOME}"/.zshrc'
+alias zshrc='${EDITOR:-vi} "${ZDOTDIR:-$HOME}"/.zshrc'
 alias zbench='for i in {1..10}; do /usr/bin/time zsh -lic exit; done'
 alias zdot='cd ${ZDOTDIR:-~}'

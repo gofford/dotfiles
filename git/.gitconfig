@@ -4,43 +4,45 @@
     attributesfile = ~/.gitattributes
     eol = lf
     editor = vi
+    pager = delta
+
 [user]
-	name = Jason Gofford
-	email = jason@yotoplay.com
+    name = Jason Gofford
+    email = jason@yotoplay.com
+    signingkey = ~/.ssh/id_ed25519.pub
+
 [init]
     defaultBranch = main
+
 [pull]
     rebase = true
+
 [push]
     default = current
     autoSetupRemote = true
     followTags = true
+
 [branch]
     autoSetupMerge = always
-[color]
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
-    ui = auto
-    colorMoved = default
+
 [help]
     autocorrect = 20
+
 [merge]
-    # Include summaries of merged commits in newly created merge commit messages
     log = true
-    conflictstyle = diff3
+    conflictstyle = zdiff3
+
 [diff]
-    # Detect copies as well as renames
     renames = copies
     mnemonicprefix = true
     algorithm = patience
-    # Use blank lines as diff boundary to improve diffs
-    heuristic = true
+    colorMoved = dimmed-zebra
+    colorMovedWS = ignore-all-space
+
 [fetch]
-    # Always prune remote-tracking branches
-    # See http://albertogrespan.com/blog/always-prune-remote-tracking-branches/
     prune = true
+    parallel = 0
+
 [advice]
     commitBeforeMerge = true
     detachedHead = true
@@ -48,38 +50,41 @@
     pushNonFastForward = false
     resolveConflict = true
     statusHints = false
+
 [alias]
     gone = "!f() { git fetch --all --prune; git branch --format '%(refname:short) %(upstream:track)' | awk '/\\[gone\\]/{print $1}' | xargs git branch -D; }; f"
-    cleanup = "!git branch --merged | grep -v -P '^\\*|main' | xargs -n1 -r git branch -d"
+    cleanup = "!git branch --merged | grep -Ev '^\\*|main' | xargs -n1 git branch -d"
     unstage = reset HEAD --
     amend = commit --amend --no-edit
     undo = reset --soft HEAD~1
-[status]
-    # Short git status output, but include branch info
-    short = false
-    branch = false
+
 [credential]
     helper = osxkeychain
+
 [tag]
     verbose = true
+
 [commit]
-    gpgsign = true
     verbose = true
+    gpgsign = true
+
 [gpg]
-	format = ssh
-	# Configure your preferred GPG/SSH signing program in ~/.gitconfig.local if needed.
+    format = ssh
+
 [submodule]
-    # Fetch submodules in parallel, with a reasonable number of jobs
     fetchJobs = 0
-    # Disabled due to issues in git pull
-    recurse = true
+
 [remote]
     pushDefault = origin
-[include]
-    path = ~/.gitconfig.local
-	# Use ~/.gitconfig.local for host-specific overrides (e.g., work email).
 
-# Modern Git features
+[delta]
+    navigate = true
+    line-numbers = true
+    dark = true
+
+[interactive]
+    diffFilter = delta --color-only
+
 [rerere]
     enabled = true
 
@@ -89,7 +94,12 @@
 [rebase]
     autoStash = true
     autoSquash = true
+    updateRefs = true
 
 [log]
     abbrevCommit = true
     follow = true
+
+# Machine-specific overrides (e.g., work email, signing program)
+[include]
+    path = ~/.gitconfig.local

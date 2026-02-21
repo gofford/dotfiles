@@ -12,16 +12,16 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
 
-# Nord color theme (uses terminal background for seamless look)
+# Atom One Dark color theme
 export FZF_DEFAULT_OPTS="
   --height 80%
   --layout=reverse
   --border=rounded
   --info=inline
-  --color=bg+:#3B4252,spinner:#81A1C1,hl:#88C0D0
-  --color=fg:#D8DEE9,header:#88C0D0,info:#5E81AC,pointer:#81A1C1
-  --color=marker:#A3BE8C,fg+:#ECEFF4,prompt:#81A1C1,hl+:#8FBCBB
-  --color=border:#4C566A
+  --color=bg+:#3e4451,spinner:#61afef,hl:#56b6c2
+  --color=fg:#abb2bf,header:#56b6c2,info:#61afef,pointer:#61afef
+  --color=marker:#98c379,fg+:#e6efff,prompt:#61afef,hl+:#56b6c2
+  --color=border:#3e4451
   --bind 'ctrl-/:toggle-preview'
   --bind 'ctrl-y:execute-silent(echo -n {} | pbcopy)+abort'"
 
@@ -36,12 +36,6 @@ export FZF_ALT_C_OPTS="
   --preview 'eza --tree --color=always --icons --level=2 {} | head -200'
   --preview-window 'right:50%:border-left'
   --header 'Jump to directory'"
-
-# Ctrl+R: History search (handled by atuin-fzf, but fallback styling)
-export FZF_CTRL_R_OPTS="
-  --preview 'echo {}'
-  --preview-window 'down:3:wrap'
-  --header 'CTRL-D: filter by directory | CTRL-R: all history'"
 
 # Auto-completion
 source "$(brew --prefix)/opt/fzf/shell/completion.zsh"

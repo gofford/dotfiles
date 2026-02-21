@@ -32,10 +32,6 @@ dir = "utility"
 github = "belak/zsh-utils"
 dir = "editor"
 
-# Directory navigation (immediate - used frequently)
-[plugins.zsh-z]
-github = "agkozak/zsh-z"
-
 # Tab completion enhancement (immediate - core functionality)
 [plugins.fzf-tab]
 github = "Aloxaf/fzf-tab"
@@ -73,4 +69,3 @@ apply = ["defer"]
 
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
-apply = ["defer"]

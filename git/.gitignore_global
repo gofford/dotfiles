@@ -1,3 +1,18 @@
+### macOS ###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+### Cursor IDE ###
+.cursor/
+
+### Secrets & local env ###
+.env.local
+.env.*.local
+*.orig
+
 # Created by https://www.toptal.com/developers/gitignore/api/dbt,python,helm,terraform,terragrunt,zsh,jetbrains,virtualenv,homebrew,sublimetext
 # Edit at https://www.toptal.com/developers/gitignore?templates=dbt,python,helm,terraform,terragrunt,zsh,jetbrains,virtualenv,homebrew,sublimetext
 

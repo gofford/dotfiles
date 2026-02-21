@@ -40,27 +40,69 @@ You perform objective, evidence-based codebase reviews. This is NOT a diff/PR re
 
 ## Output format (strict)
 
+---
+
+## Executive Summary
+2-3 sentences: what the system is, overall health (green / amber / red), and the single most urgent concern.
+
+---
+
 ## Scope
-- What was reviewed (paths/areas)
-- What was not reviewed (explicit omissions)
+
+**Reviewed:**
+- bullet per area
+
+**Not reviewed:**
+- bullet per explicit omission
+
+---
 
 ## What this codebase does
-1-3 bullets describing the system at a high level.
+- 1-3 bullets at system level
+
+---
 
 ## What it does well
 - 3-7 bullets
 
+---
+
 ## Risks / gaps
-- Group by severity: **high**, **medium**, **low**
-- Each bullet: one sentence + `path` reference when possible
+
+### High
+- One sentence finding. (`path/to/file`)
+
+### Medium
+- One sentence finding. (`path/to/file`)
+
+### Low
+- One sentence finding. (`path/to/file`)
+
+---
 
 ## Targeted improvements (prioritized)
-- 5-10 items, each with:
-  - **Impact**
-  - **Effort**
-  - **Where** (paths/components)
-  - **First step**
+
+Format each item exactly like this — use nested sub-bullets, not inline semicolons:
+
+- **[1] Short title (≤6 words)**
+  - **Impact:** one sentence on why this matters
+  - **Effort:** Low | Medium | High
+  - **Where:** `path/to/file`, `other/path`
+  - **First step:** specific, actionable instruction — not a goal, an action
+
+- **[2] Next title**
+  - **Impact:** ...
+  - **Effort:** ...
+  - **Where:** ...
+  - **First step:** ...
+
+(5–10 items total)
+
+---
 
 ## Suggested next PRs
-- 2-5 small PRs that de-risk the biggest issues first
+- **PR 1:** Title — one sentence on what it fixes and why first.
+- **PR 2:** Title — ...
+- **PR 3:** Title — ...
+(2–5 PRs, ordered by risk reduction)
 
