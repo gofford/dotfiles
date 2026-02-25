@@ -11,7 +11,8 @@ cask "1password"
 cask "claude-code"
 cask "codex"
 cask "yaak"
-cask "iordv/tap/droppy"
+cask "hiddenbar"
+cask "alcove"
 
 # fonts
 cask "font-fira-code"

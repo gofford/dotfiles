@@ -27,7 +27,7 @@ Use dbt to apply software engineering discipline (modularity, DRY, testing, docu
 - **Always scope execution**: prefer `--select` and avoid running an entire project without explicit user approval.
 - **Prefer `dbt build`** over `dbt run` / `dbt test` for validating changes.
 - **Use `dbt show` iteratively** for discovery and validation; always use `--limit` and push limits early in CTEs.
-- **Prefer MCP tools when available** (`dbt_build`, `dbt_show`, etc.) to reduce command/flag mistakes and output noise.
+- **Use `dbt show` iteratively** with `--limit` for discovery and validation before running full builds.
 
 ## Reference Guides (read the relevant one)
 

@@ -100,6 +100,3 @@
     abbrevCommit = true
     follow = true
 
-# Machine-specific overrides (e.g., work email, signing program)
-[include]
-    path = ~/.gitconfig.local
