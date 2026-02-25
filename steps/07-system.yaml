@@ -33,3 +33,29 @@
 
     # editor configuration
     ~/.editorconfig: ~/.dotfiles/.editorconfig
+
+# Dock configuration
+- shell:
+    - description: Configure Dock with dockutil
+      command: |
+        # Require dockutil
+        if ! command -v dockutil >/dev/null 2>&1; then
+          echo "dockutil not found — skipping dock configuration"
+          exit 0
+        fi
+
+        # Start clean
+        dockutil --remove all --no-restart
+
+        # Apps
+        dockutil --add "/Applications/Spark.app" --no-restart
+        dockutil --add /Applications/Arc.app --no-restart
+        dockutil --add /Applications/Slack.app  --no-restart
+        dockutil --add /Applications/Ghostty.app --no-restart
+        dockutil --add /Applications/Cursor.app  --no-restart
+        dockutil --add "/Applications/Sublime Text.app" --no-restart
+        dockutil --add /Applications/DataGrip.app --no-restart
+        dockutil --add /Applications/Spotify.app --no-restart
+
+        # Apply all changes in one restart
+        killall Dock

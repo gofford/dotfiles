@@ -1,5 +1,0 @@
-- shell:
-    - command: brew file install -f brew/Brewfile.appstore
-      description: "Install Mac App Store applications"
-      stdout: true
-      stderr: true

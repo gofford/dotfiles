@@ -1,5 +1,6 @@
 # normal casks
 cask "arc"
+cask "spark"
 cask "docker"
 cask "ghostty"
 cask "raycast"
@@ -10,9 +11,11 @@ cask "google-cloud-sdk"
 cask "1password"
 cask "claude-code"
 cask "codex"
+cask "datagrip"
 cask "yaak"
 cask "hiddenbar"
 cask "alcove"
+cask "spotify"
 
 # fonts
 cask "font-fira-code"

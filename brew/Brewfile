@@ -49,8 +49,7 @@ brew "anomalyco/tap/opencode"
 # terraform
 brew "warrensbox/tap/tfswitch"
 
-# app store and utility management
-brew "mas"
+# utility management
 brew "lotyp/formulae/dockutil"
 
 # password management

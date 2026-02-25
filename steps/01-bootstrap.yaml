@@ -56,6 +56,11 @@
     - ~/.ssh
     - ~/.config/zsh
     - ~/.config/zsh/completions
+    - ~/.config/opencode
+    - ~/.config/k9s
+    - ~/.ssh
+    - "~/Library/Application Support/Cursor"
+    - "~/Library/Application Support/Cursor/User"
 
 # Final setup
 - shell:
