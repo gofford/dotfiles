@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
-
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -12,8 +10,53 @@ cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive
 
+# Default: run all install steps in order.
+DEFAULT_CONFIGS=(
+	"steps/01-bootstrap.yaml"
+	"steps/02-brew-core.yaml"
+	"steps/03-brew-casks.yaml"
+	"steps/04-brew-appstore.yaml"
+	"steps/05-shell.yaml"
+	"steps/06-dev.yaml"
+	"steps/07-system.yaml"
+	"steps/08-brew-extensions.yaml"
+)
+
+# Backward compatibility:
+# - no args => run all default configs
+# - "-c <config>" => run single config (e.g. ./install -c steps/05-shell.yaml)
+# - otherwise => pass args through to dotbot as-is
+if [[ $# -eq 0 ]]; then
+	set -- "${DEFAULT_CONFIGS[@]}"
+fi
+
+DOTBOT_ARGS=()
+if [[ $# -eq 2 && "$1" == "-c" ]]; then
+	DOTBOT_ARGS+=(--config-file "$2")
+else
+	# If every arg looks like a yaml path, treat as config files.
+	ALL_CONFIG_PATHS=true
+	for arg in "$@"; do
+		case "$arg" in
+			*.yaml|*.yml) ;;
+			*)
+				ALL_CONFIG_PATHS=false
+				break
+				;;
+		esac
+	done
+
+	if [[ "${ALL_CONFIG_PATHS}" == "true" ]]; then
+		for cfg in "$@"; do
+			DOTBOT_ARGS+=(--config-file "$cfg")
+		done
+	else
+		DOTBOT_ARGS+=("$@")
+	fi
+fi
+
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
 	--verbose \
 	--base-directory "${BASEDIR}" \
 	--plugin-dir "dotbot-brewfile" \
-	--config-file "${CONFIG}" "${@}"
+	"${DOTBOT_ARGS[@]}"

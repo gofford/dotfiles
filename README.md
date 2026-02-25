@@ -2,68 +2,60 @@
 
 macOS development environment powered by [Dotbot](https://github.com/anishathalye/dotbot).
 
-```bash
-git clone https://github.com/jasongofford/.dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./install
-```
-
-## Stack
-
-| Category   | Tools                                                                                                                                                                     |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Terminal   | [Ghostty](https://ghostty.org/) with Nord theme                                                                                                                           |
-| Shell      | Zsh + [Oh My Posh](https://ohmyposh.dev/) + [Sheldon](https://github.com/rossmacarthur/sheldon)                                                                           |
-| History    | [Atuin](https://github.com/atuinsh/atuin) + [fzf](https://github.com/junegunn/fzf) integration                                                                            |
-| Navigation | [zoxide](https://github.com/ajeetdsouza/zoxide) (smart cd)                                                                                                                |
-| Editor     | [Cursor](https://cursor.sh/)                                                                                                                                              |
-| Git        | [Lazygit](https://github.com/jesseduffield/lazygit), [git-spice](https://github.com/abhinav/git-spice) (stacked PRs)                                                      |
-| Files      | [eza](https://github.com/eza-community/eza), [bat](https://github.com/sharkdp/bat), [fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep) |
-| Infra      | Docker, [k9s](https://github.com/derailed/k9s), [Terramate](https://github.com/terramate-io/terramate)                                                                    |
-
-## Keybindings
-
-| Key       | Action                             |
-| --------- | ---------------------------------- |
-| `Ctrl+R`  | Fuzzy history search (fzf + atuin) |
-| `Ctrl+\`  | Atuin native UI                    |
-| `Ctrl+T`  | File search with preview           |
-| `Alt+C`   | Directory jump                     |
-| `z <dir>` | Smart cd (zoxide)                  |
-
-## Structure
-
-```
-~/.dotfiles/
-├── install              # Main entry point
-├── install.conf.yaml    # Orchestrates steps
-├── steps/               # Modular installation
-│   ├── 01-bootstrap     # Homebrew, essentials
-│   ├── 02-brew-core     # CLI tools
-│   ├── 03-brew-casks    # Desktop apps
-│   ├── 04-brew-appstore # Mac App Store
-│   ├── 05-shell         # Zsh, prompt, plugins
-│   ├── 06-dev           # Git config
-│   ├── 07-system        # SSH, direnv
-│   └── 08-extensions    # Editor extensions
-├── shell/               # Shell configs
-│   ├── zsh/             # .zshrc, aliases, fzf
-│   ├── sheldon/         # Plugin manager
-│   └── omp/             # Prompt theme
-├── brew/                # Brewfiles
-├── cursor/              # Editor settings
-├── ghostty/             # Terminal config
-├── atuin/               # History config
-└── git/                 # Git config
-```
-
-## Commands
+## Install
 
 ```bash
-./install                         # Full install
-./install -c steps/05-shell.yaml  # Single step
-brew bundle --file=brew/Brewfile  # Install packages
-git submodule update --init       # Update dotbot
+git clone https://github.com/jasongofford/.dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+make install
 ```
 
-## Updating
+## Update
 
-Configs are symlinked — edit in `~/.dotfiles/`, commit, push.
+```bash
+cd ~/.dotfiles
+git pull --ff-only
+make update
+```
+
+## Run A Single Step
+
+```bash
+make step STEP=05-shell
+```
+
+## What's Included (High Level)
+
+- Homebrew packages via `brew-file` using the files in `brew/`.
+- Zsh + [Sheldon](https://github.com/rossmacarthur/sheldon) plugins + [Oh My Posh](https://ohmyposh.dev/) prompt.
+- [Ghostty](https://ghostty.org/) terminal config.
+- [Atuin](https://github.com/atuinsh/atuin) history/search with `fzf` integration.
+- Git defaults (delta pager, SSH-based signing) plus tooling like lazygit and git-spice.
+- Cursor settings and extensions.
+- System tooling configs: `ssh/`, `direnv/`, `k9s/`, and OpenCode config in `opencode/`.
+
+## Repo Layout
+
+This repo stays intentionally coarse to avoid churn:
+
+- Entrypoints: `Makefile`, `install`, `install.conf.yaml`, `steps/`
+- Packages: `brew/`
+- Tool configs: `shell/`, `git/`, `cursor/`, `ghostty/`, `atuin/`, `ssh/`, `direnv/`, `k9s/`, `opencode/`
+
+## Package Management
+
+Packages are defined in `brew/` and installed via `brew-file`.
+
+```bash
+brew file install -f brew/Brewfile
+brew file install -f brew/Brewfile.cask
+brew file install -f brew/Brewfile.appstore
+brew file install -f brew/Brewfile.cursor
+```
+
+## Notes
+
+- First-time install may prompt for `sudo` to set the default shell (Homebrew zsh).
+- App Store installs require signing into the Mac App Store (used by `mas`).
+- Configs are symlinked into your home directory. Edit files in `~/.dotfiles/` and re-run `make install` if needed.
+- If you need machine-specific git overrides, you can edit `~/.gitconfig` after install and keep those changes uncommitted.

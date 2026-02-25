@@ -17,6 +17,7 @@ alias find='fd'
 # git - plain diff for piping to LLMs (bypasses delta pager)
 alias gdiff='git --no-pager diff'
 alias gdiffs='git --no-pager diff --staged'
+alias gs='git-spice'
 
 # misc
 alias please=sudo

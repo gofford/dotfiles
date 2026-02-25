@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "planner",
+  "default_agent": "architect",
   "plugin": [
     "opencode-openai-codex-auth",
     "@tarquinen/opencode-dcp@latest"
@@ -29,6 +29,11 @@
       "url": "https://mcp.grep.app",
       "enabled": true
     },
+    "exa": {
+      "type": "remote",
+      "url": "https://mcp.exa.ai/mcp",
+      "enabled": true
+    },
     "sediment": {
       "type": "local",
       "command": [
@@ -36,20 +41,26 @@
       ],
       "enabled": true
     },
-    "dbt": {
+    "mcp_fetch": {
       "type": "local",
-      "command": [
-        "uvx",
-        "dbt-mcp"
-      ],
+      "command": ["uvx", "mcp-server-fetch"],
+      "enabled": true
+    },
+    "mcp_time": {
+      "type": "local",
+      "command": ["uvx", "mcp-server-time"],
       "enabled": true
     }
   },
   "permission": {
-    "websearch": "ask",
-    "webfetch": "ask",
-    "context7_*": "ask",
-    "grep_app_*": "ask"
+    "websearch": "deny",
+    "webfetch": "deny",
+    "context7_*": "deny",
+    "grep_app_*": "deny",
+    "exa_*": "deny",
+    "sediment_*": "deny",
+    "mcp_fetch_*": "deny",
+    "mcp_time_*": "deny"
   },
   "agent": {
     "explore": {

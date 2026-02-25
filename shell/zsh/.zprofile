@@ -30,8 +30,15 @@ path=(
 # Tool Integration
 #
 
-# gcloud
-if [[ -f "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc" ]]; then
-    source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-    source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+# Cache Homebrew prefix once for this session
+if command -v brew >/dev/null 2>&1; then
+    export BREW_PREFIX="${BREW_PREFIX:-$(brew --prefix)}"
 fi
+
+# gcloud
+if [[ -n "${BREW_PREFIX:-}" && -f "${BREW_PREFIX}/share/google-cloud-sdk/path.zsh.inc" ]]; then
+    source "${BREW_PREFIX}/share/google-cloud-sdk/path.zsh.inc"
+    source "${BREW_PREFIX}/share/google-cloud-sdk/completion.zsh.inc"
+fi
+
+[ -f "$HOME/.secrets.zsh" ] && source "$HOME/.secrets.zsh"
