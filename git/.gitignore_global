@@ -8,6 +8,13 @@
 ### Cursor IDE ###
 .cursor/
 
+### Sediment ###
+.sediment/
+
+### Beans (local experiment) ###
+.beans/
+.beans.yml
+
 ### Secrets & local env ###
 .env.local
 .env.*.local

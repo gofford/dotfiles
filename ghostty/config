@@ -1,7 +1,7 @@
 # Ghostty Terminal Configuration
 
 # Font
-font-family = MesloLGS NF
+font-family = MesloLGS Nerd Font Mono
 font-size = 15
 font-feature = -liga
 font-thicken = true

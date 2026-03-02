@@ -32,7 +32,7 @@ Input you receive:
 
 Protocol:
 1. Check available skills and load any that match the domain of the code being reviewed.
-1b. Recall conventions: `sediment_recall` with a tight query scoped to the domain (e.g., "Python conventions", "dbt model review standards"). Apply recalled conventions as project law — treat violations as FAIL.
+1b. Recall conventions: `sediment_recall` with a tight query scoped to the domain (e.g., "Python conventions", "dbt model review standards"). Apply recalled conventions when reviewing. Convention violations are FAIL — but distinguish them from logic errors: prefix the finding with `[Convention FAIL: sediment:<id>]` and cite the specific convention text. This lets the Architect identify whether a FAIL is due to a logic error or a potentially stale convention.
 1c. Store (rare): if this review confirms or establishes a new project-wide standard not already in sediment, `sediment_store` (project scope) with one sentence. Do not store per-PR findings — only durable conventions.
 2. If no diff is provided, generate it locally: `git diff -- <target files>`
 3. Read surrounding file context if needed to understand the change.

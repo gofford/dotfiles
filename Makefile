@@ -4,6 +4,14 @@ install:
 step:
 	@./install -c "steps/$(STEP).yaml"
 
+link:
+	@./install -c steps/05-shell.yaml
+	@./install -c steps/06-dev.yaml
+	@./install -c steps/07-system.yaml
+
+dock:
+	@./install -c steps/09-dock.yaml
+
 update:
 	@./install -c steps/01-bootstrap.yaml
 	@brew update && brew upgrade
@@ -16,4 +24,4 @@ clean:
 
 all: install
 
-.PHONY: install step update clean all
+.PHONY: install step link dock update clean all

@@ -1,10 +1,11 @@
-#!/bin/zsh
 # FZF Configuration
 # -----------------
 
-# Setup fzf PATH (Apple Silicon)
-if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+# Ensure fzf bin is on PATH using the cached BREW_PREFIX from .zprofile
+# Falls back to evaluating brew --prefix if the variable isn't set yet
+_fzf_brew="${BREW_PREFIX:-$(brew --prefix)}"
+if [[ ! "$PATH" == *"${_fzf_brew}/opt/fzf/bin"* ]]; then
+  PATH="${PATH:+${PATH}:}${_fzf_brew}/opt/fzf/bin"
 fi
 
 # Use fd for faster file searching (respects .gitignore)
@@ -38,7 +39,9 @@ export FZF_ALT_C_OPTS="
   --header 'Jump to directory'"
 
 # Auto-completion
-source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+source "${_fzf_brew}/opt/fzf/shell/completion.zsh"
 
 # Key bindings (Ctrl+T, Alt+C, Ctrl+R)
-source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+source "${_fzf_brew}/opt/fzf/shell/key-bindings.zsh"
+
+unset _fzf_brew

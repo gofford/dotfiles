@@ -17,6 +17,7 @@ DEFAULT_CONFIGS=(
 	"steps/01-bootstrap.yaml"
 	"steps/02-brew-core.yaml"
 	"steps/03-brew-casks.yaml"
+	"steps/04-brew-mas.yaml"
 	"steps/05-shell.yaml"
 	"steps/06-dev.yaml"
 	"steps/07-system.yaml"
@@ -41,6 +42,5 @@ for cfg in "${CONFIGS[@]}"; do
     "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
         --verbose \
         --base-directory "${BASEDIR}" \
-        --plugin-dir "dotbot-brewfile" \
         --config-file "${cfg}"
 done

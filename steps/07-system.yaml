@@ -6,6 +6,7 @@
 # Ensure config directories exist
 - create:
     - ~/.config/opencode
+    - ~/.claude
 
 # Link system configuration files
 - link:
@@ -21,6 +22,14 @@
     ~/.config/opencode/agents: ~/.dotfiles/opencode/agents
     ~/.config/opencode/skills: ~/.dotfiles/opencode/skills
     ~/.config/opencode/commands: ~/.dotfiles/opencode/commands
+    ~/.config/opencode/plugin: ~/.dotfiles/opencode/plugin
+
+    # claude code configuration
+    ~/.claude/settings.json: ~/.dotfiles/claude/settings.json
+    ~/.claude/CLAUDE.md: ~/.dotfiles/.claude/CLAUDE.md
+    ~/.claude/agents: ~/.dotfiles/claude/agents
+    ~/.claude/commands: ~/.dotfiles/claude/commands
+    ~/.claude/skills: ~/.dotfiles/claude/skills
 
     # k9s configuration
     ~/.config/k9s:
@@ -34,28 +43,3 @@
     # editor configuration
     ~/.editorconfig: ~/.dotfiles/.editorconfig
 
-# Dock configuration
-- shell:
-    - description: Configure Dock with dockutil
-      command: |
-        # Require dockutil
-        if ! command -v dockutil >/dev/null 2>&1; then
-          echo "dockutil not found — skipping dock configuration"
-          exit 0
-        fi
-
-        # Start clean
-        dockutil --remove all --no-restart
-
-        # Apps
-        dockutil --add "/Applications/Spark.app" --no-restart
-        dockutil --add /Applications/Arc.app --no-restart
-        dockutil --add /Applications/Slack.app  --no-restart
-        dockutil --add /Applications/Ghostty.app --no-restart
-        dockutil --add /Applications/Cursor.app  --no-restart
-        dockutil --add "/Applications/Sublime Text.app" --no-restart
-        dockutil --add /Applications/DataGrip.app --no-restart
-        dockutil --add /Applications/Spotify.app --no-restart
-
-        # Apply all changes in one restart
-        killall Dock

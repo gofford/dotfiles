@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # Modern zsh options
 setopt extended_glob
 setopt AUTO_CD

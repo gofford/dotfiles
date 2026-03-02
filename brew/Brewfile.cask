@@ -1,6 +1,5 @@
 # normal casks
 cask "arc"
-cask "spark"
 cask "docker"
 cask "ghostty"
 cask "raycast"
@@ -16,10 +15,10 @@ cask "yaak"
 cask "hiddenbar"
 cask "alcove"
 cask "spotify"
+cask "cursor"
 
 # fonts
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
+cask "font-meslo-lg-nerd-font"
 
-# development tools
-cask "cursor"
