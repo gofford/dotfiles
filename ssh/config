@@ -1,17 +1,8 @@
-# Global SSH settings
 Host *
-  AddKeysToAgent yes
-  UseKeychain yes
-  IdentitiesOnly yes
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
   ServerAliveInterval 60
   ServerAliveCountMax 3
 
-# GitHub
 Host github.com
   HostName github.com
   User git
-  IdentityFile ~/.ssh/id_ed25519
-
-# Google Cloud Platform
-Host *.googleapis.com
-  IdentityFile ~/.ssh/google_compute_engine
