@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # modern file listing with eza
 alias ll='eza -l --git'
 alias la='eza -la --git'

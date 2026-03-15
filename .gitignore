@@ -1,2 +1,7 @@
 
+.DS_Store
 *.lock.json
+
+# unblock scripts dir ignored by ~/.gitignore_global
+!claude/scripts/
+!claude/scripts/**

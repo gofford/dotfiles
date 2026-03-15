@@ -4,6 +4,8 @@ agent: architect
 subtask: true
 ---
 
+If `$ARGUMENTS` is empty, respond only with: "Usage: /update-pull-request <PR number or description>" and stop.
+
 Prepare updated pull request content for: `$ARGUMENTS`
 
 Requirements:

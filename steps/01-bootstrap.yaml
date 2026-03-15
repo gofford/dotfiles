@@ -3,6 +3,21 @@
       relink: true
       force: true
 
+# Install Homebrew if not present (must run before anything else)
+- shell:
+    - description: Install Homebrew
+      command: |
+        if ! command -v brew >/dev/null 2>&1; then
+          echo "Homebrew not found — installing..."
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          # Add Homebrew to PATH for the remainder of this script
+          if [[ -x /opt/homebrew/bin/brew ]]; then
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+          elif [[ -x /usr/local/bin/brew ]]; then
+            eval "$(/usr/local/bin/brew shellenv)"
+          fi
+        fi
+
 # Bootstrap shell - install essential brew packages
 - shell:
     - description: Install essential packages for bootstrap
@@ -57,8 +72,8 @@
     - ~/.config/zsh
     - ~/.config/zsh/completions
     - ~/.config/opencode
+    - ~/.claude
     - ~/.config/k9s
-    - ~/.ssh
     - "~/Library/Application Support/Cursor"
     - "~/Library/Application Support/Cursor/User"
 

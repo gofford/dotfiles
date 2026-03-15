@@ -6,6 +6,8 @@
 # Ensure config directories exist
 - create:
     - ~/.config/opencode
+    - ~/.claude
+    - ~/.claude/hooks
 
 # Link system configuration files
 - link:
@@ -21,6 +23,16 @@
     ~/.config/opencode/agents: ~/.dotfiles/opencode/agents
     ~/.config/opencode/skills: ~/.dotfiles/opencode/skills
     ~/.config/opencode/commands: ~/.dotfiles/opencode/commands
+    ~/.config/opencode/plugin: ~/.dotfiles/opencode/plugin
+
+    # claude code configuration
+    ~/.claude/settings.json: ~/.dotfiles/claude/settings.json
+    ~/.claude/CLAUDE.md: ~/.dotfiles/.claude/CLAUDE.md
+    ~/.claude/agents: ~/.dotfiles/claude/agents
+    ~/.claude/commands: ~/.dotfiles/claude/commands
+    ~/.claude/skills: ~/.dotfiles/claude/skills
+    ~/.claude/rules: ~/.dotfiles/.claude/rules
+    ~/.claude/scripts: ~/.dotfiles/claude/scripts
 
     # k9s configuration
     ~/.config/k9s:
@@ -34,28 +46,12 @@
     # editor configuration
     ~/.editorconfig: ~/.dotfiles/.editorconfig
 
-# Dock configuration
+# Install RTK hook - let rtk own ~/.claude/hooks/rtk-rewrite.sh
+# rtk init -g writes the hook file and keeps it up to date with upstream changes.
+# --hook-only skips adding RTK.md to CLAUDE.md (~400 tokens per conversation).
 - shell:
-    - description: Configure Dock with dockutil
-      command: |
-        # Require dockutil
-        if ! command -v dockutil >/dev/null 2>&1; then
-          echo "dockutil not found — skipping dock configuration"
-          exit 0
-        fi
+    - command: rtk init -g --hook-only
+      description: Register RTK Claude Code PreToolUse hook
+      stdout: true
+      stderr: true
 
-        # Start clean
-        dockutil --remove all --no-restart
-
-        # Apps
-        dockutil --add "/Applications/Spark.app" --no-restart
-        dockutil --add /Applications/Arc.app --no-restart
-        dockutil --add /Applications/Slack.app  --no-restart
-        dockutil --add /Applications/Ghostty.app --no-restart
-        dockutil --add /Applications/Cursor.app  --no-restart
-        dockutil --add "/Applications/Sublime Text.app" --no-restart
-        dockutil --add /Applications/DataGrip.app --no-restart
-        dockutil --add /Applications/Spotify.app --no-restart
-
-        # Apply all changes in one restart
-        killall Dock

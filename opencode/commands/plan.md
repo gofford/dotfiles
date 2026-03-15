@@ -4,6 +4,8 @@ agent: architect
 subtask: true
 ---
 
+If `$ARGUMENTS` is empty, respond only with: "Usage: /plan <task description>" and stop.
+
 Produce an implementation-ready plan for the following task:
 
 $ARGUMENTS

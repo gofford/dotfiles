@@ -1,6 +1,6 @@
 {
   // Editor Appearance & Behavior
-  "editor.fontFamily": "MesloLGS NF",
+  "editor.fontFamily": "MesloLGS Nerd Font Mono",
   "editor.fontLigatures": true,
   "editor.cursorStyle": "block",
   "editor.rulers": [
@@ -58,7 +58,7 @@
   "explorer.compactFolders": false,
   // Terminal
   "terminal.external.osxExec": "Ghostty.app",
-  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.fontFamily": "MesloLGS Nerd Font Mono",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.sendKeybindingsToShell": true,
   "terminal.integrated.scrollback": 10000,
@@ -135,7 +135,6 @@
   "indentRainbow.indicatorStyle": "light",
   "vsicons.dontShowNewVersionMessage": true,
   "redhat.telemetry.enabled": false,
-  "geminicodeassist.project": "yoto-dev-jason-b8d7a689",
   "todo-tree.general.tags": [
     "TODO",
     "FIXME",
@@ -185,11 +184,10 @@
     "outputFormat": "yaml",
     "kubeconfig": "",
     "kubectl-path": "",
-    "vscode-kubernetes.helm-path-mac": "/Users/jasongofford/.vs-kubernetes/tools/helm/darwin-arm64/helm",
-    "vscode-kubernetes.minikube-path-mac": "/Users/jasongofford/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
-    "vscode-kubernetes.kubectl-path-mac": "/Users/jasongofford/.vs-kubernetes/tools/kubectl/kubectl",
-    "vs-kubernetes.crd-code-completion": "enabled",
-    "vs-kubernetes.minikube-show-information-expiration": "2026-08-02T09:05:19.258Z"
+    "vs-kubernetes.crd-code-completion": "enabled"
   },
-  "workbench.editor.enablePreview": false
+  "workbench.editor.enablePreview": false,
+  "window.commandCenter": true,
+  "cursorpyright.analysis.autoImportCompletions": true,
+  "cursorpyright.analysis.typeCheckingMode": "basic"
 }

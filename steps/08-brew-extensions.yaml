@@ -1,5 +1,5 @@
 - shell:
-    - command: brew file install -f brew/Brewfile.cursor
+    - command: HOMEBREW_BREWFILE_CURSOR=1 brew file install -f brew/Brewfile.cursor
       description: "Install Cursor extensions"
       stdout: true
       stderr: true

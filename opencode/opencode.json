@@ -41,11 +41,6 @@
       ],
       "enabled": true
     },
-    "mcp_fetch": {
-      "type": "local",
-      "command": ["uvx", "mcp-server-fetch"],
-      "enabled": true
-    },
     "mcp_time": {
       "type": "local",
       "command": ["uvx", "mcp-server-time"],
@@ -59,8 +54,7 @@
     "grep_app_*": "deny",
     "exa_*": "deny",
     "sediment_*": "deny",
-    "mcp_fetch_*": "deny",
-    "mcp_time_*": "deny"
+      "mcp_time_*": "deny"
   },
   "agent": {
     "explore": {

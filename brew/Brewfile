@@ -1,7 +1,9 @@
 # taps
 tap "buo/cask-upgrade"
+tap "hmans/beans"
 tap "lotyp/homebrew-formulae"
 tap "hashicorp/tap"
+tap "rendro/tap"
 
 # dependencies
 brew "git"
@@ -23,6 +25,7 @@ brew "fzf"
 brew "helm"
 brew "jq"
 brew "k9s"
+brew "kubectl"
 brew "kubeconform"
 brew "just"
 brew "minikube"
@@ -38,13 +41,13 @@ brew "sheldon"
 brew "zoxide"
 brew "ast-grep"
 brew "atuin"
+brew "rtk"
 brew "terramate"
 brew "yamllint"
 brew "prek"
 brew "zsh"
-brew "rcmdnk/file/brew-file"
 brew "anomalyco/tap/opencode"
-
+brew "hmans/beans/beans"
 
 # terraform
 brew "warrensbox/tap/tfswitch"
@@ -54,3 +57,9 @@ brew "lotyp/formulae/dockutil"
 
 # password management
 brew "1password-cli"
+
+# mac app store
+brew "mas"
+
+# sediment mcp
+brew "rendro/tap/sediment"

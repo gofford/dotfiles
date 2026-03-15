@@ -8,23 +8,22 @@ cursor "editorconfig.editorconfig"
 # git & github
 cursor "eamodio.gitlens"
 cursor "github.vscode-github-actions"
-cursor "jasonnutter.vscode-codeowners"
+cursor "noahm.codeowners-extended"
 
 # ai assistance
-cursor "anthropic.claude-code"
-cursor "openai.chatgpt"
+#cursor "anthropic.claude-code"
+#cursor "openai.chatgpt"
 
 # general utilities
-cursor "gruntfuggly.todo-tree"
-cursor "aaron-bond.better-comments"
+#cursor "gruntfuggly.todo-tree"
+cursor "edwinhuish.better-comments-next"
 cursor "fabiospampinato.vscode-highlight"
-cursor "ldez.ignore-files"
+cursor "ignore-lens.ignore-lens"
 
 # python
 cursor "ms-python.python"
 cursor "anysphere.cursorpyright"
-cursor "donjayamanne.python-environment-manager"
-cursor "irongeek.vscode-env"
+cursor "mikestead.dotenv"
 cursor "kevinrose.vsc-python-indent"
 cursor "ms-python.debugpy"
 
@@ -48,7 +47,6 @@ cursor "hongquan.dragon-jinja"
 cursor "oderwat.indent-rainbow"
 cursor "vscode-icons-team.vscode-icons"
 cursor "github.github-vscode-theme"
-cursor "sirtori.indenticator"
 
 # containers & kubernetes
 cursor "ms-azuretools.vscode-containers"
@@ -56,6 +54,5 @@ cursor "anysphere.remote-containers"
 cursor "ms-kubernetes-tools.vscode-kubernetes-tools"
 
 # terraform
-cursor "4ops.terraform"
-cursor "pjmiravalle.terraform-advanced-syntax-highlighting"
+cursor "hashicorp.terraform"
 cursor "mineiros.terramate"

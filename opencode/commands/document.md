@@ -4,6 +4,8 @@ agent: architect
 subtask: true
 ---
 
+If `$ARGUMENTS` is empty, respond only with: "Usage: /document <scope — e.g. a module path, model name, or component>" and stop.
+
 Generate or update documentation for the following scope:
 
 $ARGUMENTS

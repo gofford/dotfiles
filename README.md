@@ -4,6 +4,8 @@ macOS development environment powered by [Dotbot](https://github.com/anishathaly
 
 ## Install
 
+> Homebrew will be installed automatically if not already present.
+
 ```bash
 git clone https://github.com/jasongofford/.dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
@@ -16,6 +18,14 @@ make install
 cd ~/.dotfiles
 git pull --ff-only
 make update
+```
+
+## Re-apply Config Symlinks
+
+Run this after pulling changes that add or modify config files, without reinstalling packages:
+
+```bash
+make link
 ```
 
 ## Run A Single Step
@@ -38,7 +48,7 @@ make step STEP=05-shell
 
 This repo stays intentionally coarse to avoid churn:
 
-- Entrypoints: `Makefile`, `install`, `install.conf.yaml`, `steps/`
+- Entrypoints: `Makefile`, `install`, `steps/`
 - Packages: `brew/`
 - Tool configs: `shell/`, `git/`, `cursor/`, `ghostty/`, `atuin/`, `ssh/`, `direnv/`, `k9s/`, `opencode/`
 
@@ -49,13 +59,13 @@ Packages are defined in `brew/` and installed via `brew-file`.
 ```bash
 brew file install -f brew/Brewfile
 brew file install -f brew/Brewfile.cask
-brew file install -f brew/Brewfile.appstore
+brew file install -f brew/Brewfile.mas
 brew file install -f brew/Brewfile.cursor
 ```
 
 ## Notes
 
 - First-time install may prompt for `sudo` to set the default shell (Homebrew zsh).
-- App Store installs require signing into the Mac App Store (used by `mas`).
-- Configs are symlinked into your home directory. Edit files in `~/.dotfiles/` and re-run `make install` if needed.
-- If you need machine-specific git overrides, you can edit `~/.gitconfig` after install and keep those changes uncommitted.
+- App Store installs require signing into the Mac App Store (used by `mas`). If you skip this step, run `make step STEP=04-brew-mas` after signing in.
+- Configs are symlinked into your home directory. Edit files in `~/.dotfiles/` and run `make link` to re-apply.
+- Machine-specific git config goes in `~/.gitconfig.local` — it is included automatically and never tracked.
