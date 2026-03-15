@@ -1,9 +1,7 @@
 ---
 name: dagster-integrations
 description: Guidance for Dagster integration libraries (dagster-dbt, dagster-fivetran, dagster-airbyte, dagster-snowflake, dagster-k8s). Use when user mentions "dagster-*" packages, asks about dbt assets in Dagster, connecting warehouses, ETL integrations, or setting up external system connectors.
-metadata:
-  source: https://github.com/dagster-io/skills
-  adapted_for: opencode
+user-invocable: false
 ---
 
 # Dagster Integrations

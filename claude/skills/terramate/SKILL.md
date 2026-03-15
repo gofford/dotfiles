@@ -2,7 +2,6 @@
 name: terramate
 description: IaC orchestration with Terramate CLI for Terraform at scale. Use when user mentions "terramate", "tm run", "stacks", "change detection", asks about orchestrating Terraform across multiple stacks, generating HCL code, detecting changed infrastructure, or setting up GitOps workflows for IaC.
 metadata:
-  source: https://github.com/terramate-io/terramate
   version: 0.15.x
 ---
 

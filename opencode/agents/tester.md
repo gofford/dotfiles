@@ -53,10 +53,17 @@ Protocol:
 6. Flaky tests: if a test fails and you suspect flakiness (non-deterministic, timing-dependent), note it as `[FLAKY?]` but still report FAIL. Do not retry.
 7. If no tests exist for the target files (no test files, no dbt tests, no relevant checks), report `Status: NO TESTS` — do not report PASS (nothing was verified) or FAIL (nothing broke).
 
+## Status rules
+
+- **PASS**: all checks ran and passed.
+- **FAIL**: one or more checks ran and failed.
+- **NO TESTS**: no test files, dbt tests, or relevant checks exist for the target files.
+- **ENVIRONMENT ERROR**: test toolchain is unavailable (missing dependencies, bad virtualenv, missing config, command not found). Report the specific missing prerequisite.
+
 Output:
 
 ```
-Status: PASS or FAIL or NO TESTS
+Status: PASS | FAIL | NO TESTS | ENVIRONMENT ERROR
 
 Checks:
 

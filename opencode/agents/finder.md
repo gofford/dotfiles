@@ -34,14 +34,15 @@ Tools:
 - `grep` — regex content search. Use for string literals, config values, comments, and cross-language patterns.
 - `glob` — file pattern matching. Use to find files by name or extension.
 - `bash` (git read-only) — history and blame:
-  - `git log --oneline` — recent commit messages
+  - `git log --oneline --max-count=50` — recent commit messages (always cap output)
   - `git grep <pattern>` — content search with git context
   - `git show <hash>` — inspect a specific commit
 - For dbt projects: use `grep`/`glob` to find model files, or read `target/manifest.json` for node metadata and lineage.
 
 Execution:
+- **First: verify `sg` is available** (`which sg` or `sg --version`). If absent, skip all `sg` steps and proceed directly with `grep` and `glob`. Note the fallback in output.
 - Prefer `sg` over `grep` when the target is a code structure (function, class, decorator).
-- If `sg` fails (not installed, unsupported language, parse error), fall back to `grep` and note the fallback in your output.
+- If `sg` fails (unsupported language, parse error), fall back to `grep` and note the fallback.
 - Use `glob` and `grep`/`sg` before opening many files.
 - Fire multiple searches in parallel when scope spans different directories or domains.
 - Do not implement code changes or research external docs.

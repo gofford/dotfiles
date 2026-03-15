@@ -1,5 +1,6 @@
 ---
 description: Draft updated PR title/body from template and branch delta
+argument-hint: <PR number or description>
 ---
 
 If `$ARGUMENTS` is empty, respond only with: "Usage: /update-pull-request <PR number or description>" and stop.

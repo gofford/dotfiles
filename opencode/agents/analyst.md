@@ -60,6 +60,7 @@ Both tools may be combined in a single investigation when each adds distinct val
 3. Use `dbt ls --output json` or read `target/manifest.json` for lineage, column metadata, and model health.
 4. Use `grep`/`glob` or `dbt ls --select` to locate models/sources by name when path is unknown within the project.
 5. All dbt CLI commands must use `uv run --directory <dbt_project_path> dbt ...`. Never guess the project path — if it is absent, switch to bq mode.
+6. Key files to check: `dbt_project.yml`, `profiles.yml`, `packages.yml`, `target/manifest.json`.
 
 ## bq Mode Protocol
 
@@ -68,6 +69,13 @@ Both tools may be combined in a single investigation when each adds distinct val
 3. Use `bq query --nouse_legacy_sql --max_rows=<N> '<SQL>'` for exploration. Always include `LIMIT` inside the query and set `--max_rows` ≤ 1000. Push limits early in CTEs, not at the outer query.
 4. For lineage outside dbt: query `INFORMATION_SCHEMA.TABLE_LINEAGE` or `INFORMATION_SCHEMA.COLUMN_FIELD_USAGE` where available.
 5. Never run DML (`INSERT`, `UPDATE`, `DELETE`, `MERGE`) or DDL (`CREATE`, `DROP`, `ALTER`).
+
+## Error handling
+
+If a CLI command fails (permissions denied, quota exceeded, command not found):
+- Report the error verbatim in the Evidence section.
+- Explain what query was attempted and why.
+- Continue with any remaining investigation that doesn't depend on the failed command.
 
 Output — structured discovery report:
 
@@ -99,4 +107,5 @@ Output — structured discovery report:
 
 ### Evidence
 - Queries run and key results (truncated if verbose)
+- Errors encountered and what they prevented (if any)
 ```

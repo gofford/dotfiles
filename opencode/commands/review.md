@@ -14,6 +14,8 @@ The changed files on this branch are:
 
 !`git diff --name-only @{upstream}...HEAD`
 
+If the output above is empty (no changed files), respond with: "No changed files found on this branch versus upstream." and stop.
+
 Target file list: all files listed above.
 
 The diff to review:

@@ -7,6 +7,7 @@
 - create:
     - ~/.config/opencode
     - ~/.claude
+    - ~/.claude/hooks
 
 # Link system configuration files
 - link:
@@ -30,6 +31,8 @@
     ~/.claude/agents: ~/.dotfiles/claude/agents
     ~/.claude/commands: ~/.dotfiles/claude/commands
     ~/.claude/skills: ~/.dotfiles/claude/skills
+    ~/.claude/rules: ~/.dotfiles/.claude/rules
+    ~/.claude/scripts: ~/.dotfiles/claude/scripts
 
     # k9s configuration
     ~/.config/k9s:
@@ -42,4 +45,13 @@
 
     # editor configuration
     ~/.editorconfig: ~/.dotfiles/.editorconfig
+
+# Install RTK hook - let rtk own ~/.claude/hooks/rtk-rewrite.sh
+# rtk init -g writes the hook file and keeps it up to date with upstream changes.
+# --hook-only skips adding RTK.md to CLAUDE.md (~400 tokens per conversation).
+- shell:
+    - command: rtk init -g --hook-only
+      description: Register RTK Claude Code PreToolUse hook
+      stdout: true
+      stderr: true
 

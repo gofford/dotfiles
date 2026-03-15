@@ -1,6 +1,6 @@
 {
   // Editor Appearance & Behavior
-  "editor.fontFamily": "MesloLGS NF",
+  "editor.fontFamily": "MesloLGS Nerd Font Mono",
   "editor.fontLigatures": true,
   "editor.cursorStyle": "block",
   "editor.rulers": [

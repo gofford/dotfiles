@@ -1,11 +1,16 @@
 ---
-description: Run a codebase audit via the Auditor agent
+description: Codebase audit - architecture health or knowledge continuity
+argument-hint: [scope] [continuity]
 ---
 
-Perform a full codebase audit of this project.
+If `$ARGUMENTS` is empty, run a full architecture audit.
+
+If `$ARGUMENTS` contains "continuity", set Auditor focus to knowledge-continuity.
+Otherwise, default to architecture audit.
+
+1. Explore the project structure first (2-4 parallel exploration tasks).
+2. Delegate to the Auditor agent with the discovery summary and any scope
+   constraints from $ARGUMENTS.
+3. If no code is found, report: "No code found to audit." and stop.
 
 $ARGUMENTS
-
-Run Finder first (2-4 parallel tasks) to build a discovery map of subsystems and key entrypoints, then delegate to the Auditor agent passing that map as context.
-
-If Finder returns no hits (empty repo, no code files), report: "No code found to audit." and stop.

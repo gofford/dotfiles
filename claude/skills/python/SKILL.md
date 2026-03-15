@@ -1,9 +1,7 @@
 ---
 name: python
 description: Production Python coding standards with strong typing, maintainable APIs, and robust error handling. Use when user asks to "review Python code", "improve type hints", "refactor for readability", "fix exception handling", or mentions "Python best practices", "typing", "pathlib", "module design", or "API design".
-metadata:
-  source: https://github.com/dagster-io/skills
-  adapted_for: opencode
+user-invocable: false
 ---
 
 # Dignified Python

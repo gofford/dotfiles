@@ -1,5 +1,6 @@
 ---
 description: Generate or update documentation for a scope
+argument-hint: <module path, model name, or component>
 ---
 
 If `$ARGUMENTS` is empty, respond only with: "Usage: /document <scope — e.g. a module path, model name, or component>" and stop.

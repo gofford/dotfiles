@@ -1,7 +1,7 @@
 ---
 description: Knowledge continuity auditor. Maps documentation gaps, bus factor risks, and institutional knowledge that exists only in human memory. Read-only — returns a gap map and prioritised documentation tasks, never writes docs directly.
 mode: subagent
-model: openai/gpt-5.2
+model: openai/gpt-5.4
 reasoningEffort: high
 textVerbosity: medium
 hidden: true
@@ -15,8 +15,6 @@ permission:
     "git blame*": allow
     "git show*": allow
     "git shortlog*": allow
-    "beans list*": allow
-    "beans create*": ask
   websearch: deny
   webfetch: deny
   "context7_*": deny
@@ -57,7 +55,6 @@ You produce a knowledge gap map and prioritised documentation tasks. You never w
 5. Use `git blame` on complex or opaque sections to surface who holds context for specific logic.
 6. Synthesise: for each major subsystem, classify knowledge risk (Low / Medium / High) based on: documentation quality + sole-committer status + complexity + change rate.
 7. `sediment_store` (project scope) one sentence per High knowledge risk, with path. Use `replace_id` to update if previously stored.
-8. If `.beans.yml` is present: propose a bean per P0 documentation task (requires approval).
 
 ## Output format (strict)
 

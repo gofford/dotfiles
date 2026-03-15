@@ -1,5 +1,6 @@
 ---
 description: Evaluate existing PR comments and propose remediation
+argument-hint: <PR number or URL>
 ---
 
 If `$ARGUMENTS` is empty, respond only with: "Usage: /feedback-pull-request <PR number or URL>" and stop.

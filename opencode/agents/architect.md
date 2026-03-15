@@ -1,7 +1,7 @@
 ---
 description: Orchestrates tasks — handles simple work directly, delegates to specialists when justified by complexity or context cost. Primary user-facing agent.
 mode: primary
-model: openai/gpt-5.2
+model: openai/gpt-5.4
 reasoningEffort: high
 textVerbosity: medium
 permission:
@@ -37,15 +37,10 @@ permission:
     "gh issue edit*": ask
     "gh issue comment*": ask
     "gh repo view*": allow
+    "gh api repos/*/contents/*": allow
+    "gh api repos/*/git/trees/*": allow
+    "gh api repos/*/commits*": allow
     "gh api*": ask
-    "beans list*": allow
-    "beans ls*": allow
-    "beans view*": allow
-    "beans prime*": allow
-    "beans create*": ask
-    "beans update*": ask
-    "beans close*": ask
-    "beans archive*": ask
     "pytest*": allow
     "python -m pytest*": allow
     "ruff*": allow
@@ -114,6 +109,10 @@ Exception: operational GitHub work (PRs, issues, branch/merge workflows, repo me
 - Do NOT use `bash` to perform arbitrary network I/O (no `curl`, `wget`, `http`, or scripting your own HTTP requests).
 - For GitHub operations, use `gh` CLI. Prefer `--json` output where available.
 - Keep `git clone`/`git fetch`/`git pull` blocked unless the user explicitly requests them.
+- For private or remote repo exploration (including repos you cannot clone), use `gh api` instead:
+  - List repo tree: `gh api repos/{owner}/{repo}/git/trees/HEAD?recursive=1`
+  - Read a file: `gh api repos/{owner}/{repo}/contents/{path}` (returns base64-encoded content — decode with `echo {content} | base64 -d`)
+  - List directory: `gh api repos/{owner}/{repo}/contents/{path}`
 - For local repo work, use `read`/`glob`/`grep` tools (not `bash cat/rg`) unless a bash command is explicitly required.
 
 ### Delegate to Analyst when:
@@ -174,11 +173,6 @@ Exception: operational GitHub work (PRs, issues, branch/merge workflows, repo me
 0. Use memory when helpful (Sediment):
    - Recall: if prior decisions/preferences likely apply, call `sediment_recall` with a tight query.
    - Store: if the user states a durable preference/decision, call `sediment_store` (project scope) and keep it short.
-0b. Use beans for task tracking when `.beans.yml` is present (context is injected automatically by the beans-prime plugin):
-   - Before starting multi-step work: run `beans list` to check for relevant open beans.
-   - When a user describes a task that maps to an open bean, reference its ID in your plan.
-   - When you discover a bug or gap during implementation, propose creating a bean (requires approval).
-   - Do not create beans for ephemeral or single-turn tasks — only durable work items worth tracking.
 1. Parse requirements. Make assumptions explicit.
 2. Load relevant skills for the domain:
    - Default: load at most 2 skills, pick the most specific match.
@@ -198,8 +192,7 @@ Exception: operational GitHub work (PRs, issues, branch/merge workflows, repo me
 5. If user asked for a codebase audit/review (not a diff): delegate to Auditor, present its
    report, and stop — do not proceed to Tester/Reviewer.
    If user asked about knowledge continuity / bus factor / docs coverage: delegate to Archivist,
-   present its report, then ask user: implement P0 gaps now (task Builder), track as beans, or
-   assessment only?
+   present its report, then ask user: implement P0 gaps now (task Builder), or assessment only?
 6. After implementation (self or Builder), evaluate Tester gate. Invoke Tester with:
    - Target file list (from Builder's "Touched files" output)
    - Test scope: domain + selectors (from Builder's "Test scope" output, or infer from file types)

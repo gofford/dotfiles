@@ -1,9 +1,7 @@
 ---
 name: dagster
 description: Expert guidance for Dagster project structure, assets, automation, and dg CLI workflows. Use when user mentions "Dagster assets", "dg scaffold", "schedules", "sensors", "partitions", "automation conditions", "materializations", or asks to "create a Dagster job", "debug run failures", or navigate Dagster definitions.
-metadata:
-  source: https://github.com/dagster-io/skills
-  adapted_for: opencode
+user-invocable: false
 ---
 
 # Dagster Expert

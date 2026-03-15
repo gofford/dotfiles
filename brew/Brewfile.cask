@@ -12,10 +12,10 @@ cask "claude-code"
 cask "codex"
 cask "datagrip"
 cask "yaak"
-cask "hiddenbar"
 cask "alcove"
 cask "spotify"
 cask "cursor"
+cask "cyberduck"
 
 # fonts
 cask "font-fira-code"
