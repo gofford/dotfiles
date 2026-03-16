@@ -5,7 +5,6 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:www.reddit.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:sediment.sh)",
       "WebFetch(domain:opencode.ai)",
       "WebFetch(domain:motherduck.com)",
       "WebFetch(domain:duckdb.org)",
@@ -42,9 +41,9 @@
       "Bash(sg *)",
       "Bash(which *)",
       "Bash(rtk *)",
+      "Bash(codex *)",
       "mcp__context7__*",
-      "mcp__exa__*",
-      "mcp__sediment__*"
+      "mcp__exa__*"
     ]
   }
 }

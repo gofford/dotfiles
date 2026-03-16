@@ -15,9 +15,6 @@
     ]
   },
   "mcpServers": {
-    "sediment": {
-      "command": "sediment"
-    },
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp"
@@ -38,6 +35,6 @@
   },
   "plansDirectory": "~/.claude/plans",
   "env": {
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50"
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70"
   }
 }

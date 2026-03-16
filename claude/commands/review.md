@@ -1,5 +1,6 @@
 ---
 description: Review branch delta - verify then adversarial review
+argument-hint: [deep]
 ---
 
 First verify an upstream is configured:
@@ -36,4 +37,18 @@ Invoke Reviewer with:
 - tester output (if tester ran)
 - the diff above
 
-Present the Reviewer's findings.
+## Codex challenge (when $ARGUMENTS contains "deep")
+
+If `$ARGUMENTS` contains "deep":
+1. Invoke Codex in review mode (blind — it generates its own diff).
+   Run in parallel with Reviewer when possible.
+2. Synthesize both results:
+   - Agreed: findings flagged by both Reviewer and Codex
+   - Codex-only: novel findings from external review
+   - Reviewer-only: findings Codex did not flag
+   - Disagreements: contradictory assessments
+3. Present overall Status (PASS or FAIL based on combined analysis).
+
+If `$ARGUMENTS` does not contain "deep", present only the Reviewer's findings.
+
+$ARGUMENTS

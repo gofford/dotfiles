@@ -60,6 +60,3 @@ brew "1password-cli"
 
 # mac app store
 brew "mas"
-
-# sediment mcp
-brew "rendro/tap/sediment"

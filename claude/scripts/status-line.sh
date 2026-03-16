@@ -21,13 +21,13 @@ if [ -z "$used_pct" ] || [ "$used_pct" = "null" ]; then
   ctx_str="○○○○○○○○○○ …"
 else
   pct=$(printf "%.0f" "$used_pct" 2>/dev/null || echo "0")
-  [ "$pct" -gt 100 ] 2>/dev/null && pct=100
+  [ "$pct" -gt 100 ] && pct=100
 
   used_k=$(( max_ctx * pct / 100 / 1000 ))
   max_k=$(( max_ctx / 1000 ))
 
   if   [ "$pct" -gt 80 ]; then COLOR="$RED"
-  elif [ "$pct" -gt 50 ]; then COLOR="$YELLOW"
+  elif [ "$pct" -gt 55 ]; then COLOR="$YELLOW"
   else                         COLOR="$BLUE"
   fi
 
@@ -41,7 +41,7 @@ else
     fi
   done
 
-  ctx_str="${bar} ${used_k}k/${max_k}k (${pct}%)"
+  ctx_str="${bar} ${used_k}k/${max_k}k"
 fi
 
 # ── Git ───────────────────────────────────────────────────────────────────────
@@ -51,7 +51,11 @@ if [ -n "$branch" ]; then
   if ! git diff --quiet 2>/dev/null || ! git diff --cached --quiet 2>/dev/null; then
     dirty=" *"
   fi
-  git_str="${branch}${dirty}"
+  if [ -n "$(git ls-files --others --exclude-standard 2>/dev/null | head -1)" ]; then
+    dirty="${dirty} ?"
+  fi
+  repo=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)" 2>/dev/null)
+  git_str="${repo}/${branch}${dirty}"
 else
   git_str=""
 fi
