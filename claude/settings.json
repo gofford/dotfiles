@@ -1,6 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "model": "opus",
+  "env": {
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70"
+  },
   "hooks": {
     "PreToolUse": [
       {
@@ -14,6 +16,21 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/scripts/status-line.sh"
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "excludedCommands": [
+      "git",
+      "gh",
+      "codex"
+    ]
+  },
+  "effortLevel": "medium",
+  "plansDirectory": "~/.claude/plans",
   "mcpServers": {
     "context7": {
       "type": "http",
@@ -23,18 +40,5 @@
       "type": "http",
       "url": "https://mcp.exa.ai/mcp"
     }
-  },
-  "sandbox": {
-    "enabled": true,
-    "autoAllowBashIfSandboxed": true,
-    "excludedCommands": ["git", "gh"]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/scripts/status-line.sh"
-  },
-  "plansDirectory": "~/.claude/plans",
-  "env": {
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "70"
   }
 }

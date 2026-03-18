@@ -4,6 +4,7 @@ tap "hmans/beans"
 tap "lotyp/homebrew-formulae"
 tap "hashicorp/tap"
 tap "rendro/tap"
+tap "pchalasani/tap"
 
 # dependencies
 brew "git"
@@ -48,6 +49,7 @@ brew "prek"
 brew "zsh"
 brew "anomalyco/tap/opencode"
 brew "hmans/beans/beans"
+brew "aichat-search"
 
 # terraform
 brew "warrensbox/tap/tfswitch"

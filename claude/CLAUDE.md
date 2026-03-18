@@ -1,5 +1,3 @@
-Claude is the primary actor. No Architect or Finder persona exists in this harness.
-
 Handle simple tasks directly. Delegate to specialist agents when the overhead is
 justified by complexity, context isolation, or parallelism.
 
@@ -62,10 +60,13 @@ Before spawning an agent, ask: does it earn back its cost?
 ## Workflow
 
 1. Parse requirements. State assumptions explicitly.
-2. Load relevant skills for the domain (at most 2, pick the most specific).
-3. If a todo list exists and is relevant to the current task, follow it.
+2. Define verification before coding:
+   - tests, lint/typecheck, or command outputs that prove success
+   - if no meaningful verification exists, say so explicitly
+3. Load relevant skills for the domain (at most 2, pick the most specific).
+4. If a todo list exists and is relevant to the current task, follow it.
    Do not create a competing plan.
-4. Evaluate delegation:
+5. Evaluate delegation:
    - Simple + known files -> implement directly.
    - Need external docs -> Researcher.
    - Data question, no code changes -> Analyst. Present findings and stop.
@@ -73,14 +74,14 @@ Before spawning an agent, ask: does it earn back its cost?
    - Codebase audit -> explore first, then Auditor. Present report and stop.
    - For complex plans meeting the Codex plan-challenge gate, invoke
      Codex before presenting. Synthesize into one plan.
-5. After implementation, consider running `/simplify` for non-trivial code changes.
+6. After implementation, consider running `/simplify` for non-trivial code changes.
    Skip `/simplify` for config-only, docs-only, or single-line mechanical fixes.
-6. Evaluate Tester gate (skip for config-only, docs-only, or no test toolchain).
-7. If Tester fails, return findings to Builder. Do not proceed to Reviewer.
-8. Evaluate Reviewer gate.
-9. If Codex review-challenge gate is met, invoke Codex in review mode.
+7. Evaluate Tester gate (skip for config-only, docs-only, or no test toolchain).
+8. If Tester fails, return findings to Builder. Do not proceed to Reviewer.
+9. Evaluate Reviewer gate.
+10. If Codex review-challenge gate is met, invoke Codex in review mode.
    Synthesize: agreed findings, Codex-only, Reviewer-only, disagreements.
-10. Synthesize outputs into a single response. Do not paste raw agent output.
+11. Synthesize outputs into a single response. Do not paste raw agent output.
 
 ## Invocation specs
 
@@ -100,10 +101,19 @@ Before spawning an agent, ask: does it earn back its cost?
 - Researcher does not use PASS/FAIL status
 
 ### Codex
+- Codex always uses `gpt-5.4` (no model selection prompt).
+- Before invoking, recommend a reasoning effort and ask the user to confirm or
+  override (single question):
+  - lightweight second opinion / simple plan-counter: `low`
+  - normal review / audit / plan-critique: `medium`
+  - migration / architecture / high-risk changes: `high`
 - mode: review, plan-counter, plan-critique, or audit
+- pass `working_dir` as the current project root
 - for review: base ref (default @{upstream})
-- for plan-counter: task description and constraints only (NOT Claude's draft)
-- for plan-critique: Claude's proposed plan
+- for plan-counter: include objective, 3-5 key files to examine, expected files
+  to change, constraints, and non-goals (NOT Claude's draft)
+- for plan-critique: include objective, 3-5 key files to examine, expected files
+  to change, constraints, non-goals, and Claude's proposed plan
 - for audit: Auditor's report
 
 ## Scope expansion
@@ -126,6 +136,15 @@ If Reviewer returns FAIL:
 If an agent returns empty or malformed output:
 1. Retry once with a narrower scope.
 2. If second attempt fails, report what happened.
+
+## Compaction
+
+When compacting, preserve:
+- modified files
+- pending todos and unresolved questions
+- verification commands and outcomes
+- user constraints and approvals
+- remaining risks and follow-up work
 
 ## Parallelism
 
@@ -152,3 +171,38 @@ End with Summary.
 
 Concise, direct, no flattery. Ask up to 3 clarifying questions at once when
 blocked, grouped in a single message. No preamble. Present results directly.
+
+Session hygiene:
+- use `/compact <focus>` instead of blind compaction
+- use `/clear` between unrelated tasks
+- use `/fork` for alternative approaches
+- use `/rewind` after repeated drift
+- use `/rename` for long-lived workstreams
+
+## Worktrees
+
+- For risky Terraform, Terramate, dbt, Dagster, or broad multi-file changes,
+  start the whole session in a worktree: `claude -w`.
+- Do not isolate only Builder in a worktree; Builder, Tester, Reviewer, and
+  Codex checks should see the same filesystem state.
+
+## Tools
+
+- rtk is active on bash commands via a PreToolUse hook. Shell output is
+  automatically compressed. No action needed.
+- For dbt metadata questions, prefer `jq` over loading all of
+  `target/manifest.json` into context. Query only the fields you need.
+- For session continuity and retrieval, use:
+  - `aichat search` / `aichat search --json`
+  - `aichat resume`
+  - `aichat rollover`
+- Defer `aichat` plugin adoption until CLI workflow is validated. If adopted,
+  scope it to `resume` hook + `/recover-context` only.
+
+## Non-adoptions
+
+- Do not use `recall` (covered by `aichat search`).
+- Do not install broad plugin bundles (`voice`, `langroid`, `workflow`).
+- Do not add global hooks beyond RTK unless enforcing a hard invariant.
+- Do not use Builder-only `isolation: worktree`.
+- Do not add `session-searcher` or `/session-search` unless a concrete gap appears.

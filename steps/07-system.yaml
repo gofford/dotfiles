@@ -27,11 +27,11 @@
 
     # claude code configuration
     ~/.claude/settings.json: ~/.dotfiles/claude/settings.json
-    ~/.claude/CLAUDE.md: ~/.dotfiles/.claude/CLAUDE.md
+    ~/.claude/CLAUDE.md: ~/.dotfiles/claude/CLAUDE.md
     ~/.claude/agents: ~/.dotfiles/claude/agents
     ~/.claude/commands: ~/.dotfiles/claude/commands
     ~/.claude/skills: ~/.dotfiles/claude/skills
-    ~/.claude/rules: ~/.dotfiles/.claude/rules
+    ~/.claude/rules: ~/.dotfiles/claude/rules
     ~/.claude/scripts: ~/.dotfiles/claude/scripts
 
     # k9s configuration
@@ -46,10 +46,12 @@
     # editor configuration
     ~/.editorconfig: ~/.dotfiles/.editorconfig
 
-# Install RTK hook - let rtk own ~/.claude/hooks/rtk-rewrite.sh
-# rtk init -g writes the hook file and keeps it up to date with upstream changes.
-# --hook-only skips adding RTK.md to CLAUDE.md (~400 tokens per conversation).
+# Install operator tooling and register RTK-managed hook.
 - shell:
+    - command: uv tool install --force claude-code-tools
+      description: Install claude-code-tools CLI
+      stdout: true
+      stderr: true
     - command: rtk init -g --hook-only
       description: Register RTK Claude Code PreToolUse hook
       stdout: true

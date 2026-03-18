@@ -39,7 +39,7 @@ SCOPE EXPANSION NEEDED
 - Run lightweight verification appropriate to the domain (max 3 commands unless explicitly requested broader):
   - Python: `ruff check`, `mypy`, `pytest` (scoped)
   - dbt: `uv run --directory <path> dbt compile`, `dbt parse`
-  - Dagster: `dagster asset list`, `dagster asset check`
+  - Dagster: `dg check`, `dg list`
 
 ## Output
 

@@ -33,9 +33,12 @@ else
 
   bar=""
   filled=$(( pct / 10 ))
+  half=$(( (pct % 10) >= 5 ? 1 : 0 ))
   for i in 0 1 2 3 4 5 6 7 8 9; do
     if [ "$i" -lt "$filled" ]; then
       bar="${bar}${COLOR}●${RESET}"
+    elif [ "$i" -eq "$filled" ] && [ "$half" -eq 1 ]; then
+      bar="${bar}${COLOR}◑${RESET}"
     else
       bar="${bar}○"
     fi
@@ -53,6 +56,17 @@ if [ -n "$branch" ]; then
   fi
   if [ -n "$(git ls-files --others --exclude-standard 2>/dev/null | head -1)" ]; then
     dirty="${dirty} ?"
+  fi
+  ahead_behind=$(git rev-list --left-right --count HEAD...@{upstream} 2>/dev/null)
+  if [ -n "$ahead_behind" ]; then
+    ahead=$(echo "$ahead_behind" | awk '{print $1}')
+    behind=$(echo "$ahead_behind" | awk '{print $2}')
+    if [ "${ahead:-0}" -gt 0 ]; then
+      dirty="${dirty} ↑${ahead}"
+    fi
+    if [ "${behind:-0}" -gt 0 ]; then
+      dirty="${dirty} ↓${behind}"
+    fi
   fi
   repo=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)" 2>/dev/null)
   git_str="${repo}/${branch}${dirty}"

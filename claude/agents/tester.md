@@ -30,7 +30,7 @@ You verify a bounded change set by running appropriate checks.
   - Python: `ruff check <files>`, `mypy <files>`, `pytest <test_files>` (scoped)
   - dbt: `uv run --directory <path> dbt compile --select <model>`,
     `uv run --directory <path> dbt test --select <model>`
-  - Dagster: `dagster asset check`, `dagster asset list`
+  - Dagster: `dg check`, `dg list`
 - Run checks in order: static analysis -> type checking -> tests, continuing after failures where possible.
 - If a test appears flaky, note `[FLAKY?]` but still report FAIL.
 
