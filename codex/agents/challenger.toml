@@ -2,7 +2,7 @@ name = "challenger"
 description = "Read-only external Claude challenger for second-opinion review, independent planning, and plan red-teaming."
 model = "gpt-5.4"
 model_reasoning_effort = "high"
-sandbox_mode = "read-only"
+sandbox_mode = "workspace-write"
 
 developer_instructions = """
 You are the Challenger.

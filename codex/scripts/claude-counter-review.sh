@@ -18,6 +18,7 @@ claude_model="${CLAUDE_COUNTER_REVIEW_MODEL:-opus}"
 claude_effort="${CLAUDE_COUNTER_REVIEW_EFFORT:-high}"
 claude_max_turns="${CLAUDE_COUNTER_REVIEW_MAX_TURNS:-6}"
 claude_permission_mode="${CLAUDE_COUNTER_REVIEW_PERMISSION_MODE:-bypassPermissions}"
+claude_bare="${CLAUDE_COUNTER_REVIEW_BARE:-0}"
 review_tools="${CLAUDE_COUNTER_REVIEW_REVIEW_TOOLS:-Read,Grep,Glob}"
 plan_critique_tools="${CLAUDE_COUNTER_REVIEW_PLAN_CRITIQUE_TOOLS:-Read,Grep,Glob}"
 plan_counter_tools="${CLAUDE_COUNTER_REVIEW_PLAN_COUNTER_TOOLS:-}"
@@ -192,6 +193,10 @@ if ! [[ "${claude_max_turns}" =~ ^[0-9]+$ ]] || (( claude_max_turns < 1 )); then
   die_env "${mode}" "CLAUDE_COUNTER_REVIEW_MAX_TURNS must be a positive integer. Got: ${claude_max_turns}"
 fi
 
+if [[ "${claude_bare}" != "0" && "${claude_bare}" != "1" ]]; then
+  die_env "${mode}" "CLAUDE_COUNTER_REVIEW_BARE must be 0 or 1. Got: ${claude_bare}"
+fi
+
 if ! [[ "${timeout_duration}" =~ ^[0-9]+([smhd])?$ ]] || [[ "${timeout_duration}" == 0 || "${timeout_duration}" == 0s ]]; then
   die_env "${mode}" "CLAUDE_COUNTER_REVIEW_TIMEOUT must be a positive duration like 600, 600s, 10m, 1h, or 1d. Got: ${timeout_duration}"
 fi
@@ -216,7 +221,7 @@ debug_log "claude_bin=${claude_bin}"
 debug_log "timeout_bin=${timeout_bin:-none}"
 debug_log "supports_append_system_prompt_file=${supports_append_system_prompt_file}"
 debug_log "supports_max_turns=${supports_max_turns}"
-debug_log "model=${claude_model} effort=${claude_effort} max_turns=${claude_max_turns} permission_mode=${claude_permission_mode}"
+debug_log "model=${claude_model} effort=${claude_effort} max_turns=${claude_max_turns} permission_mode=${claude_permission_mode} bare=${claude_bare}"
 
 stdout_file="$(mktemp)"
 stderr_file="$(mktemp)"
@@ -224,13 +229,16 @@ stderr_file="$(mktemp)"
 claude_cmd=(
   "${claude_bin}"
   -p
-  --bare
   --no-session-persistence
   --output-format text
   --model "${claude_model}"
   --effort "${claude_effort}"
   "${mode_args[@]}"
 )
+
+if [[ "${claude_bare}" == "1" ]]; then
+  claude_cmd+=(--bare)
+fi
 
 if [[ "${supports_max_turns}" == "1" ]]; then
   claude_cmd+=(--max-turns "${claude_max_turns}")

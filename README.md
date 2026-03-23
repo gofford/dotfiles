@@ -69,7 +69,7 @@ brew file install -f brew/Brewfile.cursor
 - App Store installs require signing into the Mac App Store (used by `mas`). If you skip this step, run `make step STEP=04-brew-mas` after signing in.
 - Configs are symlinked into your home directory. Edit files in `~/.dotfiles/` and run `make link` to re-apply.
 - Codex is linked into `~/.codex`; Claude is linked into `~/.claude`.
-- Codex skills are synced from `codex/skills/manifest.toml` into `~/.codex/skills` via `npx skills`.
+- Codex skills are synced from `codex/skills/manifest.toml` into `~/.codex/skills` via `npx skills` (manifest IDs are `owner/repo@skill`; legacy `owner/repo/skill` is tolerated).
 - OpenCode is no longer part of the active install flow.
 - RTK is not part of the active install flow.
 - Machine-specific git config goes in `~/.gitconfig.local` — it is included automatically and never tracked.
