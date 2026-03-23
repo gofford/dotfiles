@@ -5,3 +5,5 @@
 # unblock scripts dir ignored by ~/.gitignore_global
 !claude/scripts/
 !claude/scripts/**
+!codex/scripts/
+!codex/scripts/**

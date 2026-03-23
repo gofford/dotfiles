@@ -1,0 +1,14 @@
+# Codex skills are installed globally via `npx skills` into ~/.codex/skills.
+# Each entry declares one skill in owner/repo/skill form.
+
+[[skills]]
+id = "dagster-io/skills/dagster-expert"
+enabled = false
+
+[[skills]]
+id = "dagster-io/skills/dignified-python"
+enabled = false
+
+[[skills]]
+id = "lightdash/lightdash/developing-in-lightdash"
+enabled = false

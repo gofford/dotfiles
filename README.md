@@ -42,7 +42,7 @@ make step STEP=05-shell
 - [Atuin](https://github.com/atuinsh/atuin) history/search with `fzf` integration.
 - Git defaults (delta pager, SSH-based signing) plus tooling like lazygit and git-spice.
 - Cursor settings and extensions.
-- System tooling configs: `ssh/`, `direnv/`, `k9s/`, and OpenCode config in `opencode/`.
+- System tooling configs: `ssh/`, `direnv/`, `k9s/`, Claude config in `claude/`, and Codex config in `codex/`.
 
 ## Repo Layout
 
@@ -50,7 +50,7 @@ This repo stays intentionally coarse to avoid churn:
 
 - Entrypoints: `Makefile`, `install`, `steps/`
 - Packages: `brew/`
-- Tool configs: `shell/`, `git/`, `cursor/`, `ghostty/`, `atuin/`, `ssh/`, `direnv/`, `k9s/`, `opencode/`
+- Tool configs: `shell/`, `git/`, `cursor/`, `ghostty/`, `atuin/`, `ssh/`, `direnv/`, `k9s/`, `claude/`, `codex/`
 
 ## Package Management
 
@@ -68,4 +68,8 @@ brew file install -f brew/Brewfile.cursor
 - First-time install may prompt for `sudo` to set the default shell (Homebrew zsh).
 - App Store installs require signing into the Mac App Store (used by `mas`). If you skip this step, run `make step STEP=04-brew-mas` after signing in.
 - Configs are symlinked into your home directory. Edit files in `~/.dotfiles/` and run `make link` to re-apply.
+- Codex is linked into `~/.codex`; Claude is linked into `~/.claude`.
+- Codex skills are synced from `codex/skills/manifest.toml` into `~/.codex/skills` via `npx skills`.
+- OpenCode is no longer part of the active install flow.
+- RTK is not part of the active install flow.
 - Machine-specific git config goes in `~/.gitconfig.local` — it is included automatically and never tracked.

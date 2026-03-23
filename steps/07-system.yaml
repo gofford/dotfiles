@@ -5,7 +5,11 @@
 
 # Ensure config directories exist
 - create:
-    - ~/.config/opencode
+    - ~/.codex
+    - ~/.codex/agents
+    - ~/.codex/rules
+    - ~/.codex/scripts
+    - ~/.codex/skills
     - ~/.claude
     - ~/.claude/hooks
 
@@ -17,43 +21,36 @@
     # direnv configuration
     ~/.config/direnv/direnv.toml: ~/.dotfiles/direnv/direnv.toml
 
-    # opencode configuration
-    ~/.config/opencode/opencode.json: ~/.dotfiles/opencode/opencode.json
-    ~/.config/opencode/dcp.jsonc: ~/.dotfiles/opencode/dcp.jsonc
-    ~/.config/opencode/agents: ~/.dotfiles/opencode/agents
-    ~/.config/opencode/skills: ~/.dotfiles/opencode/skills
-    ~/.config/opencode/commands: ~/.dotfiles/opencode/commands
-    ~/.config/opencode/plugin: ~/.dotfiles/opencode/plugin
+    # codex configuration
+    ~/.codex/config.toml: codex/config.toml
+    ~/.codex/AGENTS.md: codex/AGENTS.md
+    ~/.codex/agents: codex/agents
+    ~/.codex/rules: codex/rules
+    ~/.codex/scripts: codex/scripts
 
     # claude code configuration
-    ~/.claude/settings.json: ~/.dotfiles/claude/settings.json
-    ~/.claude/CLAUDE.md: ~/.dotfiles/claude/CLAUDE.md
-    ~/.claude/agents: ~/.dotfiles/claude/agents
-    ~/.claude/commands: ~/.dotfiles/claude/commands
-    ~/.claude/skills: ~/.dotfiles/claude/skills
-    ~/.claude/rules: ~/.dotfiles/claude/rules
-    ~/.claude/scripts: ~/.dotfiles/claude/scripts
+    ~/.claude/settings.json: claude/settings.json
+    ~/.claude/CLAUDE.md: claude/CLAUDE.md
+    ~/.claude/agents: claude/agents
+    ~/.claude/commands: claude/commands
+    ~/.claude/skills: claude/skills
+    ~/.claude/scripts: claude/scripts
 
     # k9s configuration
     ~/.config/k9s:
       glob: true
-      path: ~/.dotfiles/k9s/*
+      path: k9s/*
       relink: true
 
     # ghostty configuration
-    ~/.config/ghostty/config: ~/.dotfiles/ghostty/config
+    ~/.config/ghostty/config: ghostty/config
 
     # editor configuration
-    ~/.editorconfig: ~/.dotfiles/.editorconfig
+    ~/.editorconfig: .editorconfig
 
-# Install operator tooling and register RTK-managed hook.
+# Install operator tooling.
 - shell:
-    - command: uv tool install --force claude-code-tools
-      description: Install claude-code-tools CLI
+    - command: codex/scripts/install-skills.sh
+      description: Sync managed Codex skills via npx skills
       stdout: true
       stderr: true
-    - command: rtk init -g --hook-only
-      description: Register RTK Claude Code PreToolUse hook
-      stdout: true
-      stderr: true
-

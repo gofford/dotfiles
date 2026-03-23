@@ -1,0 +1,48 @@
+# Allow read-only git inspection commands to run outside the sandbox without prompting.
+prefix_rule(
+    pattern = ["git", ["status", "diff", "show", "log"]],
+    decision = "allow",
+    justification = "Read-only git inspection is safe outside the sandbox.",
+    match = [
+        "git status",
+        "git diff --stat",
+        "git show HEAD~1",
+        "git log --oneline -5",
+    ],
+    not_match = [
+        "git commit -m test",
+        "git push origin main",
+    ],
+)
+
+# Prompt before commands that can publish local state.
+prefix_rule(
+    pattern = ["git", ["push", "commit"]],
+    decision = "prompt",
+    justification = "Publishing or recording history should stay interactive.",
+    match = [
+        "git commit -m update",
+        "git push origin main",
+    ],
+)
+
+# Forbid destructive git cleanup outside the sandbox.
+prefix_rule(
+    pattern = ["git", "reset", "--hard"],
+    decision = "forbidden",
+    justification = "Do not use destructive resets from Codex. Revert specific files or inspect the diff instead.",
+    match = [
+        "git reset --hard",
+        "git reset --hard HEAD~1",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "clean", ["-fd", "-fdx"]],
+    decision = "forbidden",
+    justification = "Do not use destructive git clean from Codex. Remove specific paths manually if needed.",
+    match = [
+        "git clean -fd",
+        "git clean -fdx",
+    ],
+)

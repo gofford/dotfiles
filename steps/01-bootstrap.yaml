@@ -71,7 +71,11 @@
     - ~/.ssh
     - ~/.config/zsh
     - ~/.config/zsh/completions
-    - ~/.config/opencode
+    - ~/.codex
+    - ~/.codex/agents
+    - ~/.codex/rules
+    - ~/.codex/scripts
+    - ~/.codex/skills
     - ~/.claude
     - ~/.config/k9s
     - "~/Library/Application Support/Cursor"
