@@ -89,6 +89,9 @@ Keep the main thread clean. The main thread owns triage, delegation, synthesis, 
 - `challenger(review)` runs after `reviewer` when the user asks for a second opinion or deep review.
 - `challenger(plan-counter)` runs before implementation when you want an independent plan with broader discovery, including external docs and current behavior.
 - `challenger(plan-critique)` runs before implementation when you want Claude to attack an existing Codex plan.
+- Challenger is a privileged bridge to local Claude CLI auth. It is not a normal sandboxed subagent path.
+- Invoke the Claude wrapper from challenger using an escalated/unsandboxed command path (`sandbox_permissions="require_escalated"`).
+- If challenger reports `Not logged in · Please run /login` from a sandboxed run, treat it as a possible sandbox auth-access issue first and retry unsandboxed.
 - Codex always synthesizes the result:
   - agreed findings
   - Codex-only findings

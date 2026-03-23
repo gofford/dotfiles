@@ -3,6 +3,8 @@
 *.lock.json
 
 # unblock scripts dir ignored by ~/.gitignore_global
+!scripts/
+!scripts/**
 !claude/scripts/
 !claude/scripts/**
 !codex/scripts/

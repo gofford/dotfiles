@@ -16,10 +16,10 @@
 # Link system configuration files
 - link:
     # ssh configuration
-    ~/.ssh/config: ~/.dotfiles/ssh/config
+    ~/.ssh/config: ssh/config
 
     # direnv configuration
-    ~/.config/direnv/direnv.toml: ~/.dotfiles/direnv/direnv.toml
+    ~/.config/direnv/direnv.toml: direnv/direnv.toml
 
     # codex configuration
     ~/.codex/config.toml: codex/config.toml

@@ -6,10 +6,10 @@
 # Link development configuration files
 - link:
     # git configuration
-    ~/.gitconfig: ~/.dotfiles/git/.gitconfig
-    ~/.gitignore_global: ~/.dotfiles/git/.gitignore_global
-    ~/.gitattributes: ~/.dotfiles/git/.gitattributes
+    ~/.gitconfig: git/.gitconfig
+    ~/.gitignore_global: git/.gitignore_global
+    ~/.gitattributes: git/.gitattributes
 
     # cursor configuration
-    "~/Library/Application Support/Cursor/User/settings.json": ~/.dotfiles/cursor/settings.json
-    "~/Library/Application Support/Cursor/User/keybindings.json": ~/.dotfiles/cursor/keybindings.json
+    "~/Library/Application Support/Cursor/User/settings.json": cursor/settings.json
+    "~/Library/Application Support/Cursor/User/keybindings.json": cursor/keybindings.json

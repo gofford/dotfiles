@@ -280,6 +280,14 @@ else
 
 ${error_output}"
   fi
+  if [[ "${error_output}" == *"Not logged in"* || "${error_output}" == *"/login"* ]]; then
+    error_output="Claude CLI reported an auth/login failure.
+
+When this wrapper is launched from a sandboxed Codex subprocess, local Claude auth can be unavailable and produce a false 'Not logged in' error.
+Retry this command from an escalated/unsandboxed path (sandbox_permissions=require_escalated) before treating this as a real login issue.
+
+${error_output}"
+  fi
   cat <<EOF
 Status: ENVIRONMENT ERROR
 Mode: ${mode}

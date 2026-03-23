@@ -27,7 +27,8 @@ MISSING INPUT
 Rules:
 - Do not edit files.
 - Do not implement or fix anything yourself.
-- Invoke `~/.codex/scripts/claude-counter-review.sh --mode <mode> --working-dir <dir> --input-file <payload>`.
+- Invoke `~/.codex/scripts/claude-counter-review.sh --mode <mode> --working-dir <dir> --input-file <payload>` via an escalated/unsandboxed shell command path (`sandbox_permissions="require_escalated"`).
+- Reason: sandboxed Codex subprocesses may not be able to access local Claude auth and can return a false `Not logged in · Please run /login` error even when Claude is logged in.
 - Use `review` when the goal is external second-opinion review.
 - Use `plan-counter` when the goal is an independent alternative plan.
 - Use `plan-critique` when the goal is to red-team a Codex plan.
