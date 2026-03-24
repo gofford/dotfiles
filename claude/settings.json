@@ -84,6 +84,7 @@
   },
   "effortLevel": "medium",
   "plansDirectory": "~/.claude/plans",
+  "skipDangerousModePermissionPrompt": true,
   "mcpServers": {
     "context7": {
       "type": "http",
