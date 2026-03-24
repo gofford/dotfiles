@@ -1,0 +1,91 @@
+# Allow common read-only GitHub inspection commands without prompting.
+prefix_rule(
+    pattern = ["gh", "pr", ["view", "diff", "checks"]],
+    decision = "allow",
+    justification = "Read-only pull request inspection is safe outside the sandbox.",
+    match = [
+        "gh pr view 123",
+        "gh pr diff 123",
+        "gh pr checks 123",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "issue", "view"],
+    decision = "allow",
+    justification = "Read-only issue inspection is safe outside the sandbox.",
+    match = [
+        "gh issue view 456",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "repo", "view"],
+    decision = "allow",
+    justification = "Read-only repo inspection is safe outside the sandbox.",
+    match = [
+        "gh repo view openai/codex",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "run", ["list", "view"]],
+    decision = "allow",
+    justification = "Read-only workflow run inspection is safe outside the sandbox.",
+    match = [
+        "gh run list",
+        "gh run view 12345",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "browse"],
+    decision = "allow",
+    justification = "Opening GitHub pages is a low-risk inspection action.",
+    match = [
+        "gh browse",
+        "gh browse 123",
+    ],
+)
+
+# Prompt before commands that can mutate remote state or create discussion.
+prefix_rule(
+    pattern = ["gh", ["pr", "issue"], ["comment", "edit"]],
+    decision = "prompt",
+    justification = "Remote comments and edits should stay interactive.",
+    match = [
+        "gh pr comment 123 --body hello",
+        "gh pr edit 123 --title title",
+        "gh issue comment 456 --body hello",
+        "gh issue edit 456 --title title",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "workflow", "run"],
+    decision = "prompt",
+    justification = "Triggering remote workflows should stay interactive.",
+    match = [
+        "gh workflow run ci.yml",
+    ],
+)
+
+# Forbid destructive or finalizing GitHub actions from Codex.
+prefix_rule(
+    pattern = ["gh", "pr", ["merge", "close"]],
+    decision = "forbidden",
+    justification = "Do not merge or close pull requests from Codex.",
+    match = [
+        "gh pr merge 123",
+        "gh pr close 123",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "repo", "delete"],
+    decision = "forbidden",
+    justification = "Do not delete repositories from Codex.",
+    match = [
+        "gh repo delete openai/codex",
+    ],
+)

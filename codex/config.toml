@@ -1,0 +1,78 @@
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+personality = "pragmatic"
+model_instructions_file = "~/.codex/AGENTS.md"
+web_search = "cached"
+allow_login_shell = false
+project_root_markers = [".git", ".hg", ".sl"]
+project_doc_max_bytes = 24576
+
+[shell_environment_policy]
+inherit = "core"
+ignore_default_excludes = false
+exclude = [
+  "*_PASSWORD",
+  "*_PRIVATE_KEY",
+]
+
+[sandbox_workspace_write]
+network_access = false
+exclude_tmpdir_env_var = false
+exclude_slash_tmp = false
+
+[history]
+persistence = "save-all"
+max_bytes = 104857600
+
+[tui]
+notifications = true
+notification_method = "auto"
+
+[profiles.development]
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+web_search = "cached"
+
+[profiles.review]
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+sandbox_mode = "read-only"
+approval_policy = "on-request"
+web_search = "cached"
+
+[profiles.conservative]
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+approval_policy = "untrusted"
+web_search = "cached"
+
+[profiles.trusted]
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+sandbox_mode = "workspace-write"
+approval_policy = "never"
+web_search = "live"
+
+[profiles.coding]
+model = "gpt-5.3-codex"
+model_reasoning_effort = "medium"
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+web_search = "cached"
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+
+[mcp_servers.exa]
+url = "https://mcp.exa.ai/mcp"
+
+[projects."/Users/jasongofford/.dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/jasongofford/Projects/data-dbt-core"]
+trust_level = "trusted"

@@ -59,6 +59,3 @@ eval "$(direnv hook zsh)"
 
 # prompt
 eval "$(oh-my-posh init zsh --config ~/.prompt.omp.json)"
-
-# opencode
-export PATH=$HOME/.opencode/bin:$PATH

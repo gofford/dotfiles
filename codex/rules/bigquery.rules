@@ -1,0 +1,38 @@
+# These rules are workflow friction controls, not a read-only security boundary.
+# Real safety for BigQuery must come from IAM or the active service account permissions.
+#
+# Allow low-risk BigQuery metadata inspection commands.
+prefix_rule(
+    pattern = ["bq", ["ls", "show"]],
+    decision = "allow",
+    justification = "Metadata inspection is safe outside the sandbox.",
+    match = [
+        "bq ls",
+        "bq show project:dataset.table",
+    ],
+)
+
+# Prompt for all query execution, even read-only-looking SQL.
+prefix_rule(
+    pattern = ["bq", "query"],
+    decision = "prompt",
+    justification = "BigQuery queries can incur cost or have write effects; keep them interactive.",
+    match = [
+        "bq query --nouse_legacy_sql 'select 1'",
+    ],
+)
+
+# Forbid destructive or admin-style BigQuery commands from Codex.
+prefix_rule(
+    pattern = ["bq", ["rm", "load", "mk", "update", "cp", "extract"]],
+    decision = "forbidden",
+    justification = "Do not run destructive or admin-style BigQuery commands from Codex.",
+    match = [
+        "bq rm -t project:dataset.table",
+        "bq load project:dataset.table file.csv schema.json",
+        "bq mk dataset_name",
+        "bq update project:dataset.table",
+        "bq cp src dst",
+        "bq extract project:dataset.table gs://bucket/file.csv",
+    ],
+)
