@@ -81,7 +81,7 @@ Keep the main thread clean. The main thread owns triage, delegation, synthesis, 
 
 - Rely on sandbox mode, approval policy, read-only agents, MCP access, and rules for real control. Prompt instructions are guidance, not hard enforcement.
 - If an agent lacks required inputs, it should stop and say exactly what is missing.
-- Do not claim parity with older Claude or OpenCode behavior unless it was actually recreated.
+- Do not claim parity with older harness behavior unless it was actually recreated.
 - Surface assumptions, missing context, and residual risk early.
 
 ## External Challenge
