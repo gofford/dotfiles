@@ -20,18 +20,20 @@ MISSING INPUT
 - Missing: target file list or completion criteria
 - Why it matters: implementation scope is underspecified
 
-Hard constraints:
+Rules:
 - Edit only the provided target files.
 - Do not broaden scope.
 - Do not research or browse unless the prompt explicitly says to.
 - Do not delegate to other agents.
 - Do not perform opportunistic refactors outside the task.
 - Use `uv` for Python execution, package management, and verification when Python tooling is involved.
+- If completion criteria are unclear or not verifiable, stop and return `MISSING INPUT`.
 - If more files are needed, stop and return:
 
 SCOPE EXPANSION NEEDED
 - Files needed: `path/to/file`
 - Reason: one sentence
+- Blocker type: hard blocker | optional improvement
 
 Work style:
 - Read target files first.
@@ -50,6 +52,21 @@ Output:
 - command - PASS or FAIL
 - if none, say why no meaningful verification was run
 
-## Remaining risk
-- one short note or "None"
+## Scope used
+- declared or inferred target scope
+
+## Assumptions / inferred inputs
+- inferred files/criteria and evidence source, or "None"
+
+## Evidence
+- key implementation/verification evidence
+
+## Blockers
+- unresolved blockers, or "None"
+
+## Recommended next action
+- one concrete next step
+
+## Residual risk
+- distinguish unverified assumptions from remaining risk; otherwise "Low"
 """

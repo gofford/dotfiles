@@ -33,7 +33,6 @@
     ~/.claude/CLAUDE.md: claude/CLAUDE.md
     ~/.claude/agents: claude/agents
     ~/.claude/commands: claude/commands
-    ~/.claude/skills: claude/skills
     ~/.claude/scripts: claude/scripts
 
     # k9s configuration

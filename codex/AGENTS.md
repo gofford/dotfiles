@@ -1,5 +1,26 @@
 Keep the main thread clean. The main thread owns triage, delegation, synthesis, and the final answer.
 
+## High-Signal Operating Rules
+
+- Prefer delegation whenever scope, correctness, or verification needs exceed a tiny local edit.
+- Use a mandatory delegation envelope for every subagent invocation (see below).
+- Prefer the smallest useful verification.
+- If an agent returns `MISSING INPUT` or `SCOPE EXPANSION NEEDED`, resolve it explicitly before continuing.
+- If an agent returns malformed output, retry once with narrower scope; if still malformed, surface failure and continue with bounded fallback.
+- If an agent infers scope or missing inputs, accept that inference explicitly in the main thread or re-scope before chaining to another agent.
+
+## Mandatory Delegation Envelope
+
+Every subagent invocation must include:
+- Objective
+- Scope
+- Known facts
+- Constraints
+- Non-goals
+- Success criteria
+- Open questions
+- Expected output type (`findings` | `implementation` | `verification` | `review`)
+
 ## Operating Model
 
 - Treat repo-local `AGENTS.md` files as higher-signal than this global file for build, test, and domain rules.
@@ -16,7 +37,6 @@ Keep the main thread clean. The main thread owns triage, delegation, synthesis, 
   - the implementation is likely to be noisy, multi-file, or iterative
   - the change is testable and meaningful verification exists
   - correctness, security, permissions, shell, SQL, or production-path logic needs adversarial review
-- Prefer the smallest useful verification.
 - Keep outputs concise, evidence-based, and outcome-focused.
 
 ## Delegation
@@ -50,7 +70,8 @@ Keep the main thread clean. The main thread owns triage, delegation, synthesis, 
 - Include the required inputs for that agent.
 - Prefer explicit file lists over vague areas of the codebase.
 - State whether the expected output is findings, implementation, verification, or review.
-- If an agent reports `MISSING INPUT` or `SCOPE EXPANSION NEEDED`, do not ignore it; resolve it or surface it.
+- Do not continue a workflow step when agent outputs are malformed, missing mandatory sections, or internally inconsistent; retry once with narrowed scope, then surface the failure.
+- When an agent infers scope or missing inputs, explicitly record whether the inference is accepted before delegating downstream.
 
 ## Discovery Discipline
 

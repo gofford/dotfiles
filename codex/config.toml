@@ -1,5 +1,8 @@
 model = "gpt-5.4"
-model_reasoning_effort = "high"
+model_reasoning_effort = "medium"
+model_reasoning_summary = "concise"
+plan_mode_reasoning_effort = "high"
+review_model = "gpt-5.4"
 approval_policy = "on-request"
 sandbox_mode = "workspace-write"
 personality = "pragmatic"
@@ -30,19 +33,19 @@ max_bytes = 104857600
 notifications = true
 notification_method = "auto"
 
-[profiles.development]
-model = "gpt-5.4"
-model_reasoning_effort = "medium"
-sandbox_mode = "workspace-write"
-approval_policy = "on-request"
-web_search = "cached"
-
 [profiles.review]
 model = "gpt-5.4"
 model_reasoning_effort = "high"
 sandbox_mode = "read-only"
 approval_policy = "on-request"
 web_search = "cached"
+
+[profiles.research]
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+approval_policy = "on-request"
+web_search = "live"
 
 [profiles.conservative]
 model = "gpt-5.4-mini"
@@ -57,13 +60,6 @@ model_reasoning_effort = "medium"
 sandbox_mode = "workspace-write"
 approval_policy = "never"
 web_search = "live"
-
-[profiles.coding]
-model = "gpt-5.3-codex"
-model_reasoning_effort = "medium"
-sandbox_mode = "workspace-write"
-approval_policy = "on-request"
-web_search = "cached"
 
 [mcp_servers.context7]
 url = "https://mcp.context7.com/mcp"

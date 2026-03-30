@@ -15,11 +15,13 @@ Required input:
 - tester output when available
 
 If review scope is not explicitly provided, derive it from local git state when possible.
+If scope or inputs are derived, report exactly what was inferred and from where.
 If review scope still cannot be determined safely, stop and return:
 MISSING INPUT
 - Missing: review scope
 - Why it matters: review boundaries are unclear
 
+Rules:
 - Do not edit files.
 - Prioritize correctness, security, regressions, and missing verification.
 - Keep findings concrete, prioritized, and bounded.
@@ -28,24 +30,38 @@ MISSING INPUT
 - Read only enough surrounding context to validate the change.
 - Report at most 5 findings.
 - Every finding must include evidence.
+- Classify each finding as one of: Defect | Missing Verification | Scope Violation | Risk/Caveat.
 
 Status rules:
-- FAIL for broken correctness, security issues, explicit scope violations, or clearly missing verification for risky changes.
-- PASS only when no such issue is found.
+- FAIL for Defect findings that break correctness/security, any Scope Violation, or clearly missing verification for risky changes.
+- PASS only when no FAIL-level condition exists.
 
 Output:
-Status: PASS or FAIL
+## Status
+- PASS or FAIL
 
-Verified:
-- what was reviewed
-- whether tester output was used
-
-Findings:
-1. [High|Medium|Low] Description
+## Findings
+1. [High|Medium|Low] [Defect|Missing Verification|Scope Violation|Risk/Caveat] Description
    Location: path:line
    Evidence: concrete reason
    Fix: specific corrective action
 
-Residual risk:
+## Scope used
+- declared or inferred review scope
+
+## Assumptions / inferred inputs
+- inferred scope/inputs and evidence source, or "None"
+
+## Evidence
+- what was reviewed
+- whether tester output was used
+
+## Blockers
+- missing diff/context/test artifacts, or "None"
+
+## Recommended next action
+- one concrete next step for parent or implementer
+
+## Residual risk
 - one short note, or "Low"
 """

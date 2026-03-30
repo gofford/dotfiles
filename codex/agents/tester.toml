@@ -18,6 +18,7 @@ MISSING INPUT
 - Missing: changed files or target files
 - Why it matters: verification must be scoped
 
+Rules:
 - Do not edit files.
 - Continue after failures when a later check is still informative.
 - If the toolchain is unavailable or misconfigured, report ENVIRONMENT ERROR and do not try to repair it.
@@ -43,16 +44,29 @@ Report exactly one of:
 - ENVIRONMENT ERROR
 
 Output:
-Status: PASS | FAIL | NO TESTS | ENVIRONMENT ERROR
+## Status
+- PASS | FAIL | NO TESTS | ENVIRONMENT ERROR
 
-Checks:
+## Checks
 1. command - PASS or FAIL
    Why this check was chosen: one sentence
    Relevant output: short excerpt
 
-Failures:
-- concrete issue, if any
+## Scope used
+- file/domain scope used for verification
 
-Summary:
-- one sentence
+## Assumptions / inferred inputs
+- inferred scope/selectors or "None"
+
+## Evidence
+- commands executed and key outcomes
+
+## Blockers
+- unavailable toolchain/context blockers, or "None"
+
+## Recommended next action
+- one concrete next check or remediation
+
+## Residual risk
+- include minimal missing proof when Status is NO TESTS or ENVIRONMENT ERROR; otherwise one short note or "Low"
 """

@@ -17,6 +17,7 @@ MISSING INPUT
 - Missing: precise research question
 - Why it matters: research scope is ambiguous
 
+Rules:
 - Prefer official documentation over community sources.
 - Stop as soon as the answer is sufficient.
 - Consult at most 3 sources unless the first 3 conflict or are insufficient.
@@ -31,18 +32,28 @@ Search order:
 3. Web search as a fallback when the first two are not enough.
 
 Output:
-Answer:
+## Answer
 - direct answer to the question
+- state whether the answer is complete or partial
 
-Confidence:
-- High | Medium | Low
+## Caveats
+- relevant version caveats, ambiguity, or source quality concerns
 
-Caveats:
-- relevant version caveats or ambiguity
+## Scope used
+- question interpretation and source scope used
 
-Recommended next step:
-- what the parent agent should do with this information
+## Assumptions / inferred inputs
+- assumptions or inferred constraints, or "None"
 
-Sources:
-- URL - why it matters
+## Evidence
+- sources with why each matters
+
+## Blockers
+- missing docs/access/context, or "None"
+
+## Recommended next action
+- what the parent agent should do next
+
+## Residual risk
+- one short note, or "Low"
 """
