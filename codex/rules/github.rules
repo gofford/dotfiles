@@ -48,16 +48,45 @@ prefix_rule(
     ],
 )
 
+# Allow explicit read-only GitHub API inspection for PR review threads and comments.
+prefix_rule(
+    pattern = ["gh", "api", "--method", "GET"],
+    decision = "allow",
+    justification = "Explicit GET requests to the GitHub API are safe outside the sandbox.",
+    match = [
+        "gh api --method GET repos/org/repo/pulls/123/comments",
+        "gh api --method GET repos/org/repo/pulls/123/reviews",
+        "gh api --method GET repos/org/repo/issues/123/comments",
+    ],
+)
+
+# Allow PR drafting and metadata updates without prompting.
+prefix_rule(
+    pattern = ["gh", "pr", "create", "--draft"],
+    decision = "allow",
+    justification = "Creating draft pull requests is an expected publishing workflow.",
+    match = [
+        "gh pr create --draft --title title --body-file .github/pull_request_template.md",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "pr", "edit"],
+    decision = "allow",
+    justification = "Updating PR title and body is an expected publishing workflow.",
+    match = [
+        "gh pr edit 123 --title title --body-file .github/pull_request_template.md",
+    ],
+)
+
 # Prompt before commands that can mutate remote state or create discussion.
 prefix_rule(
-    pattern = ["gh", ["pr", "issue"], ["comment", "edit"]],
+    pattern = ["gh", ["pr", "issue"], "comment"],
     decision = "prompt",
-    justification = "Remote comments and edits should stay interactive.",
+    justification = "Remote comments should stay interactive.",
     match = [
         "gh pr comment 123 --body hello",
-        "gh pr edit 123 --title title",
         "gh issue comment 456 --body hello",
-        "gh issue edit 456 --title title",
     ],
 )
 

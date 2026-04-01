@@ -1,5 +1,5 @@
 model = "gpt-5.4"
-model_reasoning_effort = "medium"
+model_reasoning_effort = "high"
 model_reasoning_summary = "concise"
 plan_mode_reasoning_effort = "high"
 review_model = "gpt-5.4"
@@ -71,4 +71,7 @@ url = "https://mcp.exa.ai/mcp"
 trust_level = "trusted"
 
 [projects."/Users/jasongofford/Projects/data-dbt-core"]
+trust_level = "trusted"
+
+[projects."/Users/jasongofford/Projects/yoto-data-terraform"]
 trust_level = "trusted"

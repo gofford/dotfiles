@@ -77,6 +77,7 @@ Every subagent invocation must include:
 
 - Before asking the user a clarifying question, first try to resolve the uncertainty from local context when it is cheap and safe to do so.
 - Prefer reading files, searching the repo, and checking nearby configs before asking about discoverable facts.
+- For PR feedback summaries, prefer `gh pr view <n> --comments` and explicit read-only API calls like `gh api --method GET repos/<org>/<repo>/pulls/<n>/comments` before inferring reviewer intent from the diff alone.
 - Ask the user only when:
   - the missing information is not locally discoverable
   - multiple materially different interpretations remain
@@ -87,9 +88,11 @@ Every subagent invocation must include:
 
 - `explorer` and `researcher` may run in parallel when independent.
 - `analyst` may run in parallel with unrelated repo exploration.
-- Run only one `worker` at a time.
-- Do not parallelize work that depends on another agent's output.
-- `tester` runs after implementation.
+- Run one `worker` at a time by default.
+- Parallel `worker` agents are allowed only when their write scopes are disjoint, neither depends on the other, and the main thread has already fixed the integration plan.
+- If there is any doubt about overlap, sequencing, or shared interfaces, use one worker.
+- If a worker discovers overlap, it must stop with `SCOPE EXPANSION NEEDED` rather than crossing boundaries.
+- `tester` runs after implementation; for parallel workers, verify after both finish unless one blocks earlier.
 - `reviewer` runs after implementation and usually after `tester`.
 
 ## Repair Loop

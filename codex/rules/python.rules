@@ -1,0 +1,10 @@
+# Allow focused Python verification commands to run outside the sandbox without prompting.
+prefix_rule(
+    pattern = ["uv", "run", "pytest"],
+    decision = "allow",
+    justification = "Focused pytest runs are an expected verification workflow.",
+    match = [
+        "uv run pytest tests/foo/test_bar.py -q",
+        "uv run pytest tests/unit/test_example.py",
+    ],
+)
