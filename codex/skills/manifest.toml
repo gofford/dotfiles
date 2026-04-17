@@ -1,6 +1,6 @@
-# Codex skills are installed globally via `npx skills` into ~/.codex/skills.
-# Each entry declares one skill in owner/repo@skill form.
-# Legacy owner/repo/skill IDs are still tolerated by the installer.
+# Managed skills are declared here and synced by `npx skills`.
+# Synced entries install under ~/.agents/skills/; system skills stay under ~/.codex/skills/.system/.
+# Each entry declares one skill in owner/repo@skill form (legacy owner/repo/skill is still accepted).
 
 [[skills]]
 id = "dagster-io/skills@dagster-expert"
@@ -12,4 +12,24 @@ enabled = true
 
 [[skills]]
 id = "lightdash/lightdash@developing-in-lightdash"
+enabled = true
+
+[[skills]]
+id = "vercel-labs/skills@find-skills"
+enabled = true
+
+[[skills]]
+id = "mattpocock/skills@grill-me"
+enabled = true
+
+[[skills]]
+id = "brianlovin/claude-config@simplify"
+enabled = true
+
+[[skills]]
+id = "paulrberg/agent-skills@code-simplify"
+enabled = true
+
+[[skills]]
+id = "dbt-labs/dbt-agent-skills@using-dbt-for-analytics-engineering"
 enabled = true

@@ -40,27 +40,6 @@ sandbox_mode = "read-only"
 approval_policy = "on-request"
 web_search = "cached"
 
-[profiles.research]
-model = "gpt-5.4"
-model_reasoning_effort = "medium"
-sandbox_mode = "read-only"
-approval_policy = "on-request"
-web_search = "live"
-
-[profiles.conservative]
-model = "gpt-5.4-mini"
-model_reasoning_effort = "medium"
-sandbox_mode = "read-only"
-approval_policy = "untrusted"
-web_search = "cached"
-
-[profiles.trusted]
-model = "gpt-5.4"
-model_reasoning_effort = "medium"
-sandbox_mode = "workspace-write"
-approval_policy = "never"
-web_search = "live"
-
 [mcp_servers.context7]
 url = "https://mcp.context7.com/mcp"
 

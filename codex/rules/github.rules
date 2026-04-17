@@ -48,7 +48,7 @@ prefix_rule(
     ],
 )
 
-# Allow explicit read-only GitHub API inspection for PR review threads and comments.
+# Allow explicit read-only GitHub API GET inspection for PR threads and comments.
 prefix_rule(
     pattern = ["gh", "api", "--method", "GET"],
     decision = "allow",
@@ -60,11 +60,11 @@ prefix_rule(
     ],
 )
 
-# Allow PR drafting and metadata updates without prompting.
+# Prompt before PR drafting and metadata updates.
 prefix_rule(
     pattern = ["gh", "pr", "create", "--draft"],
-    decision = "allow",
-    justification = "Creating draft pull requests is an expected publishing workflow.",
+    decision = "prompt",
+    justification = "Draft PR creation should stay interactive.",
     match = [
         "gh pr create --draft --title title --body-file .github/pull_request_template.md",
     ],
@@ -72,14 +72,14 @@ prefix_rule(
 
 prefix_rule(
     pattern = ["gh", "pr", "edit"],
-    decision = "allow",
-    justification = "Updating PR title and body is an expected publishing workflow.",
+    decision = "prompt",
+    justification = "PR metadata updates should stay interactive.",
     match = [
         "gh pr edit 123 --title title --body-file .github/pull_request_template.md",
     ],
 )
 
-# Prompt before commands that can mutate remote state or create discussion.
+# Prompt before commands that mutate remote state or create discussion.
 prefix_rule(
     pattern = ["gh", ["pr", "issue"], "comment"],
     decision = "prompt",
@@ -99,7 +99,7 @@ prefix_rule(
     ],
 )
 
-# Forbid destructive or finalizing GitHub actions from Codex.
+# Forbid destructive/finalizing GitHub actions from Codex.
 prefix_rule(
     pattern = ["gh", "pr", ["merge", "close"]],
     decision = "forbidden",
